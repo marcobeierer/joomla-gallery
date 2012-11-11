@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Gallery" default="copy_all" basedir=".">
+
+	<property name="source" value="." />
+	<property name="joomla_install" value="../../dev.joomla.test/joomla25" />
+	<property name="extension" value="com_gallery" />
+	<property name="extension_xml" value="gallery.xml" />
+
+	<target name="copy_all" description="Copies files to test project.">
+		<echo message="Running build.xml. Copying files from dev to test..." />
+		
+		<copy todir="${joomla_install}/administrator/components/${extension}">
+			<fileset dir="${source}/admin">
+				<include name="**" />
+				<include name="../${extension_xml}" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/components/${extension}">
+			<fileset dir="${source}/site">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
+		<echo message="Finished" />
+	</target>
+	
+	<target name="package" description="Create package.">
+		<echo message="Running build.xml. Creating package..." />
+	
+		<tar destfile="${extension}.tar.gz" compression="gzip">
+			<fileset dir="${source}">
+				<include name="admin/**" />
+				<include name="language/**" />
+				<include name="site/**" />
+				<include name="sql/**" />
+				<include name="${extension_xml}" />
+			</fileset>
+        </tar>
+		
+		<echo msg="Files copied and archive file created OK!" />
+	</target>
+	
+</project>

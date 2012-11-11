@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="2.5" method="upgrade">
+	<name>com_gallery</name>
+	<description></description>
+	
+	<author>Marco Beierer</author>
+	<authorEmail>marco@webguerilla.net</authorEmail>
+	<authorUrl>http://webguerilla.net</authorUrl>
+	
+	<version>1.0.0</version>
+	<creationDate>November 2012</creationDate>
+	
+	<copyright>Copyright (C) 2012 Marco Beierer. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+
+	<files folder="site">
+	</files>
+	
+	<!--<install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+
+	--><administration>
+		<menu>com_gallery</menu>
+		
+		<!--<languages folder="lang">
+			<language tag="en-GB">de-DE.com_gallery.ini</language>
+			<language tag="en-GB">de-DE.com_gallery.sys.ini</language>
+		</languages>
+	
+		--><files folder="admin">
+		</files>
+	</administration>
+</extension>
