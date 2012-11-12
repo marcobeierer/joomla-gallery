@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="Belegungsplan">
+	<layout title="Gallery">
 		<message>
-			<![CDATA[Einbinden eines Belegungsplans.]]>
+			<![CDATA[Gallery Homepage.]]>
 		</message>
 	</layout>
-	
-	<fields name="request">
-		<fieldset name="request">
-			<field name="object" type="object"
-				label="Wohnung"
-				description="Wohnung auswählen"
-				addfieldpath="/administrator/components/com_belegungsplan/fields"/>
-		</fieldset>
-	</fields>
-	
-	<state>
-		<name>Belegungsplan</name>
-		<description>Einbinden eines Belegungsplans.</description>
-		<url addpath="/administrator/components/com_belegungsplan/elements">
-			<param name="object" type="object" label="Wohnung" description="Wohnung auswählen" />
-		</url>
-	</state>
 </metadata>
