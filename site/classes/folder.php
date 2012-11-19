@@ -6,14 +6,16 @@ class Folder extends JObject { // TODO or JFolder?
 
 	private $photosPath;
 	private $thumbnailsPath;
+	private $resizedPath;
 	
 	function __construct($galleryPath, $folderPath) {
 		
-		$this->galleryPath 		= JPath::clean($galleryPath);
-		$this->folderPath 		= JFolder::makeSafe($folderPath); // TODO correct validation?
+		$this->galleryPath 		= $galleryPath;
+		$this->folderPath 		= $folderPath; // TODO correct validation?
 		
 		$this->photosPath 		= $this->galleryPath . DS . 'photos';
 		$this->thumbnailsPath 	= $this->galleryPath . DS . 'thumbnails';
+		$this->resizedPath 		= $this->galleryPath . DS . 'resized'; // TODO other name
 	}
 		
 	public function getChildFolders() {
@@ -82,6 +84,10 @@ class Folder extends JObject { // TODO or JFolder?
 
 	public function getThumbnailsPath() {
 		return $this->thumbnailsPath;
+	}
+	
+	public function getResizedPath() {
+		return $this->resizedPath;
 	}
 
 	public function getPhotosPath() {

@@ -9,11 +9,14 @@ class GalleryViewGallery extends JView
 	
 	function display($tpl = null)
 	{
-		// params // TODO auslagern
+		// params // TODO auslagern // do not forget to validate
 		$galleryPath = JPATH_BASE . DS . 'images' . DS . 'gallery';
 		
+		// validate
+		$folderPath = JFolder::makeSafe(JRequest::getString('path'));
+		
 		// get path from GET
-		$folder = new Folder($galleryPath, JRequest::getString('path'));
+		$folder = new Folder($galleryPath, $folderPath);
 		
 		// get child folders of this folder
 		$childFolders = $folder->getChildFolders();

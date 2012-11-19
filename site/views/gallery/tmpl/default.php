@@ -23,6 +23,10 @@ defined('_JEXEC') or die('Restricted access');
 
 <ul>
 	<?php foreach($this->photos as $photo) { ?>
-		<li><img src="<?php echo $photo->getThumbnailURL(); ?>" /></li>
+		<li>
+			<a href="<?php echo JRoute::_('index.php?option=com_gallery&view=photo&path=' . $photo->getFolder()->getFolderPath() . '&filename=' . $photo->getFilename()); ?>">
+				<img src="<?php echo $photo->getThumbnailURL(); ?>" />
+			</a>
+		</li>
 	<?php } ?>
 </ul>
