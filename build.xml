@@ -22,6 +22,12 @@
 			</fileset>
 		</copy>
 		
+		<copy todir="${joomla_install}/media/${extension}">
+			<fileset dir="${source}/media">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
 		<echo message="Finished" />
 	</target>
 	

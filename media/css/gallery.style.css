@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+#gallery a {
+	display: inline-block;
+	text-decoration: none;
+	color: #000;
+}
+
+
+/* shutter override */
+#gallery div#shNavBar a {
+	display: inline-block !important;
+}
