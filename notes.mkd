@@ -1,2 +1,11 @@
 # TODO
 - fix problem with hover effect by shutterbox menu
+- remove masonry (if not needed)
+
+# Ideas
+- Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
+	-> daher z.b. alle fotos des jahres 2012
+	- ordnernamen als zwischenueberschriften
+
+# Hacks
+- Shutter added settings option to handle path
