@@ -24,6 +24,37 @@ class GalleryViewGallery extends JView
 		// get photos of this folder
 		$photos = $folder->getPhotos();
 
+		// add masonry (dynamic grid design) script
+		$document = &JFactory::getDocument();
+		$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+		$document->addScript('media/com_gallery/js/jquery.masonry.min.js');
+		$document->addScriptDeclaration('
+			$(function(){
+				var $container = $(\'#gallery .container\');
+				
+				$container.imagesLoaded(function(){
+					$container.masonry({
+						itemSelector: \'.gallery_item\',
+						columnWidth: 220
+					});
+				});
+			});
+		'); // TODO flexible columnWidth
+		
+		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
+		$document->addScriptDeclaration('
+			window.onload = function(){
+				shutterReloaded.init();
+				shutterReloaded.settings(\'/dev.joomla.test/joomla25/media/com_gallery/images/shutter/\');
+			}
+		'); // TODO path as param
+		
+		
+		
+		// add css
+		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
+		$document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
+		
 		// assign Variables
 		//$this->assignRef('title', 'Gallery'); // TODO as param
 		$this->assignRef('childFolders', $childFolders);

@@ -26,7 +26,7 @@ function GalleryParseRoute($segments)
 	$count = count($segments);
 	
 	// check if segements ends with .jpg
-	if (preg_match('/\.jpg$/', $segments[$count - 1]) === 1) {
+	if (preg_match('/\.jpg$/', $segments[$count - 1]) === 1) { // TODO jpg as param
 		
 		$vars['view'] = 'photo';
 		$vars['filename'] = array_pop($segments); // use last segment as filename

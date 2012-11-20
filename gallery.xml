@@ -16,13 +16,13 @@
 	<files folder="site">
 	</files>
 	
-	<!--<install>
-		<sql>
-			<file charset="utf8" driver="mysql">install.sql</file>
-		</sql>
-	</install>
-
-	--><administration>
+	<media folder="media" destination="com_gallery">
+		<folder>css</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+	</media>
+	
+	<administration>
 		<menu>com_gallery</menu>
 		
 		<!--<languages folder="lang">

@@ -17,6 +17,10 @@ class GalleryViewPhoto extends JView
 		$folder = new Folder($galleryPath, $folderPath);
 		$photo = new Photo($folder, $filename);
 		
+		// add css
+		$document = &JFactory::getDocument();
+		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
+		
 		// assign Variables
 		$this->assignRef('photo', $photo);
 		
