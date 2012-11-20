@@ -87,7 +87,7 @@ class Photo extends JObject
 	public function getResizedURL() { // TODO merge with getThumbnailURL
 		
 		if ($this->resized == null) {
-			$this->resize('resized', 880, 660); // TODO fix it / params
+			$this->resize('resized', 1760, 1320); // TODO fix it / params
 		}
 		return str_replace(JPATH_BASE . DS, '', $this->resized->getPath());
 	}

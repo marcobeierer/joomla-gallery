@@ -6,6 +6,10 @@
 	color: #000;
 }
 
+#gallery .gallery_item {
+	float: left;
+	width: 220px;
+}
 
 /* shutter override */
 #gallery div#shNavBar a {

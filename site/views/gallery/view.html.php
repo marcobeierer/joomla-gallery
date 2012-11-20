@@ -49,14 +49,19 @@ class GalleryViewGallery extends JView
 			}
 		'); // TODO path as param
 		
-		
-		
 		// add css
 		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
 		$document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
 		
+		// get title
+		if ($folderPath == '') {
+			$title = 'Gallery';
+		} else {
+			$title = $folderPath;
+		}
+		
 		// assign Variables
-		//$this->assignRef('title', 'Gallery'); // TODO as param
+		$this->assignRef('title', $title);
 		$this->assignRef('childFolders', $childFolders);
 		$this->assignRef('photos', $photos);
 		
