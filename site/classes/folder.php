@@ -97,5 +97,14 @@ class Folder extends JObject { // TODO or JFolder?
 	public function getFolderPath() {
 		return $this->folderPath;
 	}
+	
+	public function getFolderNames() {
+		return explode('/', $this->folderPath);
+	}
 
+	public function getFolderName() {
+		$parts = explode('/', $this->folderPath);
+		return $parts[count($parts) - 1]; // return last element
+	}
+	
 }

@@ -27,7 +27,7 @@ class GalleryViewGallery extends JView
 		// add masonry (dynamic grid design) script
 		$document = &JFactory::getDocument();
 		$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
-		$document->addScript('media/com_gallery/js/jquery.masonry.min.js');
+	/*	$document->addScript('media/com_gallery/js/jquery.masonry.min.js');
 		$document->addScriptDeclaration('
 			$(function(){
 				var $container = $(\'#gallery .container\');
@@ -39,7 +39,7 @@ class GalleryViewGallery extends JView
 					});
 				});
 			});
-		'); // TODO flexible columnWidth
+		'); // TODO flexible columnWidth*/
 		
 		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
 		$document->addScriptDeclaration('
@@ -49,8 +49,19 @@ class GalleryViewGallery extends JView
 			}
 		'); // TODO path as param
 		
+		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
+		$document->addScriptDeclaration('
+			$(function(){
+				$(\'#gallery .caption\').capty({
+					animation: \'fade\',
+					speed: 400
+				});
+			});
+		');
+		
 		// add css
 		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
+		$document->addStyleSheet('media/com_gallery/css/jquery.capty.css');
 		$document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
 		
 		// get title
@@ -58,6 +69,17 @@ class GalleryViewGallery extends JView
 			$title = 'Gallery';
 		} else {
 			$title = $folderPath;
+		}
+		
+		// set breadcrumbs
+		$pathway = JSite::getPathway();
+		foreach ($folder->getFolderNames() as $folderName) {
+			if (isset($currentPath)) {
+				$currentPath .= DS . $folderName;
+			} else {
+				$currentPath .= $folderName;
+			}
+			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
 		}
 		
 		// assign Variables

@@ -1,6 +1,7 @@
 # TODO
 - fix problem with hover effect by shutterbox menu
 - remove masonry (if not needed)
+- script weiche bei img link zu shutterbox (ohne script zu photo view)
 
 # Ideas
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
