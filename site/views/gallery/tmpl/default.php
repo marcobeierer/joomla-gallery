@@ -12,7 +12,7 @@ defined('_JEXEC') or die('Restricted access');
 			<?php if ($childFolder->getPreviewPhoto() != null) { // TODO in view.html ?>
 			<div class="gallery_item">
 				<a href="<?php echo JRoute::_('index.php?option=com_gallery&path=' . $childFolder->getFolderPath()); ?>">
-					<img src="<?php  echo $childFolder->getPreviewPhoto()->getThumbnailURL(); ?>" />
+					<img class="caption" alt="<?php echo $childFolder->getFolderName(); ?>" src="<?php  echo $childFolder->getPreviewPhoto()->getThumbnailURL(); ?>" />
 				</a>
 			</div>
 			<?php } ?>
