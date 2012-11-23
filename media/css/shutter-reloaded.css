@@ -33,8 +33,8 @@ div#shNavBar {
 	display: block;
 	font: normal 13px/22px 'Lucida Grande', Verdana, sans-serif; /* font for text buttons and image numbers */
 	color: #999; /* colour for the image numbers */
-	background-color: #454545; /* colour for the menu background */
-	border-top: 1px solid #525252; /* colour for the menu top border */
+	background-color: #000000; /* colour for the menu background */
+	border-top: 1px solid #FFFFFF; /* colour for the menu top border */
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -66,8 +66,8 @@ div#shShutter, div#shDisplay {
 div#shShutter {
 	height: 100%;
 	z-index: 1000;
-	background-color: #000000;
-	opacity: 0.8;
+	background-color: #808080;
+	opacity: 1;
 	filter:alpha(opacity=80);
 }
 
@@ -79,7 +79,7 @@ div#shDisplay {
 
 div#shDisplay img#shTopImg {
 	margin: 0 auto;
-	border: 1px solid #555;
+	border: 5px solid #FFFFFF;
 	background: transparent;
 	display: block;
 	max-width: none;

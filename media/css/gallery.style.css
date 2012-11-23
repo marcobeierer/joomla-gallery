@@ -9,6 +9,11 @@
 #gallery .gallery_item {
 	float: left;
 	width: 220px;
+	height: 220px;
+}
+
+#gallery .clear {
+	clear: both;
 }
 
 /* shutter override */
