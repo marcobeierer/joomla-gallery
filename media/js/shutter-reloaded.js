@@ -13,13 +13,13 @@ shutterReloaded = {
 		return document.getElementById(a);
 	},
 
-	settings : function(a) {
+	settings : function(a) { // my modification // hack
 		var t = this, s = shutterSettings;
 
 		t.L10n = s.L10n || ['Previous','Next','Close','Full Size','Fit to Screen','Image','of','Loading...'];
 		t.imageCount = s.imageCount || 0;
 		t.textBtns = s.textBtns || 0;
-		t.imgDir = s.imgDir || a;
+		t.imgDir = s.imgDir || a; // my modification // hack
 		t.FS = s.FS || 0;
 		t.oneSet = s.oneSet || 0;
 	},
@@ -219,7 +219,7 @@ shutterReloaded = {
 		T.style.width = (TI.width - 4) + 'px';
 
 		capH = NB.offsetHeight ? T.offsetHeight + NB.offsetHeight : 30;
-		shHeight = t.wHeight - 7 - capH;
+		shHeight = t.wHeight - 35 - capH; // my modification // hack
 
 		if ( t.FS ) {
 			if ( TI.width > (t.wWidth - 10) )
@@ -252,7 +252,7 @@ shutterReloaded = {
 
 		itop = (shHeight - TI.height) * 0.45;
 		mtop = (itop > 3) ? Math.floor(itop) : 3;
-		D.style.top = t.Top + mtop + 'px';
+		D.style.top = t.Top + mtop + 10 + 'px'; // my modification // hack
 		NB.style.bottom = '0';
 		W.style.visibility = 'visible';
 	},

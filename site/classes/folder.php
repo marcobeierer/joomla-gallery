@@ -38,6 +38,17 @@ class Folder extends JObject { // TODO or JFolder?
 		
 		return $childFolderList;
 	}
+	
+	public function hasPhotos($recursive = false) {
+		
+		if ($recursive) {
+			$photos = JFolder::files($this->photosPath . DS . $this->folderPath, '.', true);
+		} else {
+			$photos = JFolder::files($this->photosPath . DS . $this->folderPath, '.', false);
+		}
+		
+		return count($photos) > 0;
+	}
 
 	public function getPhotos($recursive = false) {
 
@@ -105,6 +116,10 @@ class Folder extends JObject { // TODO or JFolder?
 	public function getFolderName() {
 		$parts = explode('/', $this->folderPath);
 		return $parts[count($parts) - 1]; // return last element
+	}
+	
+	public function getReadableFolderName() {
+		return str_replace('_', ' ', $this->getFolderName());
 	}
 	
 }

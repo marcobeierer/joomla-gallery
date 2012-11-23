@@ -19,29 +19,25 @@ class GalleryViewGallery extends JView
 		$folder = new Folder($galleryPath, $folderPath);
 		
 		// get child folders of this folder
-		$childFolders = $folder->getChildFolders();
+		$childFolders = $folder->getChildFolders(false);
+		
+		// delete empty folders
+		for ($i = 0; $i < $childFolders->count(); $i++) {
+			if (!$childFolders[$i]->hasPhotos(true)) {
+				$childFolders->offsetUnset($i);
+			}
+		}
 
 		// get photos of this folder
 		$photos = $folder->getPhotos();
 
-		// add masonry (dynamic grid design) script
+		// add scripts
 		$document = &JFactory::getDocument();
-		$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
-	/*	$document->addScript('media/com_gallery/js/jquery.masonry.min.js');
-		$document->addScriptDeclaration('
-			$(function(){
-				var $container = $(\'#gallery .container\');
-				
-				$container.imagesLoaded(function(){
-					$container.masonry({
-						itemSelector: \'.gallery_item\',
-						columnWidth: 220
-					});
-				});
-			});
-		'); // TODO flexible columnWidth*/
 		
+		$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
 		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
+		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
+		
 		$document->addScriptDeclaration('
 			window.onload = function(){
 				shutterReloaded.init();
@@ -49,7 +45,6 @@ class GalleryViewGallery extends JView
 			}
 		'); // TODO path as param
 		
-		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
 		$document->addScriptDeclaration('
 			$(function(){
 				$(\'#gallery .caption\').capty({
@@ -58,6 +53,7 @@ class GalleryViewGallery extends JView
 				});
 			});
 		');
+		// ---
 		
 		// add css
 		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
@@ -68,18 +64,32 @@ class GalleryViewGallery extends JView
 		if ($folderPath == '') {
 			$title = 'Gallery';
 		} else {
-			$title = $folderPath;
+			$title = $folder->getFolderName();
 		}
 		
 		// set breadcrumbs
 		$pathway = JSite::getPathway();
+				
 		foreach ($folder->getFolderNames() as $folderName) {
+			
+			// replace underscores
+			$folderName = str_replace('_', ' ', $folderName);  // TODO replace with methode call
+			
 			if (isset($currentPath)) {
 				$currentPath .= DS . $folderName;
 			} else {
 				$currentPath .= $folderName;
 			}
+			
 			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
+		}
+		
+		// set title
+		$document = JFactory::getDocument();
+		$folderName = $folder->getReadableFolderName();
+		
+		if ($folderName != '') {
+			$document->setTitle($folderName);
 		}
 		
 		// assign Variables

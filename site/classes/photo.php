@@ -4,8 +4,8 @@ class Photo extends JObject
 	private $folder;
 	private $filename;
 	
-	private $thumbnail;
-	private $resized; // TODO other name
+	private $thumbnailFilepath;
+	private $resizedFilepath; // TODO other name
 
 	
 	function __construct(Folder $folder, $filename) {
@@ -30,19 +30,18 @@ class Photo extends JObject
 		
 	}
 	
-	
 	public function resize($type, $width, $height, $crop = false) {
 		
 		if ($type == 'thumbnail') {
 			
 			$path = $this->folder->getThumbnailsPath();
-			$classReference = &$this->thumbnail;
+			$filePath = &$this->thumbnailFilepath;
 			$scale = 3; // SCALE_OUTSIDE
 		}
 		else if ($type == 'resized') {
 			
 			$path = $this->folder->getResizedPath();
-			$classReference = &$this->resized;
+			$filePath = &$this->resizedFilepath;
 			$scale = 2; // SCALE_INSIDE
 		}
 		else {
@@ -50,30 +49,30 @@ class Photo extends JObject
 		}
 		
 		// define file paths
-		$thumbnailFilepath = $path . DS . $this->folder->getFolderPath() . DS . $this->filename;
+		$newPhotoFilepath = $path . DS . $this->folder->getFolderPath() . DS . $this->filename;
 		$photoFilepath = $this->folder->getPhotosPath() . DS . $this->folder->getFolderPath() . DS . $this->filename;
 		
 		// check if thumbnail already exists and create it if not
-		if (!JFile::exists($thumbnailFilepath)) {
+		if (!JFile::exists($newPhotoFilepath)) {
 			
 			// resize image
 			$photo = new JImage($photoFilepath);
-			$thumbnail = $photo->resize($width, $height, true, $scale);
+			$newPhoto = $photo->resize($width, $height, true, $scale);
 			
 			// crop image
 			if ($crop) {
-				$offsetLeft = ($thumbnail->getWidth() - $width) / 2;
-				$offsetTop = ($thumbnail->getHeight() - $height) / 2;
-				$thumbnail->crop($width, $height, $offsetLeft, $offsetTop, false);
+				$offsetLeft = ($newPhoto->getWidth() - $width) / 2;
+				$offsetTop = ($newPhoto->getHeight() - $height) / 2;
+				$newPhoto->crop($width, $height, $offsetLeft, $offsetTop, false);
 			}
 			
 			// create folders (recursive) and write file
 			if (JFolder::create($path . DS . $this->folder->getFolderPath())) {
-				$thumbnail->toFile($thumbnailFilepath);
+				$newPhoto->toFile($newPhotoFilepath);
 			}
 		}
 
-		$classReference = new JImage($thumbnailFilepath);
+		$filePath = $newPhotoFilepath;
 	}
 
 	public function getThumbnailURL() {
@@ -81,14 +80,14 @@ class Photo extends JObject
 		if ($this->thumbnail == null) {
 			$this->resize('thumbnail', 220, 220, true); // TODO fix it / params
 		}
-		return str_replace(JPATH_BASE . DS, '', $this->thumbnail->getPath());
+		return str_replace(JPATH_BASE . DS, '', $this->thumbnailFilepath);
 	}
 	
 	public function getResizedURL() { // TODO merge with getThumbnailURL
 		
 		if ($this->resized == null) {
-			$this->resize('resized', 1760, 1320); // TODO fix it / params
+			$this->resize('resized', 1110, 888); // TODO fix it / params
 		}
-		return str_replace(JPATH_BASE . DS, '', $this->resized->getPath());
+		return str_replace(JPATH_BASE . DS, '', $this->resizedFilepath);
 	}
 }

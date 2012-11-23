@@ -1,12 +1,16 @@
 # TODO
-- fix problem with hover effect by shutterbox menu
-- remove masonry (if not needed)
 - script weiche bei img link zu shutterbox (ohne script zu photo view)
 
 # Ideas
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
 	-> daher z.b. alle fotos des jahres 2012
 	- ordnernamen als zwischenueberschriften
+	
+- Breadcrumbs statt title
 
 # Hacks
 - Shutter added settings option to handle path
+- shutter: line 222: value 35 statt 7
+- shutter: line 255: added + 10
+
+- all hacks are marked with: // my modification // hack
