@@ -21,7 +21,7 @@ class GalleryViewGallery extends JView
 		// get child folders of this folder
 		$childFolders = $folder->getChildFolders(false);
 		
-		// delete empty folders
+		// remove empty folders from list
 		for ($i = 0; $i < $childFolders->count(); $i++) {
 			if (!$childFolders[$i]->hasPhotos(true)) {
 				$childFolders->offsetUnset($i);
@@ -72,14 +72,14 @@ class GalleryViewGallery extends JView
 				
 		foreach ($folder->getFolderNames() as $folderName) {
 			
-			// replace underscores
-			$folderName = str_replace('_', ' ', $folderName);  // TODO replace with methode call
-			
 			if (isset($currentPath)) {
 				$currentPath .= DS . $folderName;
 			} else {
 				$currentPath .= $folderName;
 			}
+			
+			// replace underscores
+			$folderName = str_replace('_', ' ', $folderName);  // TODO replace with methode call
 			
 			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
 		}

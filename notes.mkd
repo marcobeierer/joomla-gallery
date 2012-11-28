@@ -1,5 +1,18 @@
 # TODO
+- zurueck button rechts oben (javahistory)
 - script weiche bei img link zu shutterbox (ohne script zu photo view)
+- black border bei white border entfernen: negative inner padding or something like that
+
+- option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
+- titel erweitern
+
+- nichtbenutze felder in dunklem grau (#101010 oder #202020)
+	- nicht als physische images wegen vorschaubildern
+	- eventuell dynamisch mit js
+
+- weisse box passt sich an bildschirmgroesse an (JS)
+	- Scrollbalken direkt an box, wie bei delta-media
+
 
 # Ideas
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
@@ -7,6 +20,9 @@
 	- ordnernamen als zwischenueberschriften
 	
 - Breadcrumbs statt title
+- joomla entfernen und eigenstaendige applikation machen auf basis des joomla frameworks (standalone)
+
+- flexible breiter, aber immer zentriert (bei wenigen fotos und um ungleichgewicht zu vermeiden)
 
 # Hacks
 - Shutter added settings option to handle path
@@ -14,3 +30,6 @@
 - shutter: line 255: added + 10
 
 - all hacks are marked with: // my modification // hack
+
+
+- Joomla: Comment: lib/joomla/application/router.php: 502

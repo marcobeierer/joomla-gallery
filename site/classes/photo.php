@@ -53,7 +53,7 @@ class Photo extends JObject
 		$photoFilepath = $this->folder->getPhotosPath() . DS . $this->folder->getFolderPath() . DS . $this->filename;
 		
 		// check if thumbnail already exists and create it if not
-		if (!JFile::exists($newPhotoFilepath)) {
+		if (!JFile::exists($newPhotoFilepath)) { // TODO add check if file size (width and height) is correct // check time used for that
 			
 			// resize image
 			$photo = new JImage($photoFilepath);
