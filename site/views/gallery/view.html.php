@@ -4,9 +4,6 @@ jimport('joomla.application.component.view');
 
 class GalleryViewGallery extends JView
 {
-	var $photoWidth  = 220; // TODO params
-	var $photoHeight = 220;
-	
 	function display($tpl = null)
 	{
 		// params // TODO auslagern // do not forget to validate
