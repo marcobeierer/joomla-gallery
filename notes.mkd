@@ -6,6 +6,10 @@
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
 - titel erweitern
 
+- more advanced checks if a thumbnail/resized photo exists
+	- check if it also has the correct size
+	- check if the thumbs is from the correct photo
+
 - nichtbenutze felder in dunklem grau (#101010 oder #202020)
 	- nicht als physische images wegen vorschaubildern
 	- eventuell dynamisch mit js
@@ -13,6 +17,10 @@
 - weisse box passt sich an bildschirmgroesse an (JS)
 	- Scrollbalken direkt an box, wie bei delta-media
 
+- SSL support
+
+- EXIF/IPTC daten auswerten und verarbeiten
+- htaccess (deny from all) auto generation
 
 # Ideas
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
