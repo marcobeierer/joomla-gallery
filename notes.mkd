@@ -1,4 +1,12 @@
 # TODO
+- Style Login Componente
+	- verwende componente statt module!!!!
+
+- base path (images/gallery) in path entfernen (in getThumbnailURL in photo Class)
+- params ermoeglichen
+
+- uebersetzen (alle strings)
+
 - zurueck button rechts oben (javahistory)
 - script weiche bei img link zu shutterbox (ohne script zu photo view)
 - black border bei white border entfernen: negative inner padding or something like that
@@ -22,6 +30,8 @@
 - EXIF/IPTC daten auswerten und verarbeiten
 - htaccess (deny from all) auto generation
 
+- . (point) in foldername funktioniert nicht wegenb makeSafe
+
 # Ideas
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
 	-> daher z.b. alle fotos des jahres 2012
@@ -33,7 +43,7 @@
 - flexible breiter, aber immer zentriert (bei wenigen fotos und um ungleichgewicht zu vermeiden)
 
 # Hacks
-- Shutter added settings option to handle path
+- Shutter added settings option to handle path: line 27, 31, 22 and 16
 - shutter: line 222: value 35 statt 7
 - shutter: line 255: added + 10
 
@@ -41,3 +51,5 @@
 
 
 - Joomla: Comment: lib/joomla/application/router.php: 502
+- Joomla: Htaccess: add jpg: line 68
+	- alternativ add pattern for gallery alias

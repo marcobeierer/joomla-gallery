@@ -37,8 +37,7 @@ class GalleryViewGallery extends JView
 		
 		$document->addScriptDeclaration('
 			window.onload = function(){
-				shutterReloaded.init();
-				shutterReloaded.settings(\'/dev.joomla.test/joomla25/media/com_gallery/images/shutter/\');
+				shutterReloaded.init(0, \'/dev.joomla.test/joomla25/media/com_gallery/images/shutter/\');
 			}
 		'); // TODO path as param
 		

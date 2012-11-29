@@ -74,13 +74,19 @@ class Photo extends JObject
 
 		$filePath = $newPhotoFilepath;
 	}
+	
+	private function getURL() {
+		
+	}
 
 	public function getThumbnailURL() {
 		
 		if ($this->thumbnail == null) {
 			$this->resize('thumbnail', 220, 220, true); // TODO fix it / params
 		}
-		return str_replace(JPATH_BASE . DS, '', $this->thumbnailFilepath);
+		
+		$thumbnailFilepath = str_replace(JPATH_BASE . DS, '', $this->thumbnailFilepath);
+		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $thumbnailFilepath);
 	}
 	
 	public function getResizedURL() { // TODO merge with getThumbnailURL
@@ -88,6 +94,8 @@ class Photo extends JObject
 		if ($this->resized == null) {
 			$this->resize('resized', 1110, 888); // TODO fix it / params
 		}
-		return str_replace(JPATH_BASE . DS, '', $this->resizedFilepath);
+		
+		$resizedFilepath = str_replace(JPATH_BASE . DS, '', $this->resizedFilepath);
+		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $resizedFilepath);
 	}
 }

@@ -24,11 +24,11 @@ shutterReloaded = {
 		t.oneSet = s.oneSet || 0;
 	},
 
-	init : function (a) {
+	init : function (a,b) { // my modification // hack
 		var t = this, L, T, ext, i, j, m, setid, inset, shfile, shMenuPre, k, img;
 
 		if ( 'object' != typeof shutterSettings ) shutterSettings = {};
-		t.settings();
+		t.settings(b); // my modification // hack
 
 		for ( i = 0, j = document.links.length; i < j; i++ ) {
 			L = document.links[i];
