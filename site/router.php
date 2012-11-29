@@ -5,6 +5,15 @@ function GalleryBuildRoute(&$query)
 {
 	$segments = array();
 	
+	// add file segment if it is a file request
+	if ($query['view'] == 'file') {
+		//$segments[] = 'component';
+		//$segments[] = 'gallery';
+		$segments[] = $query['view'];
+		//var_dump($segments);
+	}
+	unset($query['view']);
+	
 	if (isset($query['path'])) {
 		$segments[] = $query['path'];
 		unset($query['path']);
@@ -14,8 +23,6 @@ function GalleryBuildRoute(&$query)
 		$segments[] = $query['filename'];
 		unset($query['filename']);
 	}
-	
-	unset($query['view']);
 	
 	return $segments;
 }
@@ -28,7 +35,15 @@ function GalleryParseRoute($segments)
 	// check if segements ends with .jpg
 	if (preg_match('/\.jpg$/', $segments[$count - 1]) === 1) { // TODO jpg as param
 		
-		$vars['view'] = 'photo';
+		// check if it is a file request
+		if ($segments[0] == 'file') { // TODO what happens if a folder in the filepath is called 'file'?
+			$vars['view'] = 'file';
+			array_shift($segments); // remove first element
+		}
+		else {
+			$vars['view'] = 'photo';
+		}
+	
 		$vars['filename'] = array_pop($segments); // use last segment as filename
 	}
 	
