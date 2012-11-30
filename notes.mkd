@@ -1,9 +1,7 @@
 # TODO
-- Style Login Componente
-	- verwende componente statt module!!!!
-
 - base path (images/gallery) in path entfernen (in getThumbnailURL in photo Class)
 - params ermoeglichen
+
 
 - uebersetzen (alle strings)
 

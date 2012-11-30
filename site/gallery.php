@@ -17,14 +17,27 @@ if (JRequest::getVar('view') == 'file') {
 	
 	if (file_exists($filepath)) {
 		
-		$type = mime_content_type($filepath);
+		// open the file in a binary mode
+		$fp = fopen($filepath, 'rb');
+		
+		// send the right headers
+		header('Accept-Ranges: bytes');
+		header('Content-Length: ' . filesize($filepath));
+		header('Content-Type: ' . mime_content_type($filepath));
+		
+		// dump the picture and stop the script
+		fpassthru($fp);
+		exit;
+		
+		/*$type = mime_content_type($filepath);
 		$filename = basename($filepath);
 		
 		header("Content-Type: $type");
-		header("Content-Disposition: inline; filename=\"$filename\"");
+		//header("Content-Disposition: inline; filename=\"$filename\""); // TODO
+		header("Content-Disposition: attachment; filename=\"$filename\"");
 		
 		@readfile($filepath);
-		exit;
+		exit;*/
 	}
 }
 // ---

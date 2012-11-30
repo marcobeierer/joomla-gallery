@@ -12,6 +12,11 @@
 	height: 220px;
 }
 
+#gallery .gallery_item img {
+	width: 220px;
+	height: 220px;
+}
+
 #gallery .clear {
 	clear: both;
 }
