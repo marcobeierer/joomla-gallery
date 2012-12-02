@@ -16,7 +16,7 @@ if (JRequest::getVar('view') == 'file') {
 	
 	$filename = JFile::makeSafe(JRequest::getString('filename'));
 	$path = $params->get('gallery_path') . DS . JFolder::makeSafe(JRequest::getString('path'));
-		
+	
 	$filepath = $path . DS . $filename;
 	
 	if (file_exists($filepath)) {
