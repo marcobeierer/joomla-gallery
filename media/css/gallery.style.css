@@ -1,14 +1,15 @@
 @CHARSET "UTF-8";
 
-#gallery a {
+#gallery .gallery_item a {
 	display: inline-block;
 	text-decoration: none;
 	color: #000;
+	
+	height: 220px;
 }
 
 #gallery .gallery_item {
 	float: left;
-	width: 220px;
 	height: 220px;
 }
 
@@ -22,6 +23,10 @@
 }
 
 /* shutter override */
-#gallery div#shNavBar a {
+div#shNavBar a {
 	display: inline-block !important;
+}
+
+div#shNavBar {
+	background-color: #101010 !important;
 }
