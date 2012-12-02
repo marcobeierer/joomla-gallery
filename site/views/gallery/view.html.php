@@ -77,7 +77,8 @@ class GalleryViewGallery extends JView
 			}
 			
 			// replace underscores
-			$folderName = str_replace('_', ' ', $folderName);  // TODO replace with methode call
+			$tmpFolder = new Folder($galleryPath, $folderName); // TODO use a static methode
+			$folderName = $tmpFolder->getReadableFolderName(); // TODO that is more performant
 			
 			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
 		}
