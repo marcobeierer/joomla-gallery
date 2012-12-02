@@ -30,7 +30,7 @@ if (JRequest::getVar('view') == 'file') {
 		header('Content-Type: ' . mime_content_type($filepath));
 		
 		// dump the picture and stop the script
-		fpassthru($fp); // TODO fclose necessary?
+		fpassthru($fp); // TODO fclose necessary
 		exit;
 	}
 }
