@@ -6,8 +6,9 @@ class GalleryViewPhoto extends JView
 {
 	function display($tpl = null)
 	{
-		// params // TODO auslagern // do not forget to validate
-		$galleryPath = JPATH_BASE . DS . 'images' . DS . 'gallery';
+		// params
+		$params = JFactory::getApplication()->getParams();
+		$galleryPath = JPATH_BASE . DS . $params->get('gallery_path');
 		
 		// validate
 		$folderPath = JFolder::makeSafe(JRequest::getString('path'));

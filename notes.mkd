@@ -1,8 +1,10 @@
 # TODO
-- base path (images/gallery) in path entfernen (in getThumbnailURL in photo Class)
-- params ermoeglichen
+- galery pfad und berechntigte gruppe als parameter in menu settings
+	- mehrere galerien mit verschiedenen nutzern moeglich
+- params vervollstaendigen
 
-
+- htaccess (redirect jpg) in files directory or component directory (automatisch anlegen)
+- langsamen bildaufbau fixen
 - uebersetzen (alle strings)
 
 - zurueck button rechts oben (javahistory)
@@ -31,6 +33,8 @@
 - . (point) in foldername funktioniert nicht wegenb makeSafe
 
 # Ideas
+- Slideshow (inkl. recursive)
+
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
 	-> daher z.b. alle fotos des jahres 2012
 	- ordnernamen als zwischenueberschriften

@@ -1,8 +1,11 @@
 <?php
+defined('_JEXEC') or die('Restricted Access'); 
 class Photo extends JObject
 {
 	private $folder;
 	private $filename;
+	
+	private $params;
 	
 	private $thumbnailFilepath;
 	private $resizedFilepath; // TODO other name
@@ -12,6 +15,8 @@ class Photo extends JObject
 
 		$this->folder = $folder;
 		$this->filename = $filename;
+		
+		$this->params = JFactory::getApplication()->getParams();
 	}
 	
 	public function getFolder() {
@@ -37,12 +42,14 @@ class Photo extends JObject
 			$path = $this->folder->getThumbnailsPath();
 			$filePath = &$this->thumbnailFilepath;
 			$scale = 3; // SCALE_OUTSIDE
+			$options =  array('quality' => 75); // TODO as praram
 		}
 		else if ($type == 'resized') {
 			
 			$path = $this->folder->getResizedPath();
 			$filePath = &$this->resizedFilepath;
 			$scale = 2; // SCALE_INSIDE
+			$options =  array('quality' => 85); // TODO as praram
 		}
 		else {
 			return;
@@ -68,11 +75,11 @@ class Photo extends JObject
 			
 			// create folders (recursive) and write file
 			if (JFolder::create($path . DS . $this->folder->getFolderPath())) {
-				$newPhoto->toFile($newPhotoFilepath);
+				$newPhoto->toFile($newPhotoFilepath, IMAGETYPE_JPEG, $options);
 			}
 		}
 
-		$filePath = $newPhotoFilepath;
+		$filePath = str_replace(JPATH_BASE . DS . $this->params->get('gallery_path'), '', $newPhotoFilepath);
 	}
 	
 	private function getURL() {
@@ -84,9 +91,7 @@ class Photo extends JObject
 		if ($this->thumbnail == null) {
 			$this->resize('thumbnail', 220, 220, true); // TODO fix it / params
 		}
-		
-		$thumbnailFilepath = str_replace(JPATH_BASE . DS, '', $this->thumbnailFilepath);
-		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $thumbnailFilepath);
+		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $this->thumbnailFilepath);
 	}
 	
 	public function getResizedURL() { // TODO merge with getThumbnailURL
@@ -94,8 +99,6 @@ class Photo extends JObject
 		if ($this->resized == null) {
 			$this->resize('resized', 1110, 888); // TODO fix it / params
 		}
-		
-		$resizedFilepath = str_replace(JPATH_BASE . DS, '', $this->resizedFilepath);
-		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $resizedFilepath);
+		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $this->resizedFilepath);
 	}
 }

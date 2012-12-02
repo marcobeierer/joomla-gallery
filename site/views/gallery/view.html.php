@@ -1,13 +1,14 @@
 <?php
-defined('_JEXEC') or die( 'Restricted Access' ); 
+defined('_JEXEC') or die('Restricted Access'); 
 jimport('joomla.application.component.view');
 
 class GalleryViewGallery extends JView
 {
 	function display($tpl = null)
 	{
-		// params // TODO auslagern // do not forget to validate
-		$galleryPath = JPATH_BASE . DS . 'images' . DS . 'gallery';
+		// params
+		$params = JFactory::getApplication()->getParams();
+		$galleryPath = JPATH_BASE . DS . $params->get('gallery_path');
 		
 		// validate
 		$folderPath = JFolder::makeSafe(JRequest::getString('path'));
@@ -35,11 +36,12 @@ class GalleryViewGallery extends JView
 		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
 		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
 		
+		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
 		$document->addScriptDeclaration('
 			window.onload = function(){
-				shutterReloaded.init(0, \'/dev.joomla.test/joomla25/media/com_gallery/images/shutter/\');
+				shutterReloaded.init(0, \''. $shutterImagesPath . '\');
 			}
-		'); // TODO path as param
+		');
 		
 		$document->addScriptDeclaration('
 			$(function(){

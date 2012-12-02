@@ -1,4 +1,5 @@
 <?php
+defined('_JEXEC') or die('Restricted Access'); 
 class Folder extends JObject { // TODO or JFolder?
 
 	private $galleryPath;

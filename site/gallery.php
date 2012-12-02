@@ -6,12 +6,16 @@ if (!JFactory::getUser()->authorise('core.view.photos', 'com_gallery')) {
 	return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR')); // TODO fix this // does not show error
 }
 
-// handle files
-//http://localhost/projects.mysites/gallery.erstellung/index.php?option=com_gallery&view=file&path=/var/www/localhost/htdocs/projects.mysites/gallery.erstellung/images/gallery/photos/2012/11_Stockhorn/&filename=0002.jpg
+// Params validation // TODO zentral beim speichern im backend?
+$params = JFactory::getApplication()->getParams();
+$params->set('gallery_path', JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
+// ---
+
+// handle file requests
 if (JRequest::getVar('view') == 'file') {
 	
-	$filename = JFile::makeSafe(JRequest::getString('filename')); // use last element as filename
-	$path = JFolder::makeSafe(JRequest::getString('path')); // use rest as path
+	$filename = JFile::makeSafe(JRequest::getString('filename'));
+	$path = $params->get('gallery_path') . DS . JFolder::makeSafe(JRequest::getString('path'));
 		
 	$filepath = $path . DS . $filename;
 	
@@ -26,22 +30,11 @@ if (JRequest::getVar('view') == 'file') {
 		header('Content-Type: ' . mime_content_type($filepath));
 		
 		// dump the picture and stop the script
-		fpassthru($fp);
+		fpassthru($fp); // TODO fclose necessary?
 		exit;
-		
-		/*$type = mime_content_type($filepath);
-		$filename = basename($filepath);
-		
-		header("Content-Type: $type");
-		//header("Content-Disposition: inline; filename=\"$filename\""); // TODO
-		header("Content-Disposition: attachment; filename=\"$filename\"");
-		
-		@readfile($filepath);
-		exit;*/
 	}
 }
 // ---
-
 
 require_once (JPATH_COMPONENT . DS . 'controller.php');
 
