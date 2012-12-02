@@ -1,15 +1,14 @@
 # TODO
-- backend options loeschen?
+- name should be converted to use ü etc.
+	- use sz in filenames for scharf s
+	- replace zahl + ter mit zahl + . (z.b. 70ter mit 70.)
+
 - view: my galeries (after login)
 	- direct redirct if just one
 	- selbes layout wie ordner ansicht
 	- modul neben abmelden zum wechseln der galerie
 	
-- ladeproblem von shutter bei vielen fotos loesen
-	
-- name should be converted to use ü etc.
-	- use sz in filenames for scharf s
-	- replace zahl + ter mit zahl + . (z.b. 70ter mit 70.)
+
 
 - performance
 - von startseite muss man zu galieren kommen, wenn eingeloggt
@@ -55,6 +54,8 @@
 - . (point) in foldername funktioniert nicht wegenb makeSafe
 
 # Ideas
+- moeglichkeit, um orginal photos nach erzeugen der resized and thumb photos zu loeschen
+	- symlinks mit php?
 - Slideshow (inkl. recursive)
 
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden

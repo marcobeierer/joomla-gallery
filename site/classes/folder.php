@@ -119,8 +119,25 @@ class Folder extends JObject { // TODO or JFolder?
 		return $parts[count($parts) - 1]; // return last element
 	}
 	
-	public function getReadableFolderName() {
-		return str_replace('_', ' ', $this->getFolderName());
+	public function getReadableFolderName() { // TODO not just german
+
+		$folderName = $this->getFolderName();
+		
+		$folderName = str_replace('_', ' ', $folderName);
+		
+		$folderName = str_replace('ae', 'ä', $folderName);
+		$folderName = str_replace('ue', 'ü', $folderName);
+		$folderName = str_replace('oe', 'ö', $folderName);
+		
+		$folderName = str_replace('Ae', 'Ä', $folderName);
+		$folderName = str_replace('Ue', 'Ü', $folderName);
+		$folderName = str_replace('Oe', 'Ö', $folderName);
+		
+		$folderName = str_replace('sz', 'ß', $folderName);
+		
+		$folderName = preg_replace('/(\d+)ter/', '${1}.', $folderName);
+		
+		return $folderName;
 	}
 	
 }
