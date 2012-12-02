@@ -1,4 +1,23 @@
 # TODO
+- backend options loeschen?
+- view: my galeries (after login)
+	- direct redirct if just one
+	- selbes layout wie ordner ansicht
+	- modul neben abmelden zum wechseln der galerie
+	
+- ladeproblem von shutter bei vielen fotos loesen
+	
+- name should be converted to use ü etc.
+	- use sz in filenames for scharf s
+	- replace zahl + ter mit zahl + . (z.b. 70ter mit 70.)
+
+- performance
+- von startseite muss man zu galieren kommen, wenn eingeloggt
+
+- testen, ob galerien nur berechtigte anzeigt (ACL)
+
+
+
 - galery pfad und berechntigte gruppe als parameter in menu settings
 	- mehrere galerien mit verschiedenen nutzern moeglich
 - params vervollstaendigen

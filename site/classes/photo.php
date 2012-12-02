@@ -99,6 +99,7 @@ class Photo extends JObject
 		if ($this->resized == null) {
 			$this->resize('resized', 1110, 888); // TODO fix it / params
 		}
+		
 		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $this->resizedFilepath);
 	}
 }
