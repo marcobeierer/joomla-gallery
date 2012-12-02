@@ -38,9 +38,9 @@ class GalleryViewGallery extends JView
 		
 		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
 		$document->addScriptDeclaration('
-			window.onload = function(){
+			$(function() {
 				shutterReloaded.init(0, \''. $shutterImagesPath . '\');
-			}
+			});
 		');
 		
 		$document->addScriptDeclaration('

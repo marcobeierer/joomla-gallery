@@ -17,6 +17,9 @@
 - testen, ob galerien nur berechtigte anzeigt (ACL)
 
 
+- fix probleme mit deaktiviertem SEF
+
+
 
 - galery pfad und berechntigte gruppe als parameter in menu settings
 	- mehrere galerien mit verschiedenen nutzern moeglich
