@@ -31,8 +31,8 @@ if (JRequest::getVar('view') == 'file') {
 		
 		// dump the picture and stop the script
 		fpassthru($fp); // TODO fclose necessary
-		exit;
 	}
+	exit;
 }
 // ---
 

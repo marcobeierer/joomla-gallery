@@ -11,6 +11,8 @@ class Folder extends JObject { // TODO or JFolder?
 	
 	function __construct($galleryPath, $folderPath) {
 		
+		// TODO check if galleryPath contains JPATH_BASE, otherwise add it
+		
 		$this->galleryPath 		= $galleryPath;
 		$this->folderPath 		= $folderPath; // TODO correct validation?
 		
@@ -18,7 +20,11 @@ class Folder extends JObject { // TODO or JFolder?
 		$this->thumbnailsPath 	= $this->galleryPath . DS . 'thumbnails';
 		$this->resizedPath 		= $this->galleryPath . DS . 'resized'; // TODO other name
 	}
-		
+	
+	public function getGalleryPath() {
+		return $this->galleryPath;
+	}
+	
 	public function getChildFolders() {
 		
 		// TODO create every for call or just once?
