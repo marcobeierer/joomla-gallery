@@ -79,7 +79,7 @@ class Photo extends JObject
 			}
 		}
 
-		$filePath = str_replace(JPATH_BASE . DS . $this->params->get('gallery_path'), '', $newPhotoFilepath);
+		$filePath = str_replace($this->folder->getGalleryPath(), '', $newPhotoFilepath);
 	}
 	
 	private function getURL() {

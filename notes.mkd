@@ -1,4 +1,6 @@
 # TODO
+- remove gallery_path in component parameters
+
 - name should be converted to use ü etc.
 	- use sz in filenames for scharf s
 	- replace zahl + ter mit zahl + . (z.b. 70ter mit 70.)
@@ -57,6 +59,7 @@
 - moeglichkeit, um orginal photos nach erzeugen der resized and thumb photos zu loeschen
 	- symlinks mit php?
 - Slideshow (inkl. recursive)
+	- use angularjs?
 
 - Wahlweise koennen alle fotos eines ordners rekursiv angezeigt werden
 	-> daher z.b. alle fotos des jahres 2012
