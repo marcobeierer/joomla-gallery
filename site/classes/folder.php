@@ -125,7 +125,7 @@ class Folder extends JObject { // TODO or JFolder?
 		return $parts[count($parts) - 1]; // return last element
 	}
 	
-	public function getReadableFolderName() { // TODO not just german
+	public function getReadableFolderName() { // TODO not just german // regelset muss pro galerie gewaehlt werden koennen
 
 		$folderName = $this->getFolderName();
 		
@@ -133,7 +133,7 @@ class Folder extends JObject { // TODO or JFolder?
 		
 		$folderName = str_replace('ae', 'ä', $folderName);
 		$folderName = str_replace('ue', 'ü', $folderName);
-		$folderName = str_replace('oe', 'ö', $folderName);
+		//$folderName = str_replace('oe', 'ö', $folderName); // TODO probleme mit NL
 		
 		$folderName = str_replace('Ae', 'Ä', $folderName);
 		$folderName = str_replace('Ue', 'Ü', $folderName);

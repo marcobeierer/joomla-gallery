@@ -41,7 +41,7 @@ function GalleryParseRoute($segments)
 			$vars['view'] = 'photo';
 		}
 	
-		$vars['filename'] = array_pop($segments); // use last segment as filename
+		// $vars['filename'] = array_pop($segments); // use last segment as filename // not used because of compatibility to non SEF users
 	}
 	
 	$vars['path'] = implode('/', $segments); // use rest as path

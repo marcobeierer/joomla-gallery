@@ -10,12 +10,12 @@
 	<target name="copy_all" description="Copies files to test project.">
 		<echo message="Running build.xml. Copying files from dev to test..." />
 		
-		<!--<copy todir="${joomla_install}/administrator/components/${extension}">
+		<copy todir="${joomla_install}/administrator/components/${extension}">
 			<fileset dir="${source}/admin">
 				<include name="**" />
 				<include name="../${extension_xml}" />
 			</fileset>
-		</copy>-->
+		</copy>
 		
 		<copy todir="${joomla_install}/components/${extension}">
 			<fileset dir="${source}/site">

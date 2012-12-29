@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<fieldset name="gallery" label="COM_GALLERY_CONFIG_GALLERY_SETTINGS_LABEL"
+	<!--<fieldset name="gallery" label="COM_GALLERY_CONFIG_GALLERY_SETTINGS_LABEL"
 		description="COM_GALLERY_CONFIG_GALLERY_SETTINGS_DESC">
 
 		<field name="gallery_path" type="text"
@@ -12,5 +12,5 @@
 		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL"
 			class="inputbox" validate="rules" filter="rules" component="com_gallery"
 			section="component" />
-	</fieldset>
+	</fieldset>-->
 </config>
