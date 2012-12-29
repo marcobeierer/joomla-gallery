@@ -98,6 +98,5 @@ class GalleryViewGallery extends JView
 		
 		parent::display($tpl);
 	}
-	
 }
 ?>

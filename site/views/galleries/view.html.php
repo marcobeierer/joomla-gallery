@@ -17,7 +17,7 @@ class GalleryViewGalleries extends JView
 		
 		$selectedGallery = $menuItems[rand(0, count($menuItems) - 1)];
 		
-		$application->redirect(JRoute::_($selectedGallery->link . '&Itemid=' . $selectedGallery->id));
+		$application->redirect(JRoute::_($selectedGallery->link . '&Itemid=' . $selectedGallery->id, false));
 	}
 }
 ?>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<access component="com_gallery">
+<!--<access component="com_gallery">
 	<section name="component">
 		<action
 			name="core.view.photos"
@@ -7,4 +7,4 @@
 			description="JACTION_VIEW_PHOTOS_COMPONENT_DESC"
 		/>
 	</section>
-</access>
+</access>-->
