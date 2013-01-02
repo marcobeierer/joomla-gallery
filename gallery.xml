@@ -29,12 +29,16 @@
 	</media>
 	
 	<administration>
-		<!--<menu>com_gallery</menu>
+		<!--<menu>com_gallery</menu>-->
 		<files folder="admin">
-		</files>-->
+			<folder>language</folder>
+			<folder>views</folder>
+			<file>controller.php</file>
+			<file>gallery.php</file>
+		</files>
 		
-		<languages folder="language">
-			<language tag="en-GB">en-GB.com_gallery.sys.ini</language>
-		</languages>
+		<!--<languages folder="language">
+			<language tag="en-GB">en-GB/en-GB.com_gallery.sys.ini</language>
+		</languages>-->
 	</administration>
 </extension>

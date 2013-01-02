@@ -1,13 +1,19 @@
 # Before release
-- remove deutsche dateinamen umwandlung
+- Titel fuer backend
+- Doku als content backend
 
-- remove (via phing script)
-	- admin area (language folder needed)
-	- galleries and photo view
+- remove deutsche dateinamen umwandlung
 
 - think about commercial model
 - demo gallerie anlegen (auf webguerilla)
 - forum einrichtne (google groups)
+
+- versionsangabe aendern
+
+
+# After Release
+- add tag for release
+- aktivate deutsche dateinamen umwandlung
 
 
 # TODO
@@ -30,10 +36,17 @@
 - mit und ohne sef
 
 
+# Install
+- change line in htaccess (add jpg)
+- first load needs some time and shouldnt be canceled
+- dateigroesse nicht zu gross (abhaengig von php settings)
 
 
 
 
+
+
+- mansonry js file loeschen
 
 - naechster ordner udn vorheriger ordner button am unteren ende der box (links und rechts)
 	- think about recursiveity
@@ -101,5 +114,5 @@
 
 
 - Joomla: Comment: lib/joomla/application/router.php: 502
-- Joomla: Htaccess: add jpg: line 68
+- Joomla: htaccess: add jpg: line 68
 	- alternativ add pattern for gallery alias

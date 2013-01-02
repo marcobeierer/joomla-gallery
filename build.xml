@@ -37,12 +37,11 @@
 	
 		<tar destfile="${extension}.tar.gz" compression="gzip">
 			<fileset dir="${source}">
-				<!--<include name="admin/**" />-->
-				<include name="admin/language" />
+				<include name="admin/**" />
 				<include name="media/**" />
 				<include name="site/**" />
-				<exclude name="site/views/galleries" />
-				<exclude name="site/views/photo" />
+				<exclude name="site/views/galleries/**" />
+				<exclude name="site/views/photo/**" />
 				<!--<include name="sql/**" />-->
 				<include name="${extension_xml}" />
 				<include name="LICENSE.txt" />
