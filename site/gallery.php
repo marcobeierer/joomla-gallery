@@ -11,12 +11,22 @@ $params->set('gallery_path', JFolder::makeSafe($params->get('gallery_path'))); /
 
 // create htaccess file if it not already exists // TODO necessary with every call?
 $htaccessPath = $params->get('gallery_path') . DS . '.htaccess';
-if (!file_exists($htaccessPath)) {
 
-	$handle = fopen($htaccessPath, 'a');
-	fwrite($handle, "deny from all\n");
-	fclose($handle);
+if (!JFile::exists($htaccessPath)) {
+	
+	$htaccessContent = "deny from all\n";
+	JFile::write($htaccessPath, $htaccessContent);
 }
+// TODO error handling
+// ---
+
+// create photos directory if it not already exists
+$photosPath = $params->get('gallery_path') . DS . 'photos';
+
+if (!JFolder::exists($photosPath)) {
+	JFolder::create($photosPath);
+}
+// TODO error handling
 // ---
 
 // handle file requests
