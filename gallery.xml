@@ -15,6 +15,7 @@
 
 	<files folder="site">
 		<folder>classes</folder>
+		<folder>helpers</folder>
 		<folder>views</folder>
 		<file>controller.php</file>
 		<file>gallery.php</file>
@@ -27,15 +28,13 @@
 		<folder>js</folder>
 	</media>
 	
-	<!--<administration>
-		<menu>com_gallery</menu>
-		
-		<languages folder="lang">
-			<language tag="en-GB">de-DE.com_gallery.ini</language>
-			<language tag="en-GB">de-DE.com_gallery.sys.ini</language>
-		</languages>
-	
+	<administration>
+		<!--<menu>com_gallery</menu>
 		<files folder="admin">
-		</files>
-	</administration>-->
+		</files>-->
+		
+		<languages folder="language">
+			<language tag="en-GB">en-GB.com_gallery.sys.ini</language>
+		</languages>
+	</administration>
 </extension>

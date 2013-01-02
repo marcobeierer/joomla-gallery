@@ -1,20 +1,18 @@
 # Before release
 - remove deutsche dateinamen umwandlung
 
+- remove (via phing script)
+	- admin area (language folder needed)
+	- galleries and photo view
+
 - think about commercial model
 - demo gallerie anlegen (auf webguerilla)
-
-- remove (via phing script)
-	- admin area
-	- galleries and photo view
+- forum einrichtne (google groups)
 
 
 # TODO
-- add photoblog design
-
 - add cache header
 - add params (image with and height)
-- uebersetzen (alle strings)
 - admin tools (like cleanup etc.)
 
 

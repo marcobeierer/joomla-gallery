@@ -2,8 +2,8 @@
 <project name="Gallery" default="copy_all" basedir=".">
 
 	<property name="source" value="." />
-	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
-	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
+	<property name="joomla_install" value="../../dev.joomla.test/joomla25" />
+	<!--<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />-->
 	<property name="extension" value="com_gallery" />
 	<property name="extension_xml" value="gallery.xml" />
 
@@ -38,9 +38,11 @@
 		<tar destfile="${extension}.tar.gz" compression="gzip">
 			<fileset dir="${source}">
 				<!--<include name="admin/**" />-->
-				<!--<include name="language/**" />-->
+				<include name="admin/language" />
 				<include name="media/**" />
 				<include name="site/**" />
+				<exclude name="site/views/galleries" />
+				<exclude name="site/views/photo" />
 				<!--<include name="sql/**" />-->
 				<include name="${extension_xml}" />
 				<include name="LICENSE.txt" />
