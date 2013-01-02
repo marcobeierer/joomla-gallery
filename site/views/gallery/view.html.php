@@ -70,10 +70,14 @@ class GalleryViewGallery extends JView
 				
 		foreach ($folder->getFolderNames() as $folderName) {
 			
+			if ($folderName == '') {
+				continue; // skip if foldername is empty
+			}
+			
 			if (isset($currentPath)) {
 				$currentPath .= DS . $folderName;
 			} else {
-				$currentPath .= $folderName;
+				$currentPath = $folderName;
 			}
 			
 			// replace underscores

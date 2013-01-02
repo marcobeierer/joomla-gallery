@@ -8,9 +8,6 @@ class GalleryViewGallery extends JView
 { 	
 	function display($tpl = null)
 	{ 
-	    // Options button.
-		JToolBarHelper::preferences('com_gallery');	
-		
 		parent::display($tpl); 
 	} 
 } 
