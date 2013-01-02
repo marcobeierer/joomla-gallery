@@ -12,7 +12,7 @@ class GalleryViewGalleries extends JView
 		// params
 		$params = $application->getParams();
 		$menu = $application->getMenu();
-		$menuItems = $menu->getItems('menutype', 'photoalben'); // TODO variabel als param
+		$menuItems = $menu->getItems('menutype', 'photoalben'); // TODO as param
 		// ---
 		
 		$selectedGallery = $menuItems[rand(0, count($menuItems) - 1)];
