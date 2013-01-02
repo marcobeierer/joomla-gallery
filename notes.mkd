@@ -11,7 +11,6 @@
 - add params (image with and height)
 - admin tools (like cleanup etc.)
 
-
 # Bugs (unimportant)
 - probleme mit deaktiviertem SEF
 	- anzeige von seperator nach galleryname auf startseite
