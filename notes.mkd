@@ -7,8 +7,6 @@
 
 
 # TODO
-- htaccess (redirect jpg) in files directory or component directory (automatisch anlegen)
-	- htaccess (deny from all) auto generation
 - uebersetzen (alle strings)
 
 
@@ -24,6 +22,7 @@
 	- galeriezugang
 - wichtige funktionen
 - mit und ohne sef
+
 
 
 
