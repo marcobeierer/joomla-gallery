@@ -1,18 +1,15 @@
 <?php
-defined('_JEXEC') or die('Restricted access'); 
+defined('_JEXEC') or die('Restricted access');
+
+// TODO use spl autoload
 require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
-// Access check: is this user allowed to access the gallery
-/*if (!JFactory::getUser()->authorise('core.view.photos', 'com_gallery')) { // not necessary because of access level
-	return JError::raiseWarning(404, JText::_('JERROR_ALERTNOAUTHOR')); // TODO fix this // does not show error
-}*/
-
-// Params validation // TODO zentral beim speichern im backend?
+// Params validation // TODO at this place or when saved in backend?
 $params = JFactory::getApplication()->getParams();
 $params->set('gallery_path', JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
 // ---
 
-// create htaccess file if it not already exists // TODO with every call?
+// create htaccess file if it not already exists // TODO necessary with every call?
 $htaccessPath = $params->get('gallery_path') . DS . '.htaccess';
 if (!file_exists($htaccessPath)) {
 
@@ -24,9 +21,6 @@ if (!file_exists($htaccessPath)) {
 
 // handle file requests
 if (JRequest::getVar('view') == 'file') {
-	
-	//$filename = JFile::makeSafe(JRequest::getString('filename', ''));
-	//$path = $params->get('gallery_path') . DS . JFolder::makeSafe(JRequest::getString('path'));
 	
 	$pathObject = GalleryHelper::splitPath(JRequest::getString('path', ''));
 	
@@ -45,7 +39,8 @@ if (JRequest::getVar('view') == 'file') {
 		header('Content-Type: ' . mime_content_type($filepath));
 		
 		// dump the picture and stop the script
-		fpassthru($fp); // TODO fclose necessary
+		fpassthru($fp);
+		fclose($fp);
 	}
 	exit;
 }

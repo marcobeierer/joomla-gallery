@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted Access'); 
-class Folder extends JObject { // TODO or JFolder?
+class Folder extends JObject { // TODO or extends from JFolder?
 
 	private $galleryPath;
 	private $folderPath;
@@ -11,10 +11,14 @@ class Folder extends JObject { // TODO or JFolder?
 	
 	function __construct($galleryPath, $folderPath) {
 		
-		// TODO check if galleryPath contains JPATH_BASE, otherwise add it
+		// add JPATH_BASE if not used yet
+		if (strpos($galleryPath, JPATH_BASE) !== 0) {
+			$galleryPath = JPATH_BASE . DS . $galleryPath;
+		}
+		// ---
 		
 		$this->galleryPath 		= $galleryPath;
-		$this->folderPath 		= $folderPath; // TODO correct validation?
+		$this->folderPath 		= $folderPath;
 		
 		$this->photosPath 		= $this->galleryPath . DS . 'photos';
 		$this->thumbnailsPath 	= $this->galleryPath . DS . 'thumbnails';
@@ -27,7 +31,7 @@ class Folder extends JObject { // TODO or JFolder?
 	
 	public function getChildFolders() {
 		
-		// TODO create every for call or just once?
+		// TODO create $childFolderList for every call or just once?
 		
 		$childFolders = JFolder::folders($this->photosPath . DS . $this->folderPath);
 		$childFolderList  = new SplDoublyLinkedList();
@@ -59,7 +63,7 @@ class Folder extends JObject { // TODO or JFolder?
 
 	public function getPhotos($recursive = false) {
 
-		// TODO create for every call or just once?
+		// TODO create $photoList for every call or just once?
 		
 		if ($recursive) {
 			$photoPaths = JFolder::files($this->photosPath . DS . $this->folderPath, '.', true, true);
@@ -125,15 +129,18 @@ class Folder extends JObject { // TODO or JFolder?
 		return $parts[count($parts) - 1]; // return last element
 	}
 	
-	public function getReadableFolderName() { // TODO not just german // regelset muss pro galerie gewaehlt werden koennen
-
+	public function getReadableFolderName() {
+		
+		// TODO different sets for different languages
+		// TODO one ruleset per gallery (via menu item settings)
+	
 		$folderName = $this->getFolderName();
 		
 		$folderName = str_replace('_', ' ', $folderName);
 		
 		$folderName = str_replace('ae', 'ä', $folderName);
 		$folderName = str_replace('ue', 'ü', $folderName);
-		//$folderName = str_replace('oe', 'ö', $folderName); // TODO probleme mit NL
+		//$folderName = str_replace('oe', 'ö', $folderName); // TODO works not with NL
 		
 		$folderName = str_replace('Ae', 'Ä', $folderName);
 		$folderName = str_replace('Ue', 'Ü', $folderName);

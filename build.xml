@@ -43,6 +43,7 @@
 				<include name="site/**" />
 				<!--<include name="sql/**" />-->
 				<include name="${extension_xml}" />
+				<include name="LICENSE.txt" />
 			</fileset>
         </tar>
 		

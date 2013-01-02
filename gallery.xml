@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="component" version="2.5" method="upgrade">
 	<name>com_gallery</name>
-	<description></description>
+	<description>Gallery</description>
 	
 	<author>Marco Beierer</author>
 	<authorEmail>marco@webguerilla.net</authorEmail>
 	<authorUrl>http://webguerilla.net</authorUrl>
 	
-	<version>1.0.0</version>
+	<version>1.0.0-alpha</version>
 	<creationDate>November 2012</creationDate>
 	
 	<copyright>Copyright (C) 2012 Marco Beierer. All rights reserved.</copyright>

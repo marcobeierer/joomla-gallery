@@ -14,13 +14,6 @@
 				label="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_LABEL" description="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_DESC"
 				default="images/gallery" />
 		</fieldset>
-
-		<!--<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL"
-			description="JCONFIG_PERMISSIONS_DESC">
-			<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL"
-				class="inputbox" validate="rules" filter="rules" component="com_gallery"
-				section="component" />
-		</fieldset>-->
 	</fields>
 
 

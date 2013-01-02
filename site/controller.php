@@ -4,8 +4,7 @@ jimport('joomla.application.component.controller');
 
 class GalleryController extends JController
 { 
-	function display()
-	{ 
+	function display() { 
 		parent::display(); 
 	}
 } 

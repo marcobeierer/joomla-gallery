@@ -1,15 +1,22 @@
 # Before release
 - remove deutsche dateinamen umwandlung
+
 - think about commercial model
-- add licence
-- balast rauswerfen (altlasten)
-- demo gallerie anlegen
+- demo gallerie anlegen (auf webguerilla)
+
+- remove (via phing script)
+	- admin area
+	- galleries and photo view
 
 
 # TODO
-- uebersetzen (alle strings)
+- add photoblog design
+
+- add cache header
 - add params (image with and height)
+- uebersetzen (alle strings)
 - admin tools (like cleanup etc.)
+
 
 # Bugs (unimportant)
 - probleme mit deaktiviertem SEF

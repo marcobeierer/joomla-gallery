@@ -3,7 +3,7 @@ defined('_JEXEC') or die;
 
 class GalleryHelper {
 	
-	public static function splitPath($path) { // TODO use where it is not used yet (refactorate)
+	public static function splitPath($path) {
 		
 		$parts = explode(DS, $path);
 
