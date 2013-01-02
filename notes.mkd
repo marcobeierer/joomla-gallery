@@ -8,6 +8,8 @@
 
 # TODO
 - uebersetzen (alle strings)
+- add params (image with and height)
+- admin tools (like cleanup etc.)
 
 
 # Bugs (unimportant)
