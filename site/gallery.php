@@ -1,5 +1,6 @@
 <?php
 defined('_JEXEC') or die('Restricted access'); 
+require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
 // Access check: is this user allowed to access the gallery
 /*if (!JFactory::getUser()->authorise('core.view.photos', 'com_gallery')) { // not necessary because of access level
@@ -11,7 +12,15 @@ $params = JFactory::getApplication()->getParams();
 $params->set('gallery_path', JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
 // ---
 
-require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
+// create htaccess file if it not already exists // TODO with every call?
+$htaccessPath = $params->get('gallery_path') . DS . '.htaccess';
+if (!file_exists($htaccessPath)) {
+
+	$handle = fopen($htaccessPath, 'a');
+	fwrite($handle, "deny from all\n");
+	fclose($handle);
+}
+// ---
 
 // handle file requests
 if (JRequest::getVar('view') == 'file') {
