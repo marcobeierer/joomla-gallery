@@ -104,6 +104,8 @@
 # Notes
 - ACL works just with zugrifflevels!!!
 	-> simple
+- masonry
+	
 
 # Hacks
 - Shutter added settings option to handle path: line 27, 31, 22 and 16
