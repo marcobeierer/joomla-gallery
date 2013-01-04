@@ -21,6 +21,11 @@
 - add params (image with and height)
 - admin tools (like cleanup etc.)
 
+- fotogalerie piwik tracking (bei shutter clicks) does not work
+- fix title (site title wird nicht angezeigt)
+- rename resized to preview
+
+
 
 # Bugs (unimportant)
 - probleme mit deaktiviertem SEF
