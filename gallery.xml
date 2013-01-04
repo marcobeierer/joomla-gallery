@@ -20,12 +20,14 @@
 		<file>controller.php</file>
 		<file>gallery.php</file>
 		<file>router.php</file>
+		<file>index.html</file>
 	</files>
 	
 	<media folder="media" destination="com_gallery">
 		<folder>css</folder>
 		<folder>images</folder>
 		<folder>js</folder>
+		<file>index.html</file>
 	</media>
 	
 	<administration>
@@ -35,6 +37,7 @@
 			<folder>views</folder>
 			<file>controller.php</file>
 			<file>gallery.php</file>
+			<file>index.html</file>
 		</files>
 		
 		<!--<languages folder="language">
