@@ -86,6 +86,7 @@
 
 
 # Ideas
+- Kommentarfunktion
 - name photoalbum instead of gallery?
 
 - umstellung auf bootstrap/angularjs
