@@ -11,7 +11,7 @@ class Folder extends JObject { // TODO or extends from JFolder?
 	
 	function __construct($galleryPath, $folderPath) {
 		
-		// add JPATH_BASE if not used yet
+		// add JPATH_BASE if not used yet // TODO still necessary?
 		if (strpos($galleryPath, JPATH_BASE) !== 0) {
 			$galleryPath = JPATH_BASE . DS . $galleryPath;
 		}

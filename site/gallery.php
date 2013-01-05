@@ -8,9 +8,10 @@ require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 $params = JFactory::getApplication()->getParams();
 
 if ($params->get('gallery_path', '') == '') { // check if valid page (gallery_path isset)
-	exit; // TODO raise error
+	JError::raiseError(404, JText::_("Page Not Found")); exit;
 }
-$params->set('gallery_path', JFolder::makeSafe(JPATH_BASE . DS . $params->get('gallery_path'))); // TODO safe enough?
+// TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
+$params->set('gallery_path', JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
 // ---
 
 // create htaccess file if it not already exists // TODO necessary with every call?
