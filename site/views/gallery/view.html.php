@@ -8,7 +8,7 @@ class GalleryViewGallery extends JView
 	{
 		// params
 		$params = JFactory::getApplication()->getParams();
-		$galleryPath = JPATH_BASE . DS . $params->get('gallery_path');
+		$galleryPath = $params->get('gallery_path');
 		
 		// validate
 		$folderPath = JFolder::makeSafe(JRequest::getString('path'));

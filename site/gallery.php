@@ -6,7 +6,11 @@ require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
 // Params validation // TODO at this place or when saved in backend?
 $params = JFactory::getApplication()->getParams();
-$params->set('gallery_path', JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
+
+if ($params->get('gallery_path', '') == '') { // check if valid page (gallery_path isset)
+	exit; // TODO raise error
+}
+$params->set('gallery_path', JFolder::makeSafe(JPATH_BASE . DS . $params->get('gallery_path'))); // TODO safe enough?
 // ---
 
 // create htaccess file if it not already exists // TODO necessary with every call?
