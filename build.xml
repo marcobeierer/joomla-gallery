@@ -2,8 +2,8 @@
 <project name="Gallery" default="copy_all" basedir=".">
 
 	<property name="source" value="." />
-	<property name="joomla_install" value="../../dev.joomla.test/joomla25" />
-	<!--<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />-->
+	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
+	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
 	<property name="extension" value="com_gallery" />
 	<property name="extension_xml" value="gallery.xml" />
 
