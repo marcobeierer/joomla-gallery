@@ -219,7 +219,7 @@ shutterReloaded = {
 		T.style.width = (TI.width - 4) + 'px';
 
 		capH = NB.offsetHeight ? T.offsetHeight + NB.offsetHeight : 30;
-		shHeight = t.wHeight - 35 - capH; // my modification // hack
+		shHeight = t.wHeight - 65 - capH; // my modification // hack
 
 		if ( t.FS ) {
 			if ( TI.width > (t.wWidth - 10) )
@@ -252,7 +252,7 @@ shutterReloaded = {
 
 		itop = (shHeight - TI.height) * 0.45;
 		mtop = (itop > 3) ? Math.floor(itop) : 3;
-		D.style.top = t.Top + mtop + 10 + 'px'; // my modification // hack
+		D.style.top = t.Top + mtop + 40 + 'px'; // my modification // hack
 		NB.style.bottom = '0';
 		W.style.visibility = 'visible';
 	},

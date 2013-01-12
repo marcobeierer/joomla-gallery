@@ -7,7 +7,7 @@ require_once (JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 // Params validation // TODO at this place or when saved in backend?
 $params = JFactory::getApplication()->getParams();
 
-if ($params->get('gallery_path', '') == '') { // check if valid page (gallery_path isset)
+if (JRequest::getWord('view') == 'gallery' && $params->get('gallery_path', '') == '') { // check if valid page (gallery_path isset)
 	JError::raiseError(404, JText::_("Page Not Found")); exit;
 }
 // TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
