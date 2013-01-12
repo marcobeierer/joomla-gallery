@@ -35,7 +35,7 @@
 	<target name="package" description="Create package.">
 		<echo message="Running build.xml. Creating package..." />
 	
-		<tar destfile="${extension}.tar.gz" compression="gzip">
+		<zip destfile="${extension}.zip">
 			<fileset dir="${source}">
 				<include name="admin/**" />
 				<include name="media/**" />
@@ -46,7 +46,7 @@
 				<include name="${extension_xml}" />
 				<include name="LICENSE.txt" />
 			</fileset>
-        </tar>
+        </zip>
 		
 		<echo msg="Files copied and archive file created OK!" />
 	</target>

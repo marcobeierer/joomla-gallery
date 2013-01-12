@@ -1,3 +1,8 @@
+- tag fuer alpha.2
+- RSS Feed in Gallery backend mit news von webguerilla.net
+- jquery auslagern (plugin)
+	- option, ob auslaggern
+
 # Before release
 - Titel fuer backend
 - Doku als content backend
@@ -28,6 +33,7 @@
 - fix title (site title wird nicht angezeigt)
 - rename resized to preview
 
+- Backlink in Galerie (ausschaltbar)
 
 
 # Bugs (unimportant)
@@ -126,4 +132,5 @@
 
 - Joomla: Comment: lib/joomla/application/router.php: 502
 - Joomla: htaccess: add jpg: line 68
+
 	- alternativ add pattern for gallery alias
