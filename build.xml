@@ -2,6 +2,7 @@
 <project name="Gallery" default="copy_all" basedir=".">
 
 	<property name="source" value="./component" />
+	<property name="source_modules" value="./modules" />
 	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
 	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
 	<property name="extension" value="com_gallery" />
@@ -25,6 +26,12 @@
 		
 		<copy todir="${joomla_install}/media/${extension}">
 			<fileset dir="${source}/media">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/modules">
+			<fileset dir="${source_modules}">
 				<include name="**" />
 			</fileset>
 		</copy>

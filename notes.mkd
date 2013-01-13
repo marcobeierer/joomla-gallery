@@ -12,6 +12,7 @@
 - Vor und zurueck button (ordner)
 	- als modul oder in komponente?
 	- wie gut ist kommunikation zwischen modul und komponente moeglich?
+		- ueber setvar?
 
 
 # Before release

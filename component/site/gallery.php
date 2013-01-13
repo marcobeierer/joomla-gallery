@@ -61,6 +61,12 @@ if (JRequest::getVar('view') == 'file') {
 }
 // ---
 
+// set params for modules
+JRequest::setVar('is_gallery', true);
+JRequest::setVar('current_path', $photosPath . DS . JFolder::makeSafe(JRequest::getString('path', '')));
+JRequest::setVar('photos_path', $photosPath);
+// ---
+
 require_once (JPATH_COMPONENT . DS . 'controller.php');
 
 // TODO use spl autoload
