@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" version="2.5" method="upgrade">
+	<name>mod_gallery_navigation</name>
+	<description>Navigation Module for Gallery. Needs at least Gallery in version 1.0.0-alpha.3</description>
+	
+	<author>Marco Beierer</author>
+	<authorEmail>marco@webguerilla.net</authorEmail>
+	<authorUrl>http://webguerilla.net</authorUrl>
+	
+	<version>1.0.0-beta</version>
+	<creationDate>January 2013</creationDate>
+	
+	<copyright>Copyright (C) 2013 Marco Beierer. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+
+	<files module="mod_gallery_navigation">
+		<folder>tmpl</folder>
+		<file>mod_gallery_navigation.php</file>
+		<file>mod_gallery_navigation.xml</file>
+		<file>index.html</file>
+	</files>
+	
+	<!--<languages>
+		<language tag="en-GB">en-GB.mod_footer.ini</language>
+		<language tag="en-GB">en-GB.mod_footer.sys.ini</language>
+	</languages>-->
+</extension>
