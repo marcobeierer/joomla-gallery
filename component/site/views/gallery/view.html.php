@@ -90,10 +90,24 @@ class GalleryViewGallery extends JView
 		// set title
 		$document = JFactory::getDocument();
 		$folderName = $folder->getReadableFolderName();
+		$app = JFactory::getApplication();
 		
-		if ($folderName != '') {
-			$document->setTitle($folderName);
+		if ($folderName == '') {
+			$folderName = $document->getTitle();
 		}
+		
+		$sitename = $app->getCfg('sitename', ''); // TODO validate ?
+		switch ($app->getCfg('sitename_pagetitles', 0)) {
+			case 2: // after
+				$document->setTitle($folderName . ' - ' . $sitename);
+				break;
+			case 1: // before
+				$document->setTitle($sitename . ' - ' . $folderName);
+				break;
+			default: // none
+				$document->setTitle($folderName);
+		}
+		// ---
 		
 		// assign Variables
 		$this->assignRef('title', $title);

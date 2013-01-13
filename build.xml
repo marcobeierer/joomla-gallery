@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Gallery" default="copy_all" basedir=".">
 
-	<property name="source" value="." />
+	<property name="source" value="./component" />
 	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
 	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
 	<property name="extension" value="com_gallery" />
@@ -35,7 +35,7 @@
 	<target name="package" description="Create package.">
 		<echo message="Running build.xml. Creating package..." />
 	
-		<zip destfile="${extension}.zip">
+		<zip destfile="./packages/${extension}-latest.zip">
 			<fileset dir="${source}">
 				<include name="admin/**" />
 				<include name="media/**" />
@@ -47,6 +47,19 @@
 				<include name="LICENSE.txt" />
 			</fileset>
         </zip>
+		
+		<tar destfile="./packages/${extension}-latest.tar.gz" compression="gzip">
+			<fileset dir="${source}">
+				<include name="admin/**" />
+				<include name="media/**" />
+				<include name="site/**" />
+				<exclude name="site/views/galleries/**" />
+				<exclude name="site/views/photo/**" />
+				<!--<include name="sql/**" />-->
+				<include name="${extension_xml}" />
+				<include name="LICENSE.txt" />
+			</fileset>
+        </tar>
 		
 		<echo msg="Files copied and archive file created OK!" />
 	</target>
