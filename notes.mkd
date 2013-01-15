@@ -1,3 +1,7 @@
+- kommerzielle funktionen (wie bild kaufen, postkarte bestellen etc)
+- kennzeichnung von privaten bilder (meta info oder dateiname)
+
+
 - RSS Feed in Gallery backend mit news von webguerilla.net
 - jquery auslagern (plugin)
 	- option, ob ueber plugin oder nativ

@@ -2,6 +2,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // TODO replace _ etc ueber helper (methode in klasse bleibt, aber ruft auch helper an)
+// TODO language files (naechster vorheriger
 
 // skip if not a gallery view
 if (!JRequest::getBool('is_gallery', false)) {
@@ -24,7 +25,7 @@ if ($indexOfCurrentFolder > 0) {
 	$previousFolderRelativePath = str_replace($photosPath . DS, '', $previousFolderPath);
 	$hrefPreviousFolder = 'index.php?option=com_gallery&path=' . $previousFolderRelativePath;
 	
-	$previousFolder = str_replace(DS, ' | ', $previousFolderRelativePath);
+	$previousFolder = str_replace(DS, ' | ', GalleryHelper::getReadableFolderName($previousFolderRelativePath));
 }
 
 $nextFolder = '';
@@ -34,25 +35,24 @@ if (count($folders) > ($indexOfCurrentFolder + 1)) {
 	$nextFolderRelativePath = str_replace($photosPath . DS, '', $nextFolderPath);
 	$hrefNextFolder = JRoute::_('index.php?option=com_gallery&path=' . $nextFolderRelativePath);
 	
-	//echo $parentPath . '<br>' . $nextFolderPath . '<br>' . $currentPath; exit;
+	$nextFolder = str_replace(DS, ' | ', GalleryHelper::getReadableFolderName($nextFolderRelativePath));
+	
+	// TODO
+	/*$currentFolderRelativePath = str_replace($photosPath . DS, '', $currentPath);
+	
+	$nextFolderParts = explode(DS, $nextFolderRelativePath);
+	$currentFolderParts = explode(DS, $currentFolderRelativePath);
+	
+	for ($i = 0; $i <= count($currentFolderParts) && $i <= count($nextFolderParts); $i++) {
 		
-	if (strpos($nextFolderPath, $parentPath) === false) {
-		
-		$nextFolderRelativePath2 = str_replace($photosPath . DS, '', $nextFolderPath);
-		$nextFolder = str_replace(DS, ' | ', $nextFolderRelativePath2);
-	}
-	/*else if (strpos($nextFolderPath, $currentPath) === false) {
-		
-		$nextFolderRelativePath2 = str_replace($currentPath . DS, '', $nextFolderPath);
-		$nextFolder = str_replace(DS, ' | ', $nextFolderRelativePath2);
+		if ($nextFolderParts[$i] != $currentFolderParts[$i]) {
+			
+			if ($nextFolder != '' && $nextFolderParts[$i] != '') {
+				$nextFolder .= ' | ';
+			}
+			$nextFolder .= $nextFolderParts[$i];
+		}
 	}*/
-	else {
-		
-		$nextFolderRelativePath2 = str_replace($parentPath . DS, '', $nextFolderPath);
-		$nextFolder = str_replace(DS, ' | ', $nextFolderRelativePath2);
-	}
-	
-	
 }
 
 require JModuleHelper::getLayoutPath('mod_gallery_navigation', 'default');
