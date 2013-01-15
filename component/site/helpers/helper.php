@@ -12,4 +12,27 @@ class GalleryHelper {
 		
 		return $object;
 	}
+	
+	public static function getReadableFolderName($folderName) {
+		
+		// TODO different sets for different languages
+		// TODO one ruleset per gallery (via menu item settings)
+	
+		$folderName = str_replace('_', ' ', $folderName);
+		
+		
+		$folderName = str_replace('ae', 'ä', $folderName);
+		$folderName = str_replace('ue', 'ü', $folderName);
+		//$folderName = str_replace('oe', 'ö', $folderName); // TODO works not with NL
+		
+		$folderName = str_replace('Ae', 'Ä', $folderName);
+		$folderName = str_replace('Ue', 'Ü', $folderName);
+		$folderName = str_replace('Oe', 'Ö', $folderName);
+		
+		$folderName = str_replace('sz', 'ß', $folderName);
+		
+		$folderName = preg_replace('/(\d+)ter/', '${1}.', $folderName);
+		
+		return $folderName;
+	}
 }
