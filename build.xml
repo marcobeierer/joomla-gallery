@@ -33,6 +33,13 @@
 		<copy todir="${joomla_install}/modules">
 			<fileset dir="${source_modules}">
 				<include name="**" />
+				<exclude name="mod_gallery_navigation/language/**" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/language">
+			<fileset dir="${source_modules}/mod_gallery_navigation/language">
+				<include name="**" />
 			</fileset>
 		</copy>
 		

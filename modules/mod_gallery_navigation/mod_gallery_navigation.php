@@ -15,44 +15,40 @@ $parentPath = substr($currentPath, 0, strrpos($currentPath, DS));
 $photosPath = JRequest::getString('photos_path', '');
 // ---
 
-$folders = JFolder::folders($photosPath, '.', true, true); // TODO ineffective to get hole list
-$indexOfCurrentFolder = array_search($currentPath, $folders, true); // TODO do in a non linear way
+$folders = JFolder::folders($parentPath, '.', false, true);
+$indexOfCurrentFolder = array_search($currentPath, $folders, true); // TODO search in a non linear way
 
 $previousFolder = '';
-if ($indexOfCurrentFolder > 0) {
-	
-	$previousFolderPath = $folders[$indexOfCurrentFolder - 1];
-	$previousFolderRelativePath = str_replace($photosPath . DS, '', $previousFolderPath);
-	$hrefPreviousFolder = 'index.php?option=com_gallery&path=' . $previousFolderRelativePath;
-	
-	$previousFolder = str_replace(DS, ' | ', GalleryHelper::getReadableFolderName($previousFolderRelativePath));
-}
-
+$oneLayerUp = false;
 $nextFolder = '';
-if (count($folders) > ($indexOfCurrentFolder + 1)) {
-	
-	$nextFolderPath = $folders[$indexOfCurrentFolder + 1];
-	$nextFolderRelativePath = str_replace($photosPath . DS, '', $nextFolderPath);
-	$hrefNextFolder = JRoute::_('index.php?option=com_gallery&path=' . $nextFolderRelativePath);
-	
-	$nextFolder = str_replace(DS, ' | ', GalleryHelper::getReadableFolderName($nextFolderRelativePath));
-	
-	// TODO
-	/*$currentFolderRelativePath = str_replace($photosPath . DS, '', $currentPath);
-	
-	$nextFolderParts = explode(DS, $nextFolderRelativePath);
-	$currentFolderParts = explode(DS, $currentFolderRelativePath);
-	
-	for ($i = 0; $i <= count($currentFolderParts) && $i <= count($nextFolderParts); $i++) {
+
+if ($photosPath . DS != $currentPath) { // if not root
+
+	if ($indexOfCurrentFolder > 0) {
 		
-		if ($nextFolderParts[$i] != $currentFolderParts[$i]) {
-			
-			if ($nextFolder != '' && $nextFolderParts[$i] != '') {
-				$nextFolder .= ' | ';
-			}
-			$nextFolder .= $nextFolderParts[$i];
-		}
-	}*/
+		$previousFolderPath = $folders[$indexOfCurrentFolder - 1];
+		$previousFolderRelativePath = str_replace($photosPath . DS, '', $previousFolderPath);
+		$hrefPreviousFolder = 'index.php?option=com_gallery&path=' . $previousFolderRelativePath;
+		
+		$previousFolder = str_replace($parentPath . DS, '', $previousFolderPath);
+		$previousFolder = GalleryHelper::getReadableFolderName($previousFolder);
+	}
+	
+	// one layer up
+	$oneLayerUpRelativePath = str_replace($photosPath, '', $parentPath);
+	$hrefOneLayerUp = JRoute::_('index.php?option=com_gallery&path=' . $oneLayerUpRelativePath);
+	$oneLayerUp = true;
+	// ---
+	
+	if (count($folders) > ($indexOfCurrentFolder + 1)) {
+		
+		$nextFolderPath = $folders[$indexOfCurrentFolder + 1];
+		$nextFolderRelativePath = str_replace($photosPath . DS, '', $nextFolderPath);
+		$hrefNextFolder = JRoute::_('index.php?option=com_gallery&path=' . $nextFolderRelativePath);
+		
+		$nextFolder = str_replace($parentPath . DS, '', $nextFolderPath);
+		$nextFolder = GalleryHelper::getReadableFolderName($nextFolder);
+	}
 }
 
 require JModuleHelper::getLayoutPath('mod_gallery_navigation', 'default');
