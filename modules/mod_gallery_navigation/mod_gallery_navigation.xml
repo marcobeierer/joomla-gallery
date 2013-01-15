@@ -20,8 +20,9 @@
 		<file>index.html</file>
 	</files>
 	
-	<!--<languages>
-		<language tag="en-GB">en-GB.mod_footer.ini</language>
-		<language tag="en-GB">en-GB.mod_footer.sys.ini</language>
-	</languages>-->
+	<languages folder="language">
+		<language tag="en-GB">en-GB.mod_gallery_navigation.ini</language>
+		<language tag="en-GB">en-GB.mod_gallery_navigation.sys.ini</language>
+		<language tag="de-DE">de-DE.mod_gallery_navigation.ini</language>
+	</languages>
 </extension>
