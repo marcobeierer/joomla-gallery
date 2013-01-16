@@ -14,6 +14,19 @@ if (JRequest::getWord('view') == 'gallery' && $params->get('gallery_path', '') =
 $params->set('gallery_path', JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path'))); // TODO safe enough?
 // ---
 
+// check if path is valid and raise error otherwise // TODO cleaner
+$path = JRequest::getString('path', '');
+if (JRequest::getVar('view') == 'file') {
+	$fullPath = $params->get('gallery_path', '') . DS . $path;
+} else {
+	$fullPath = $params->get('gallery_path', '') . DS . 'photos' . DS . $path;
+}
+
+if ($path != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
+	JError::raiseError(404, JText::_("Page Not Found")); exit;
+}
+// ---
+
 // create htaccess file if it not already exists // TODO necessary with every call?
 $htaccessPath = $params->get('gallery_path') . DS . '.htaccess';
 
