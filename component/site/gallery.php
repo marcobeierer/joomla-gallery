@@ -65,6 +65,7 @@ if (JRequest::getVar('view') == 'file') {
 		header('Accept-Ranges: bytes');
 		header('Content-Length: ' . filesize($filepath));
 		header('Content-Type: ' . mime_content_type($filepath));
+		//header('Cache-Control: public, min-fresh=3600, max-age=3600, s-maxage=3600, must-revalidate');
 		
 		// dump the picture and stop the script
 		fpassthru($fp);
