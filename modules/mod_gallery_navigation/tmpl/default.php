@@ -1,23 +1,25 @@
-<?php
-defined('_JEXEC') or die('Restricted access');
-?>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
 
-<div id="mod_gallery_navigation" class="row-fluid">
-	<div class="previous span5">
+<div id="mod_gallery_navigation">
+	<ul class="menu">
 		<?php if ($previousFolder != '') { ?>
+		<li>
 			<?php echo JText::_('PREVIOUS_FOLDER'); ?>: 
 			<a href="<?php echo $hrefPreviousFolder; ?>"><?php echo $previousFolder; ?></a>
+		</li>
 		<?php } ?>
-	</div>
-	<div class="up span2">
+		
 		<?php if ($oneLayerUp) { ?>
+		<li>
 			<a href="<?php echo $hrefOneLayerUp; ?>"><?php echo JText::_('ONE_LAYER_UP'); ?></a>
+		</li>
 		<?php } ?>
-	</div>
-	<div class="next span5">
+		
 		<?php if ($nextFolder != '') { ?>
+		<li>
 			<?php echo JText::_('NEXT_FOLDER'); ?>:
 			<a href="<?php echo $hrefNextFolder; ?>"><?php echo $nextFolder; ?></a>
+		</li>
 		<?php } ?>
-	</div>
+	</ul>
 </div>
