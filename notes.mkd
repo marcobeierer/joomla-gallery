@@ -1,4 +1,3 @@
-- kommerzielle funktionen (wie bild kaufen, postkarte bestellen etc)
 - kennzeichnung von privaten bilder (meta info oder dateiname)
 
 
@@ -13,7 +12,6 @@
 	- objekte koennen nur noch ueber cache erzeugt werden
 	- pruefen, ob einzelne objekte ueberhaupt mehrmals pro request erzeugt werden
 - Ajax (Rest) oberflaeche mit AngularJS
-- Backlink (ausschaltbar
 
 
 # Before release
@@ -23,6 +21,17 @@
 
 - demo gallerie updaten (auf webguerilla)
 
+
+# Marketing
+- SEO: keyword: joomla bildergalerie
+
+
+# Kommerzialisierung
+- design und konfig von fotos.marcobeierer.de verkaufen
+	- also die einrichtung auf kunden server im xxxx bereich
+	- anzahlung
+
+- kommerzielle funktionen (wie bild kaufen, postkarte bestellen etc)
 
 # Design
 - eigenes scrollbar design
@@ -37,24 +46,23 @@
 
 
 # TODO
-- handle nicht existierende ordner
-	- http://webguerilla.net/demos/gallery/03_South_Island_Part_1gdf
-
 - add cache header
-- add params (image with and height)
+- add params (image with and height) (as plugin?)
 - admin tools (like cleanup etc.)
 
 - fotogalerie piwik tracking (bei shutter clicks) does not work
-- fix title (site title wird nicht angezeigt)
 - rename resized to preview
 
 - Backlink in Galerie (ausschaltbar)
+	- oder metatag
 
 
 # Bugs (unimportant)
 - probleme mit deaktiviertem SEF
 	- anzeige von seperator nach galleryname auf startseite
 	- shutter funktioniert nicht bei vollstaendig deaktiviertem SEF
+
+- . (point) in foldername funktioniert nicht wegenb makeSafe
 
 
 # Test Cases
@@ -73,40 +81,22 @@
 
 
 
-
-
-- mansonry js file loeschen
-
-- naechster ordner udn vorheriger ordner button am unteren ende der box (links und rechts)
-	- think about recursiveity
-
+# TODO
 - langsamen bildaufbau fixen
 	- activate caching (just browser) (set header not to no-cache)
 
-
-- params vervollstaendigen
-
-
-- zurueck button rechts oben (javahistory)
 - script weiche bei img link zu shutterbox (ohne script zu photo view)
-- black border bei white border entfernen: negative inner padding or something like that
 
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
-- titel erweitern
 
-- more advanced checks if a thumbnail/resized photo exists
+- more advanced checks if a thumbnail/resized photo exists (bei generierung)
 	- check if it also has the correct size
 	- check if the thumbs is from the correct photo
-
-- weisse box passt sich an bildschirmgroesse an (JS)
-	- Scrollbalken direkt an box, wie bei delta-media
 
 - SSL support
 
 - EXIF/IPTC daten auswerten und verarbeiten
 - redirect von startsteite, wenn eingeloggt
-
-- . (point) in foldername funktioniert nicht wegenb makeSafe
 
 
 # Ideas
@@ -115,7 +105,6 @@
 - Mehrbenutzer (fotografen) -faehig
 
 - Kommentarfunktion
-- name photoalbum instead of gallery?
 
 - umstellung auf bootstrap/angularjs
 - mkd files fuer beschreibung von ordnern (tagebuecher etc.)
@@ -130,9 +119,6 @@
 	
 - Breadcrumbs statt title
 - joomla entfernen und eigenstaendige applikation machen auf basis des joomla frameworks (standalone)
-
-- flexible breiter, aber immer zentriert (bei wenigen fotos und um ungleichgewicht zu vermeiden)
-
 
 
 # Notes
