@@ -13,31 +13,23 @@
 	- objekte koennen nur noch ueber cache erzeugt werden
 	- pruefen, ob einzelne objekte ueberhaupt mehrmals pro request erzeugt werden
 - Ajax (Rest) oberflaeche mit AngularJS
-- Vor und zurueck button (ordner)
-	- als modul oder in komponente?
-	- wie gut ist kommunikation zwischen modul und komponente moeglich?
-		- ueber setvar?
+- Backlink (ausschaltbar
 
 
 # Before release
 - Check, ob shutter noch gut dargestellt wird
-
-- Titel fuer backend
-- Doku als content backend
-
 - remove deutsche dateinamen umwandlung
-
-- think about commercial model
-- demo gallerie anlegen (auf webguerilla)
-- forum einrichtne (google groups)
-
 - versionsangabe aendern
+
+- demo gallerie updaten (auf webguerilla)
+
 
 # Design
 - eigenes scrollbar design
 - Hinweis kein IE support
 - fix, dass verschiebung nach mitte sichtbar ist
 	- z.B. durch bilder erst nach der ausrichtung des designs zu laden
+
 
 # After Release
 - add tag for release
@@ -118,6 +110,10 @@
 
 
 # Ideas
+- Steuerung ueber Tastatur (navigation)
+	- inkl. bilder oeffnen
+- Mehrbenutzer (fotografen) -faehig
+
 - Kommentarfunktion
 - name photoalbum instead of gallery?
 
