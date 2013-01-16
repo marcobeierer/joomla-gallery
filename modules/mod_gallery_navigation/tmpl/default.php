@@ -4,8 +4,9 @@
 	<ul class="menu">
 		<?php if ($previousFolder != '') { ?>
 		<li>
-			<?php echo JText::_('PREVIOUS_FOLDER'); ?>: 
-			<a href="<?php echo $hrefPreviousFolder; ?>"><?php echo $previousFolder; ?></a>
+			<a href="<?php echo $hrefPreviousFolder; ?>">
+				<?php echo JText::_('PREVIOUS_FOLDER'); ?>: <?php echo $previousFolder; ?>
+			</a>
 		</li>
 		<?php } ?>
 		
@@ -17,8 +18,9 @@
 		
 		<?php if ($nextFolder != '') { ?>
 		<li>
-			<?php echo JText::_('NEXT_FOLDER'); ?>:
-			<a href="<?php echo $hrefNextFolder; ?>"><?php echo $nextFolder; ?></a>
+			<a href="<?php echo $hrefNextFolder; ?>">
+				<?php echo JText::_('NEXT_FOLDER'); ?>: <?php echo $nextFolder; ?>
+			</a>
 		</li>
 		<?php } ?>
 	</ul>
