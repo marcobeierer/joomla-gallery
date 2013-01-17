@@ -10,17 +10,6 @@ require_once(JPATH_COMPONENT . DS . 'classes' . DS . 'folder.php');
 require_once(JPATH_COMPONENT . DS . 'classes' . DS . 'photo.php');
 /* --- */
 
-/* initialise gallery */
-$app =& JFactory::getApplication();
-$gallery = new Gallery($app->getParams());
-
-$gallery->validateRequestPath();
-$gallery->createHtaccessFile(); // TODO necessary with every call?
-$gallery->createInitialDirectories();
-$gallery->handleFileRequests();
-$gallery->setModuleParams();
-/* --- */
-
 $classname = 'GalleryController'; 
 $controller = new $classname(); 
 

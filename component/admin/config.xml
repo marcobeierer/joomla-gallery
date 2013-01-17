@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name="gallery"
+		label="COM_GALLERY_CONFIG_GALLERY_SETTINGS_LABEL"
+		description="COM_GALLERY_CONFIG_GALLERY_SETTINGS_DESC">
+		
+		<field
+			name="load_jquery"
+			type="radio"
+			label="COM_GALLERY_GALLERY_FIELD_LOAD_JQUERY_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_LOAD_JQUERY_DESC"
+			default="1">
+			
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	</fieldset>
+</config>
