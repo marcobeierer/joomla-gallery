@@ -125,12 +125,17 @@
 - ACL works just with zugrifflevels!!!
 	-> simple
 - masonry
-	
+- http://blog.gaijindesign.com/jquery-wordpress-adding-a-close-button-to-nextgens-shutterbox/
+
 
 # Hacks
 - Shutter added settings option to handle path: line 27, 31, 22 and 16
 - shutter: line 222: value 65 statt 7
 - shutter: line 255: added + 40
+(all lines + 12 because of piwik hack)
+
+- shutter: line 116 und 132 (added piwik trackeR)
+
 
 - all hacks are marked with: // my modification // hack
 

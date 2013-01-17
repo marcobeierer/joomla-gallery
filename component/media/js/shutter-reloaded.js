@@ -112,7 +112,13 @@ shutterReloaded = {
 		if ( shutterLinks[ln].num > 1 ) {
 			prev = shutterSets[shutterLinks[ln].set][shutterLinks[ln].num - 2];
 			prevbtn = t.textBtns ? t.L10n[0] : '<img src="'+t.imgDir+'prev.gif" title="'+t.L10n[0]+'" />';
-			prevlink = '<a href="#" onclick="shutterReloaded.make('+prev+');return false">'+prevbtn+'</a>'+dv;
+			
+			if (typeof piwikTracker == 'undefined') {
+				prevlink = '<a href="#" onclick="shutterReloaded.make('+prev+');return false">'+prevbtn+'</a>'+dv;
+			} else {
+				prevlink = '<a href="#" onclick="piwikTracker.trackLink(\''+shutterLinks[ln].link+'\', \'download\');shutterReloaded.make('+prev+');return false">'+prevbtn+'</a>'+dv;
+			}
+			
 			previmg = new Image();
 			previmg.src = shutterLinks[prev].link;
 		} else {
@@ -122,7 +128,13 @@ shutterReloaded = {
 		if ( shutterLinks[ln].num != -1 && shutterLinks[ln].num < (shutterSets[shutterLinks[ln].set].length) ) {
 			next = shutterSets[shutterLinks[ln].set][shutterLinks[ln].num];
 			nextbtn = t.textBtns ? t.L10n[1] : '<img src="'+t.imgDir+'next.gif" title="'+t.L10n[1]+'" />';
-			nextlink = '<a href="#" onclick="shutterReloaded.make('+next+');return false">'+nextbtn+'</a>'+dv;
+			
+			if (typeof piwikTracker == 'undefined') {
+				nextlink = '<a href="#" onclick="shutterReloaded.make('+next+');return false">'+nextbtn+'</a>'+dv;
+			} else {
+				nextlink = '<a href="#" onclick="piwikTracker.trackLink(\''+shutterLinks[ln].link+'\', \'download\');shutterReloaded.make('+next+');return false">'+nextbtn+'</a>'+dv;
+			}
+			
 			nextimg = new Image();
 			nextimg.src = shutterLinks[next].link;
 		} else {
