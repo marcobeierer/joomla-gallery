@@ -16,9 +16,8 @@ defined('_JEXEC') or die('Restricted access');
 	<?php } else if (count($this->photos) > 0) { ?>
 	<div id="photos">
 		<?php foreach($this->photos as $photo) { ?>
-			<div class="gallery_item">
+			<div class="gallery_item">		
 				<a class="shutterset" href="<?php echo $photo->getResizedURL(); ?>">
-				<!--<a class="shutter" href="<?php echo JRoute::_('index.php?option=com_gallery&view=photo&path=' . $photo->getFolder()->getFolderPath() . '&filename=' . $photo->getFilename()); ?>">-->
 					<img src="<?php echo $photo->getThumbnailURL(); ?>" />
 				</a>
 			</div>
