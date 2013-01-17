@@ -7,6 +7,7 @@ class Gallery extends JObject {
 	private $currentRequestPath;
 	private $currentRequestFilename;
 	
+	private $showBacklink;
 	private $loadJQuery;
 	
 	function __construct($params) {
@@ -38,6 +39,7 @@ class Gallery extends JObject {
 	private function loadParams($params) {
 
 		$this->setGalleryPath($params->get('gallery_path', ''));
+		$this->setShowBacklink($params->get('show_backlink', 1));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
 		
 		$params->set('gallery_path', $this->galleryPath); // for legacy use
@@ -50,7 +52,15 @@ class Gallery extends JObject {
 	}
 	
 	private function setLoadJQuery($loadJQuery) {
-		$this->loadJQuery = (int) $loadJQuery;
+		$this->loadJQuery = (bool) $loadJQuery;
+	}
+	
+	private function setShowBacklink($showBacklink) {
+		$this->showBacklink = (bool) $showBacklink;
+	}
+	
+	public function showBacklink() {
+		return $this->showBacklink;
 	}
 		
 	public function getRequestPathWithFilename() {
