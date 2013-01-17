@@ -19,14 +19,6 @@ class Gallery extends JObject {
 		$this->makeParamsSafe($params);
 	}
 	
-	private function makeParamsSafe($params) {
-		
-		// TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
-		
-		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path')); // TODO safe enough?
-		$params->set('gallery_path', $this->galleryPath); // for legacy use
-	}
-	
 	private function loadSafeRequestVars() {
 		
 		if (JRequest::getVar('view') == 'file') {
@@ -41,6 +33,14 @@ class Gallery extends JObject {
 		}
 	}
 	
+	private function makeParamsSafe($params) {
+		
+		// TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
+		
+		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path')); // TODO safe enough?
+		$params->set('gallery_path', $this->galleryPath); // for legacy use
+	}
+		
 	public function getRequestPathWithFilename() {
 		return $this->galleryPath . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
 	}

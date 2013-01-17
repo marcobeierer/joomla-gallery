@@ -1,0 +1,17 @@
+# Changelog
+
+## 1.0.0-alpha
+- initial release
+
+## 1.0.0-alpha.1
+- index.html added to all folders
+
+## 1.0.0-alpha.2
+- important bug fix (under special circumstances created htaccess in root of webspace)
+
+## 1.0.0-alpha.3
+- license change to AGPL
+- fixed piwik tracking in shutter (lightbox)
+- detection of none existing paths (if requestet)
+- added some error handling
+- some refactoring
