@@ -112,6 +112,7 @@ class GalleryViewGallery extends JView
 		$this->assignRef('title', $title);
 		$this->assignRef('childFolders', $childFolders);
 		$this->assignRef('photos', $photos);
+		$this->assignRef('showBacklink', $gallery->showBacklink());
 		
 		parent::display($tpl);
 	}

@@ -14,5 +14,6 @@
 - fixed piwik tracking in shutter (lightbox)
 - detection of none existing paths (if requestet)
 - added param to load JQuery optional
+- added backlink (deactivateable in backend)
 - added some error handling
 - some refactoring
