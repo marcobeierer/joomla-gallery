@@ -18,6 +18,12 @@
 			</fileset>
 		</copy>
 		
+		<copy todir="${joomla_install}/administrator/language">
+			<fileset dir="${source}/admin/language">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
 		<copy todir="${joomla_install}/components/${extension}">
 			<fileset dir="${source}/site">
 				<include name="**" />
@@ -59,6 +65,7 @@
 				<!--<include name="sql/**" />-->
 				<include name="${extension_xml}" />
 				<include name="LICENSE.txt" />
+				<include name="CHANGELOG.txt" />
 			</fileset>
         </zip>
 		
@@ -72,6 +79,7 @@
 				<!--<include name="sql/**" />-->
 				<include name="${extension_xml}" />
 				<include name="LICENSE.txt" />
+				<include name="CHANGELOG.txt" />
 			</fileset>
         </tar>
 		

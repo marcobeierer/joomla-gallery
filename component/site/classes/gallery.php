@@ -7,6 +7,8 @@ class Gallery extends JObject {
 	private $currentRequestPath;
 	private $currentRequestFilename;
 	
+	private $loadJQuery;
+	
 	function __construct($params) {
 		
 		/* check if valid page (gallery_path isset) */
@@ -39,6 +41,8 @@ class Gallery extends JObject {
 		
 		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path')); // TODO safe enough?
 		$params->set('gallery_path', $this->galleryPath); // for legacy use
+		
+		$this->loadJQuery = (int) $params->get('load_jquery', 1);
 	}
 		
 	public function getRequestPathWithFilename() {
@@ -114,4 +118,7 @@ class Gallery extends JObject {
 		JRequest::setVar('photos_path', $this->getPhotosPath());
 	}
 	
+	public function shouldLoadJQuery() {
+		return $this->loadJQuery;
+	}
 }

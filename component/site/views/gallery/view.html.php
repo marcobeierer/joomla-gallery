@@ -7,8 +7,9 @@ class GalleryViewGallery extends JView
 	function display($tpl = null)
 	{
 		// params
+		$gallery = JRequest::getVar('gallery', null);
 		$params = JFactory::getApplication()->getParams();
-		$galleryPath = $params->get('gallery_path');
+		$galleryPath = $params->get('gallery_path'); // TODO
 		
 		// validate
 		$folderPath = JFolder::makeSafe(JRequest::getString('path'));
@@ -32,7 +33,10 @@ class GalleryViewGallery extends JView
 		// add scripts
 		$document = &JFactory::getDocument();
 		
-		$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+		if ($gallery->shouldLoadJQuery()) {
+			$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+		}
+		
 		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
 		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
 		

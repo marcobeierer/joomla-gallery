@@ -6,6 +6,7 @@
 - update server verwenden
 - twitter bootstrap modal zur darstellung der popups
 - imagemagick verwenden, damit originale in voller aufloesung hochgeladen werden koennen (nachbestell funktion etc)
+	- eigene klasse (erbend von Photo (photo as abstract)
 - cache der alle folder und photo objekte verwaltet
 	- als singleton
 	- objekte koennen nur noch ueber cache erzeugt werden
@@ -140,6 +141,8 @@
 	-> simple
 - masonry
 - http://blog.gaijindesign.com/jquery-wordpress-adding-a-close-button-to-nextgens-shutterbox/
+
+- params shouldn't be used directory (always through gallery object)
 
 
 # Hacks

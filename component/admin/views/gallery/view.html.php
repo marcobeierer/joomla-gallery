@@ -9,6 +9,8 @@ class GalleryViewGallery extends JView
 	function display($tpl = null)
 	{
 		JToolBarHelper::title("Gallery Documentation");
+		JToolBarHelper::preferences('com_gallery');
+		
 		parent::display($tpl); 
 	} 
 } 
