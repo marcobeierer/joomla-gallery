@@ -7,11 +7,11 @@
 	<authorEmail>marco@webguerilla.net</authorEmail>
 	<authorUrl>http://webguerilla.net</authorUrl>
 	
-	<version>1.0.0-alpha.2</version>
-	<creationDate>November 2012</creationDate>
+	<version>1.0.0-alpha.3</version>
+	<creationDate>January 2013</creationDate>
 	
-	<copyright>Copyright (C) 2012 Marco Beierer. All rights reserved.</copyright>
-	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<copyright>Copyright (C) 2013 Marco Beierer. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/agpl-3.0.html GNU/AGPL</license>
 
 	<files folder="site">
 		<folder>classes</folder>
@@ -31,7 +31,7 @@
 	</media>
 	
 	<administration>
-		<!--<menu>com_gallery</menu>-->
+		<menu>com_gallery</menu>
 		<files folder="admin">
 			<folder>language</folder>
 			<folder>views</folder>
@@ -40,8 +40,8 @@
 			<file>index.html</file>
 		</files>
 		
-		<!--<languages folder="language">
+		<languages folder="language">
 			<language tag="en-GB">en-GB/en-GB.com_gallery.sys.ini</language>
-		</languages>-->
+		</languages>
 	</administration>
 </extension>
