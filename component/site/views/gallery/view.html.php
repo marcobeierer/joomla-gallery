@@ -8,14 +8,9 @@ class GalleryViewGallery extends JView
 	{
 		// params
 		$gallery = JRequest::getVar('gallery', null);
-		$params = JFactory::getApplication()->getParams();
-		$galleryPath = $params->get('gallery_path'); // TODO
 		
-		// validate
-		$folderPath = JFolder::makeSafe(JRequest::getString('path'));
-		
-		// get path from GET
-		$folder = new Folder($galleryPath, $folderPath);
+		// new folder
+		$folder = new Folder($gallery->getGalleryPath(), $gallery->getCurrentRequestPath());
 		
 		// get child folders of this folder
 		$childFolders = $folder->getChildFolders(false);
@@ -63,7 +58,7 @@ class GalleryViewGallery extends JView
 		$document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
 		
 		// get title
-		if ($folderPath == '') {
+		if ($gallery->getCurrentRequestPath() == '') {
 			$title = 'Gallery';
 		} else {
 			$title = $folder->getFolderName();

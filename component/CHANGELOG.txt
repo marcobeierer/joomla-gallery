@@ -13,5 +13,6 @@
 - license change to AGPL
 - fixed piwik tracking in shutter (lightbox)
 - detection of none existing paths (if requestet)
+- added param to load JQuery optional
 - added some error handling
 - some refactoring
