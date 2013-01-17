@@ -18,7 +18,7 @@ class Gallery extends JObject {
 		/* --- */
 		
 		$this->loadSafeRequestVars();
-		$this->makeParamsSafe($params);
+		$this->loadParams($params);
 	}
 	
 	private function loadSafeRequestVars() {
@@ -35,22 +35,38 @@ class Gallery extends JObject {
 		}
 	}
 	
-	private function makeParamsSafe($params) {
+	private function loadParams($params) {
+
+		$this->setGalleryPath($params->get('gallery_path', ''));
+		$this->setLoadJQuery($params->get('load_jquery', 1));
 		
-		// TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
-		
-		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($params->get('gallery_path')); // TODO safe enough?
 		$params->set('gallery_path', $this->galleryPath); // for legacy use
-		
-		$this->loadJQuery = (int) $params->get('load_jquery', 1);
+	}
+	
+	private function setGalleryPath($galleryPath) {
+
+		// TODO check if absolute path is used as gallery_path in settings and add JPATH_BASE just if relative
+		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($galleryPath); // TODO safe enough?
+	}
+	
+	private function setLoadJQuery($loadJQuery) {
+		$this->loadJQuery = (int) $loadJQuery;
 	}
 		
 	public function getRequestPathWithFilename() {
 		return $this->galleryPath . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
 	}
+	
+	public function getCurrentRequestPath() {
+		return $this->currentRequestPath; // TODO refactor to absolute path
+	}
 		
 	public function getPhotosPath() {
 		return $this->galleryPath . DS . 'photos';
+	}
+	
+	public function getGalleryPath() {
+		return $this->galleryPath;
 	}
 	
 	/* check if path is valid and raise error otherwise */
