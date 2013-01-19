@@ -6,11 +6,10 @@ class GalleryViewGallery extends JView
 {
 	function display($tpl = null)
 	{
-		// params
-		$gallery = JRequest::getVar('gallery', null);
+		$gallery = JModel::getInstance('Gallery', 'GalleryModel');
 		
 		// new folder
-		$folder = new Folder($gallery->getGalleryPath(), $gallery->getCurrentRequestPath());
+		$folder = JModel::getInstance('Folder', 'GalleryModel');
 		
 		// get child folders of this folder
 		$childFolders = $folder->getChildFolders(false);
@@ -81,8 +80,7 @@ class GalleryViewGallery extends JView
 			}
 			
 			// replace underscores
-			$tmpFolder = new Folder($galleryPath, $folderName); // TODO use a static methode to remove object overhead
-			$folderName = $tmpFolder->getReadableFolderName();
+			$folderName = GalleryHelper::getReadableFolderName($folderName);
 			
 			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
 		}

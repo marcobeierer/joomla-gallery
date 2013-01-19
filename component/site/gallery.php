@@ -2,47 +2,37 @@
 defined('_JEXEC') or die('Restricted access');
 
 /* include files (TODO use spl autoload) */ 
-require_once(JPATH_COMPONENT . DS . 'controller.php');
 require_once(JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
 require_once(JPATH_COMPONENT . DS . 'models' . DS . 'gallery.php');
+require_once(JPATH_COMPONENT . DS . 'models' . DS . 'folder.php');
+require_once(JPATH_COMPONENT . DS . 'models' . DS . 'photo.php');
 
-require_once(JPATH_COMPONENT . DS . 'classes' . DS . 'folder.php');
-require_once(JPATH_COMPONENT . DS . 'classes' . DS . 'photo.php');
+require_once(JPATH_COMPONENT . DS . 'controller.php');
 /* --- */
 
 /* Require specific controller if requested */
-if ($controller = JRequest::getWord('controller')) {
+if ($controller = JRequest::getWord('controller', 'Gallery')) {
 	
     $path = JPATH_COMPONENT . DS . 'controllers' . DS . $controller . '.php';
     if (file_exists($path)) {
         require_once($path);
-    } else {
-        $controller = '';
     }
 }
 /* --- */
 
-/* initialise gallery */
-$app =& JFactory::getApplication();
-$gallery = new Gallery($app->getParams());
-
-$gallery->validateRequestPath();
-$gallery->createHtaccessFile(); // TODO necessary with every call?
-$gallery->createInitialDirectories();
-//$gallery->handleFileRequests();
-$gallery->setModuleParams();
-/* --- */
-
-JRequest::setVar('gallery', $gallery); // TODO is there a better way?
-
-// execute gallery controller
-//$galleryController = new GalleryController();
-//$galleryController->execute(true);
+//JRequest::setVar('gallery', $gallery); // TODO is there a better way?
+GalleryHelper::validateRequestPath();
 
 // execute requested controller
-$classname = 'GalleryController' . $controller; 
-$controller = new $classname(); 
+$controller = JController::getInstance($controller);
+
+if ($controller->getName() == 'gallery') {
+
+	$controller->execute('createHtaccessFile');
+	$controller->execute('createInitialDirectories');
+	$controller->execute('setModuleParams');
+}
 
 $controller->execute(true); // TODO or JRequest::getVar('task')
 $controller->redirect(); 
