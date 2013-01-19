@@ -1,4 +1,11 @@
 # TODO (wichtig)
+- Refactoring
+	- classes = model?
+	- controller for file request
+		- router anpassen
+	- update xml und build
+	- gallery als model oder nicht?
+
 - Tests und Testplaene
 
 - Exif/IPTC/XMP Daten auslesen und verwerten
@@ -7,9 +14,6 @@
 	- Titel
 	- Keywords
 	- Beschreibung
-	
-- Refactoring
-	- classes = model?
 
 - filterung von als privat markierten bilder, wenn nicht eingeloggt
 	- meta info oder dateiname

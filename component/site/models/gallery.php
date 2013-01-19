@@ -1,7 +1,9 @@
 <?php
 defined('_JEXEC') or die('Restricted Access');
+jimport('joomla.application.component.modelitem');
 
-class Gallery extends JObject { 
+//class GalleryModelGallery extends JModelItem { // TODO 
+	class Gallery extends JModelItem { 
 	
 	private $galleryPath;
 	private $currentRequestPath;
@@ -24,7 +26,7 @@ class Gallery extends JObject {
 	
 	private function loadSafeRequestVars() {
 		
-		if (JRequest::getVar('view') == 'file') {
+		if (JRequest::getVar('controller') == 'file') {
 			$pathObject = GalleryHelper::splitPath(JRequest::getString('path', ''));
 			
 			$this->currentRequestPath = JFolder::makeSafe($pathObject->folderPath);
@@ -81,12 +83,14 @@ class Gallery extends JObject {
 	
 	/* check if path is valid and raise error otherwise */
 	public function validateRequestPath() { 
-		
-		if (JRequest::getVar('view') == 'file') { // TODO cleaner
+				
+		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
 			$fullPath = $this->galleryPath . DS . $this->currentRequestPath;
 		} else {
 			$fullPath = $this->galleryPath . DS . 'photos' . DS . $this->currentRequestPath;
 		}
+		
+		//echo $fullPath;exit;
 		
 		if ($this->currentRequestPath != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
 			JError::raiseError(404, JText::_("Page Not Found")); exit;
@@ -110,30 +114,6 @@ class Gallery extends JObject {
 		
 		if (!JFolder::exists($this->getPhotosPath())) { // TODO error handling
 			JFolder::create($this->getPhotosPath());
-		}
-	}
-	
-	public function handleFileRequests() {
-
-		if (JRequest::getVar('view') == 'file') {
-
-			$filepath = $this->getRequestPathWithFilename();
-			if (file_exists($filepath)) {
-				
-				// open the file in a binary mode
-				$fp = fopen($filepath, 'rb');
-				
-				// send the right headers
-				header('Accept-Ranges: bytes');
-				header('Content-Length: ' . filesize($filepath));
-				header('Content-Type: ' . mime_content_type($filepath));
-				//header('Cache-Control: public, min-fresh=3600, max-age=3600, s-maxage=3600, must-revalidate');
-				
-				// dump the picture and stop the script
-				fpassthru($fp);
-				fclose($fp);
-			}
-			exit;
 		}
 	}
 	

@@ -6,10 +6,10 @@ function GalleryBuildRoute(&$query)
 	$segments = array();
 	
 	// add file segment if it is a file request
-	if ($query['view'] == 'file') {
-		$segments[] = $query['view'];
+	if ($query['controller'] == 'file') {
+		$segments[] = $query['controller'];
 	}
-	unset($query['view']);
+	unset($query['controller']);
 	
 	if (isset($query['path'])) {
 		$segments[] = $query['path'];
@@ -34,7 +34,7 @@ function GalleryParseRoute($segments)
 		
 		// check if it is a file request
 		if ($segments[0] == 'file') { // TODO what happens if a folder in the filepath is called 'file'?
-			$vars['view'] = 'file';
+			$vars['controller'] = 'file';
 			array_shift($segments); // remove first element which was 'file'
 		}
 		else {
