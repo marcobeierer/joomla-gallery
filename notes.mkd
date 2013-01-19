@@ -6,6 +6,8 @@
 	- update xml und build
 	- gallery als model oder nicht?
 
+- Bug fixen mit Jquery loading (und shutter, capty)
+
 - Tests und Testplaene
 
 - Exif/IPTC/XMP Daten auslesen und verwerten
