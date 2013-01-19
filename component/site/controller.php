@@ -6,19 +6,20 @@ class GalleryController extends JController
 { 
 	function display() {
 		
-		/* initialise gallery */
-		$app =& JFactory::getApplication();
-		$gallery = new Gallery($app->getParams());
+//		/* initialise gallery */
+//		$app =& JFactory::getApplication();
+//		$gallery = new Gallery($app->getParams());
+//		
+//		$gallery->validateRequestPath();
+//		$gallery->createHtaccessFile(); // TODO necessary with every call?
+//		$gallery->createInitialDirectories();
+//		//$gallery->handleFileRequests();
+//		$gallery->setModuleParams();
+//		/* --- */
 		
-		$gallery->validateRequestPath();
-		$gallery->createHtaccessFile(); // TODO necessary with every call?
-		$gallery->createInitialDirectories();
-		$gallery->handleFileRequests();
-		$gallery->setModuleParams();
-		/* --- */
+		//JRequest::setVar('gallery', $gallery); // TODO is there a better way?
 		
-		JRequest::setVar('gallery', $gallery); // TODO is there a better way?
-		parent::display(); 
+		parent::display();
 	}
 } 
 ?>

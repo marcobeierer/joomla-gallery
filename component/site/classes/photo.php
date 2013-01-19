@@ -91,7 +91,7 @@ class Photo extends JObject
 		if ($this->thumbnail == null) {
 			$this->resize('thumbnail', 220, 220, true); // TODO as params
 		}
-		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $this->thumbnailFilepath);
+		return JRoute::_('index.php?option=com_gallery&controller=file&path=' . $this->thumbnailFilepath);
 	}
 	
 	public function getResizedURL() { // TODO merge with getThumbnailURL
@@ -100,6 +100,6 @@ class Photo extends JObject
 			$this->resize('resized', 1110, 888); // TODO as params
 		}
 		
-		return JRoute::_('index.php?option=com_gallery&view=file&path=' . $this->resizedFilepath);
+		return JRoute::_('index.php?option=com_gallery&controller=file&path=' . $this->resizedFilepath);
 	}
 }
