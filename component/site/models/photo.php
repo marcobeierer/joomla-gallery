@@ -1,22 +1,25 @@
 <?php
 defined('_JEXEC') or die('Restricted Access'); 
-class Photo extends JObject
+jimport('joomla.application.component.model');
+
+class GalleryModelPhoto extends JModel
 {
+	private $gallery;
+	
 	private $folder;
 	private $filename;
-	
-	private $params;
 	
 	private $thumbnailFilepath;
 	private $resizedFilepath; // TODO other name
 
 	
-	function __construct(Folder $folder, $filename) {
+	function __construct($config) {
 
-		$this->folder = $folder;
-		$this->filename = $filename;
+		parent::__construct();
+		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
 		
-		$this->params = JFactory::getApplication()->getParams();
+		$this->folder = $config['folder'];
+		$this->filename = $config['filename'];
 	}
 	
 	public function getFolder() {
@@ -39,14 +42,14 @@ class Photo extends JObject
 		
 		if ($type == 'thumbnail') {
 			
-			$path = $this->folder->getThumbnailsPath();
+			$path = $this->gallery->getThumbnailsPath();
 			$filePath = &$this->thumbnailFilepath;
 			$scale = 3; // SCALE_OUTSIDE
 			$options =  array('quality' => 75); // TODO as param
 		}
 		else if ($type == 'resized') {
 			
-			$path = $this->folder->getResizedPath();
+			$path = $this->gallery->getResizedPath();
 			$filePath = &$this->resizedFilepath;
 			$scale = 2; // SCALE_INSIDE
 			$options =  array('quality' => 85); // TODO as param
@@ -57,7 +60,7 @@ class Photo extends JObject
 		
 		// define file paths
 		$newPhotoFilepath = $path . DS . $this->folder->getFolderPath() . DS . $this->filename;
-		$photoFilepath = $this->folder->getPhotosPath() . DS . $this->folder->getFolderPath() . DS . $this->filename;
+		$photoFilepath = $this->gallery->getPhotosPath() . DS . $this->folder->getFolderPath() . DS . $this->filename;
 		
 		// check if thumbnail already exists and create it if not
 		if (!JFile::exists($newPhotoFilepath)) { // TODO add check if file size (width and height) is correct
@@ -79,7 +82,7 @@ class Photo extends JObject
 			}
 		}
 
-		$filePath = str_replace($this->folder->getGalleryPath(), '', $newPhotoFilepath);
+		$filePath = str_replace($this->gallery->getGalleryPath(), '', $newPhotoFilepath);
 	}
 	
 	private function getURL() {

@@ -2,13 +2,13 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 jimport('joomla.application.component.controller');
 
-class GalleryControllerFile extends JController {
+class FileController extends JController {
 	
 	private $gallery;
 	
 	function display() {
 		
-		$this->gallery = JRequest::getVar('gallery', null);
+		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
 		$this->handleFileRequest();
 	}
 	
