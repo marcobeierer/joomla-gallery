@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Gallery" default="copy_all" basedir=".">
+
+	<property name="source" value="./src" />
+	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
+	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
+	<property name="extension" value="com_gallery" />
+
+	<target name="copy_all" description="Copies files to test project.">
+		<echo message="Running build.xml. Copying files from dev to test..." />
+		
+		<copy todir="${joomla_install}/administrator/components/${extension}">
+			<fileset dir="${source}/admin">
+				<include name="**" />
+				<include name="../${extension_xml}" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/administrator/language">
+			<fileset dir="${source}/admin/language">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/components/${extension}">
+			<fileset dir="${source}/site">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
+		<copy todir="${joomla_install}/media/${extension}">
+			<fileset dir="${source}/media">
+				<include name="**" />
+			</fileset>
+		</copy>
+		
+		<echo message="Finished" />
+	</target>
+	
+	<target name="package" description="Create package.">
+		<echo message="Running build.xml. Creating package..." />
+	
+		<zip destfile="./packages/${extension}-latest.zip">
+			<fileset dir="${source}">
+				<include name="**" />
+				<exclude name="site/views/galleries/**" />
+				<exclude name="site/views/photo/**" />
+			</fileset>
+        </zip>
+		
+		<tar destfile="./packages/${extension}-latest.tar.gz" compression="gzip">
+			<fileset dir="${source}">
+				<include name="**" />
+				<exclude name="site/views/galleries/**" />
+				<exclude name="site/views/photo/**" />
+			</fileset>
+        </tar>
+		
+		<echo msg="Files copied and archive file created OK!" />
+	</target>
+	
+</project>
