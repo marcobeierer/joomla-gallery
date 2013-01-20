@@ -1,4 +1,7 @@
-# TODO (wichtig)
+componente und module in eigene projekte auslagern
+
+
+# TODO (naechste version)
 - Refactoring
 	- classes = model?
 	- controller for file request
@@ -6,10 +9,6 @@
 	- update xml und build
 	- gallery als model oder nicht?
 	
-- Ladezeiten (vorallem startseite von einer galerie) optimieren
-	- live site: 200ms
-	- dev site: 3 sek
-
 - Bug fixen mit Jquery loading (und shutter, capty)
 
 - Tests und Testplaene
@@ -21,6 +20,8 @@
 	- Keywords
 	- Beschreibung
 
+
+# TODO (wichtig)
 - filterung von als privat markierten bilder, wenn nicht eingeloggt
 	- meta info oder dateiname
 
@@ -34,7 +35,7 @@
 
 - lokalisierung von dateinamen
 
-- Performance optimieren
+- Performance/Ladezeit optimieren
 	- Gallery images as css sprites
 	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
 	

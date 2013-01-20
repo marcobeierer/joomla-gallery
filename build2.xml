@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Gallery" default="copy_all" basedir=".">
 
-	<property name="source" value="./component" />
-	<property name="source_modules" value="./modules" />
+	<property name="source" value="./src" />
 	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
 	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
 	<property name="extension" value="com_gallery" />
-	<property name="extension_xml" value="gallery.xml" />
 
 	<target name="copy_all" description="Copies files to test project.">
 		<echo message="Running build.xml. Copying files from dev to test..." />
@@ -36,19 +34,6 @@
 			</fileset>
 		</copy>
 		
-		<copy todir="${joomla_install}/modules">
-			<fileset dir="${source_modules}">
-				<include name="**" />
-				<exclude name="mod_gallery_navigation/language/**" />
-			</fileset>
-		</copy>
-		
-		<copy todir="${joomla_install}/language">
-			<fileset dir="${source_modules}/mod_gallery_navigation/language">
-				<include name="**" />
-			</fileset>
-		</copy>
-		
 		<echo message="Finished" />
 	</target>
 	
@@ -57,29 +42,17 @@
 	
 		<zip destfile="./packages/${extension}-latest.zip">
 			<fileset dir="${source}">
-				<include name="admin/**" />
-				<include name="media/**" />
-				<include name="site/**" />
+				<include name="**" />
 				<exclude name="site/views/galleries/**" />
 				<exclude name="site/views/photo/**" />
-				<!--<include name="sql/**" />-->
-				<include name="${extension_xml}" />
-				<include name="LICENSE.txt" />
-				<include name="CHANGELOG.txt" />
 			</fileset>
         </zip>
 		
 		<tar destfile="./packages/${extension}-latest.tar.gz" compression="gzip">
 			<fileset dir="${source}">
-				<include name="admin/**" />
-				<include name="media/**" />
-				<include name="site/**" />
+				<include name="**" />
 				<exclude name="site/views/galleries/**" />
 				<exclude name="site/views/photo/**" />
-				<!--<include name="sql/**" />-->
-				<include name="${extension_xml}" />
-				<include name="LICENSE.txt" />
-				<include name="CHANGELOG.txt" />
 			</fileset>
         </tar>
 		
