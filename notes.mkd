@@ -50,6 +50,7 @@ componente und module in eigene projekte auslagern
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
 	- separater view?
 
+- htaccess change should be unnecessary... or automated
 
 # TODO
 - Steuerung ueber Tastatur (navigation)

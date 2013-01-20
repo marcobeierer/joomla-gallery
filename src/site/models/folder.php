@@ -40,14 +40,23 @@ class GalleryModelFolder extends JModel {
 		return $childFolderList;
 	}
 	
-	public function hasPhotos($recursive = false) {
+	public function getChildFoldersWithoutEmptyFolders() {
 		
-		if ($recursive) {
-			$photos = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', true);
-		} else {
-			$photos = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', false);
+		$childFolders = $this->getChildFolders();
+		
+		// remove empty folders from list
+		for ($i = 0; $i < $childFolders->count(); $i++) {
+			if (!$childFolders[$i]->hasPhotos(true)) {
+				$childFolders->offsetUnset($i);
+			}
 		}
 		
+		return $childFolders;
+	}
+	
+	public function hasPhotos($recursive = false) {
+		
+		$photos = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', $recursive);
 		return count($photos) > 0;
 	}
 
@@ -55,12 +64,7 @@ class GalleryModelFolder extends JModel {
 
 		// TODO create $photoList for every call or just once?
 		
-		if ($recursive) {
-			$photoPaths = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', true, true);
-		} else {
-			$photoPaths = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', false, true);
-		}
-		
+		$photoPaths = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', $recursive, true);
 		$photoList = new SplDoublyLinkedList();
 
 		foreach ($photoPaths as $photoPath) {
@@ -89,7 +93,7 @@ class GalleryModelFolder extends JModel {
 		return $photoList;
 	}
 
-	// get random folder preview photos
+	/* get random folder preview photos */
 	public function getPreviewPhoto() {
 		
 		$photos = $this->getPhotos(true);

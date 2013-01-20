@@ -45,8 +45,6 @@ class GalleryModelGallery extends JModel {
 		$this->setGalleryPath($params->get('gallery_path', ''));
 		$this->setShowBacklink($params->get('show_backlink', 1));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
-		
-		//$params->set('gallery_path', $this->galleryPath); // for legacy use
 	}
 	
 	private function setGalleryPath($galleryPath) {
@@ -62,8 +60,6 @@ class GalleryModelGallery extends JModel {
 	private function setShowBacklink($showBacklink) {
 		$this->showBacklink = (bool) $showBacklink;
 	}
-	
-	
 		
 	public function getRequestPathWithFilename() {
 		return $this->galleryPath . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;

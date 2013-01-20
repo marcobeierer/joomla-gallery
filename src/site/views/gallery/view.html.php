@@ -4,45 +4,70 @@ jimport('joomla.application.component.view');
 
 class GalleryViewGallery extends JView
 {
+	private $app;
+	public $document; // TODO why not private?
+	private $pathway;
+	
+	private $gallery;
+	private $folder;
+	
 	function display($tpl = null)
 	{
-		$gallery = JModel::getInstance('Gallery', 'GalleryModel');
+		$this->app =& JFactory::getApplication();
+		$this->document =& JFactory::getDocument();
+		$this->pathway =& JSite::getPathway();
 		
-		// new folder
-		$folder = JModel::getInstance('Folder', 'GalleryModel');
+		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
+		$this->folder = JModel::getInstance('Folder', 'GalleryModel');
 		
 		// get child folders of this folder
-		$childFolders = $folder->getChildFolders(false);
-		
-		// remove empty folders from list
-		for ($i = 0; $i < $childFolders->count(); $i++) {
-			if (!$childFolders[$i]->hasPhotos(true)) {
-				$childFolders->offsetUnset($i);
-			}
-		}
+		$childFolders = $this->folder->getChildFoldersWithoutEmptyFolders();
 
 		// get photos of this folder
-		$photos = $folder->getPhotos();
+		$photos = $this->folder->getPhotos();
 
-		// add scripts
-		$document = &JFactory::getDocument();
+		// load js and css files
+		$this->loadJavaScripts();
+		$this->loadCSS();
 		
-		if ($gallery->shouldLoadJQuery()) {
-			$document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+		// get title
+		if ($this->gallery->getCurrentRequestPath() == '') {
+			$title = 'Gallery';
+		} else {
+			$title = $this->folder->getFolderName();
 		}
 		
-		$document->addScript('media/com_gallery/js/shutter-reloaded.js');
-		$document->addScript('media/com_gallery/js/jquery.capty.min.js');
+		// set breadcrumbs and title
+		$this->setBreadcrumbs();
+		$this->setTitle();
+		
+		// assign Variables
+		$this->assignRef('title', $title);
+		$this->assignRef('childFolders', $childFolders);
+		$this->assignRef('photos', $photos);
+		$this->assignRef('showBacklink', $this->gallery->showBacklink());
+
+		parent::display($tpl);
+	}
+	
+	private function loadJavaScripts() {
+		
+		if ($this->gallery->shouldLoadJQuery()) {
+			$this->document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+		}
+		
+		$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
+		$this->document->addScript('media/com_gallery/js/jquery.capty.min.js');
 		
 		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
 		
-		$document->addScriptDeclaration('
+		$this->document->addScriptDeclaration('
 			$(document).ready(function() {
 				shutterReloaded.init(0, \''. $shutterImagesPath . '\');
 			});
 		');
 		
-		$document->addScriptDeclaration('
+		$this->document->addScriptDeclaration('
 			$(document).ready(function(){
 				$(\'#gallery .caption\').capty({
 					animation: \'fade\',
@@ -50,24 +75,18 @@ class GalleryViewGallery extends JView
 				});
 			});
 		');
-		// ---
+	}
+	
+	private function loadCSS() {
 		
-		// add css
-		$document->addStyleSheet('media/com_gallery/css/gallery.style.css');
-		$document->addStyleSheet('media/com_gallery/css/jquery.capty.css');
-		$document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
-		
-		// get title
-		if ($gallery->getCurrentRequestPath() == '') {
-			$title = 'Gallery';
-		} else {
-			$title = $folder->getFolderName();
-		}
-		
-		// set breadcrumbs
-		$pathway = JSite::getPathway();
+		$this->document->addStyleSheet('media/com_gallery/css/gallery.style.css');
+		$this->document->addStyleSheet('media/com_gallery/css/jquery.capty.css');
+		$this->document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
+	}
+	
+	private function setBreadcrumbs() {
 				
-		foreach ($folder->getFolderNames() as $folderName) {
+		foreach ($this->folder->getFolderNames() as $folderName) {
 			
 			if ($folderName == '') {
 				continue; // skip if foldername is empty
@@ -82,38 +101,29 @@ class GalleryViewGallery extends JView
 			// replace underscores
 			$folderName = GalleryHelper::getReadableFolderName($folderName);
 			
-			$pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
+			$this->pathway->addItem($folderName, 'index.php?option=com_gallery&path=' . $currentPath);
 		}
-		
-		// set title
-		$document = JFactory::getDocument();
-		$folderName = $folder->getReadableFolderName();
-		$app = JFactory::getApplication();
+	}
+	
+	private function setTitle() {
+				
+		$folderName = $this->folder->getReadableFolderName();
 		
 		if ($folderName == '') {
-			$folderName = $document->getTitle();
+			$folderName = $this->document->getTitle();
 		}
 		
-		$sitename = $app->getCfg('sitename', ''); // TODO validate ?
-		switch ($app->getCfg('sitename_pagetitles', 0)) {
+		$sitename = $this->app->getCfg('sitename', ''); // TODO validate ?
+		switch ($this->app->getCfg('sitename_pagetitles', 0)) {
 			case 2: // after
-				$document->setTitle($folderName . ' - ' . $sitename);
+				$this->document->setTitle($folderName . ' - ' . $sitename);
 				break;
 			case 1: // before
-				$document->setTitle($sitename . ' - ' . $folderName);
+				$this->document->setTitle($sitename . ' - ' . $folderName);
 				break;
 			default: // none
-				$document->setTitle($folderName);
+				$this->document->setTitle($folderName);
 		}
-		// ---
-		
-		// assign Variables
-		$this->assignRef('title', $title);
-		$this->assignRef('childFolders', $childFolders);
-		$this->assignRef('photos', $photos);
-		$this->assignRef('showBacklink', $gallery->showBacklink());
-
-		parent::display($tpl);
 	}
 }
 ?>

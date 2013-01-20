@@ -12,20 +12,6 @@ class GalleryController extends JController
 		$this->model = JModel::getInstance('Gallery', 'GalleryModel');
 	}
 
-	/* check if path is valid and raise error otherwise */
-	public function validateRequestPath() { 
-		
-		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
-			$fullPath = $this->model->getGalleryPath() . DS . $this->model->getCurrentRequestPath();
-		} else {
-			$fullPath = $this->model->getGalleryPath() . DS . 'photos' . DS . $this->model->getCurrentRequestPath();
-		}
-		
-		if ($this->model->getCurrentRequestPath() != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
-			JError::raiseError(404, JText::_("Page Not Found")); exit;
-		}
-	}
-	
 	/* create htaccess file if it not already exists */
 	public function createHtaccessFile() {
 		
