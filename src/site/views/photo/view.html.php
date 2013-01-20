@@ -8,7 +8,7 @@ class GalleryViewPhoto extends JView
 	{
 		// params
 		$params = JFactory::getApplication()->getParams();
-		$galleryPath = $params->get('gallery_path');
+		$galleryPath = $params->get('gallery_path'); // TODO not safe
 		
 		// validate
 		$folderPath = JFolder::makeSafe(JRequest::getString('path'));

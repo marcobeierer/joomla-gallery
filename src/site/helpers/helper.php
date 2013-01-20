@@ -42,10 +42,11 @@ class GalleryHelper {
 		$model = JModel::getInstance('Gallery', 'GalleryModel');
 		
 		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
-			$fullPath = $model->getGalleryPath() . DS . $model->getCurrentRequestPath();
+			$fullPath = $model->getGalleryPath();
 		} else {
-			$fullPath = $model->getGalleryPath() . DS . 'photos' . DS . $model->getCurrentRequestPath();
+			$fullPath = $model->getPhotosPath();
 		}
+		$fullPath .= DS . $model->getCurrentRequestPath();
 		
 		if ($model->getCurrentRequestPath() != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
 			JError::raiseError(404, JText::_("Page Not Found")); exit;

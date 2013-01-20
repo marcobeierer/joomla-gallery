@@ -21,7 +21,6 @@ if ($controller = JRequest::getWord('controller', 'Gallery')) {
 }
 /* --- */
 
-//JRequest::setVar('gallery', $gallery); // TODO is there a better way?
 GalleryHelper::validateRequestPath();
 
 // execute requested controller
@@ -34,6 +33,6 @@ if ($controller->getName() == 'gallery') {
 	$controller->execute('setModuleParams');
 }
 
-$controller->execute(true); // TODO or JRequest::getVar('task')
+$controller->execute(true);
 $controller->redirect(); 
 ?>
