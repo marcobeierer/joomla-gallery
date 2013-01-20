@@ -34,6 +34,10 @@
 
 - lokalisierung von dateinamen
 
+- Performance optimieren
+	- Gallery images as css sprites
+	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
+	
 
 # TODO (kleine Aufgaben)
 - langsamen bildaufbau fixen

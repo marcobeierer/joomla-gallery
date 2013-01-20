@@ -71,9 +71,19 @@ class GalleryModelFolder extends JModel {
 			$filename = array_pop($parts);
 
 			$folderPath = implode('/', $parts);
-			$folder = JModel::getInstance('Folder', 'GalleryModel', array($folderPath)); // TODO make sure that no folder object is created twice
-
-			$photoList->push(JModel::getInstance('Photo', 'GalleryModel', array('folder' => $folder, 'filename' => $filename)));
+			
+			if ($recursive) {
+				
+				$photoPathObject->folderPath = $folderPath;
+				$photoPathObject->filename = $filename;
+				
+				$photoList->push($photoPathObject);
+			}
+			else {
+				
+				$folder = JModel::getInstance('Folder', 'GalleryModel', array($folderPath)); // TODO make sure that no folder object is created twice
+				$photoList->push(JModel::getInstance('Photo', 'GalleryModel', array('folder' => $folder, 'filename' => $filename)));
+			}
 		}
 
 		return $photoList;
@@ -91,6 +101,9 @@ class GalleryModelFolder extends JModel {
 		$previewPhotoIndex = rand(0, $photos->count() - 1);
 		$previewPhoto = $photos->offsetGet($previewPhotoIndex);
 
+		$folder = JModel::getInstance('Folder', 'GalleryModel', array($previewPhoto->folderPath)); // TODO make sure that no folder object is created twice
+		$previewPhoto = JModel::getInstance('Photo', 'GalleryModel', array('folder' => $folder, 'filename' => $previewPhoto->filename));
+		
 		return $previewPhoto;
 	}
 	

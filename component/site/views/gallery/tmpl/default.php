@@ -6,7 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 	<div id="folders">
 		<?php foreach($this->childFolders as $childFolder) { ?>
 			<div class="gallery_item">
-				<a href="<?php  echo JRoute::_('index.php?option=com_gallery&path=' . $childFolder->getFolderPath()); ?>">
+				<a href="<?php echo JRoute::_('index.php?option=com_gallery&path=' . $childFolder->getFolderPath()); ?>">
 					<img class="caption" alt="<?php echo $childFolder->getReadableFolderName(); ?>" src="<?php echo $childFolder->getPreviewPhoto()->getThumbnailURL(); ?>" />
 				</a>
 			</div>
