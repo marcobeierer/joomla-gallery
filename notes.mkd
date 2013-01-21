@@ -1,17 +1,5 @@
-componente und module in eigene projekte auslagern
-
-
 # TODO (naechste version)
-- Refactoring
-	- classes = model?
-	- controller for file request
-		- router anpassen
-	- update xml und build
-	- gallery als model oder nicht?
-	
-- Bug fixen mit Jquery loading (und shutter, capty)
-
-- Tests und Testplaene
+- Tests und Testplaene / Assertions
 
 - Exif/IPTC/XMP Daten auslesen und verwerten
 	- Copyright
@@ -20,8 +8,22 @@ componente und module in eigene projekte auslagern
 	- Keywords
 	- Beschreibung
 
+- Bug fixen mit Jquery loading (und shutter, capty)
+
+
+# TODO (bis beta)
+- lokalisierung von dateinamen
+- add params (image with and height) (as plugin?)
+
 
 # TODO (wichtig)
+- Performance/Ladezeit optimieren
+	- Gallery images as css sprites
+	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
+	- there should be just one instance of each model!!!
+		- one gallery
+		- for each folder one folder instance etc.
+
 - filterung von als privat markierten bilder, wenn nicht eingeloggt
 	- meta info oder dateiname
 
@@ -32,25 +34,19 @@ componente und module in eigene projekte auslagern
 	- damit als Saas angeboten werden kann
 	- Mehrbenutzer (fotografen) -faehig
 	- Image Upload (FTP Plugin?)
-
-- lokalisierung von dateinamen
-
-- Performance/Ladezeit optimieren
-	- Gallery images as css sprites
-	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
 	
 
 # TODO (kleine Aufgaben)
 - langsamen bildaufbau fixen
 	- activate caching (just browser) (set header not to no-cache)
 	- add cache header
-	
-- add params (image with and height) (as plugin?)
+
 - rename resized to preview
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
 	- separater view?
 
-- htaccess change should be unnecessary... or automated
+- htaccess change shouldn't be necessary... or automated
+
 
 # TODO
 - Steuerung ueber Tastatur (navigation)
@@ -108,12 +104,14 @@ componente und module in eigene projekte auslagern
 
 
 # Before release
+- add news section to website
 - add changelog to website
 
 - Check, ob shutter noch gut dargestellt wird
 - remove deutsche dateinamen umwandlung
 - versionsangabe und datum aendern
 - changelog ergaenzen
+- XML file ueberpruefen
 
 - demo gallerie updaten (auf webguerilla)
 
@@ -121,6 +119,9 @@ componente und module in eigene projekte auslagern
 # After Release
 - add tag for release
 - aktivate deutsche dateinamen umwandlung
+
+- write aboutcms article
+- commit change to directories (joomlaos etc.)
 
 
 # Marketing

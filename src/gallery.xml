@@ -14,9 +14,11 @@
 	<license>http://www.gnu.org/licenses/agpl-3.0.html GNU/AGPL</license>
 
 	<files folder="site">
-		<folder>classes</folder>
+		<folder>controllers</folder>
 		<folder>helpers</folder>
+		<folder>models</folder>
 		<folder>views</folder>
+		
 		<file>controller.php</file>
 		<file>gallery.php</file>
 		<file>router.php</file>
@@ -35,6 +37,8 @@
 		<files folder="admin">
 			<folder>language</folder>
 			<folder>views</folder>
+			
+			<file>config.xml</file>
 			<file>controller.php</file>
 			<file>gallery.php</file>
 			<file>index.html</file>
@@ -45,4 +49,5 @@
 			<language tag="en-GB">en-GB/en-GB.com_gallery.sys.ini</language>
 		</languages>
 	</administration>
+	
 </extension>
