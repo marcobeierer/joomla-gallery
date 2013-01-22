@@ -1,3 +1,7 @@
+what is model state?
+http://forum.joomla.org/viewtopic.php?p=2441734
+
+
 # TODO (naechste version)
 - Tests und Testplaene / Assertions
 
@@ -12,6 +16,10 @@
 	- nur noch capty problem (jquery.noconflict) inject?
 	- http://api.jquery.com/jQuery.noConflict/
 
+- there should be just one instance of each model!!!
+	- one gallery
+	- for each folder one folder instance etc.
+
 # TODO (bis beta)
 - lokalisierung von dateinamen
 - add params (image with and height) (as plugin?)
@@ -24,9 +32,6 @@
 - Performance/Ladezeit optimieren
 	- Gallery images as css sprites
 	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
-	- there should be just one instance of each model!!!
-		- one gallery
-		- for each folder one folder instance etc.
 
 - filterung von als privat markierten bilder, wenn nicht eingeloggt
 	- meta info oder dateiname

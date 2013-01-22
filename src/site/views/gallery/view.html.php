@@ -17,7 +17,7 @@ class GalleryViewGallery extends JView
 		$this->document =& JFactory::getDocument();
 		$this->pathway =& JSite::getPathway();
 		
-		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
+		$this->gallery =& $this->getModel();
 		$this->folder = JModel::getInstance('Folder', 'GalleryModel');
 		
 		// get child folders of this folder

@@ -4,18 +4,24 @@ jimport('joomla.application.component.controller');
 
 class GalleryController extends JController
 {
-	private $model;
+	private static $model;
 	
 	public function __construct() {
-		
 		parent::__construct();
-		$this->model = JModel::getInstance('Gallery', 'GalleryModel');
+	}
+	
+	public function getModel() {
+		
+		if (!isset(self::$model)) {
+			self::$model = parent::getModel('Gallery', 'GalleryModel'); // or use JModel::getInstance('Gallery', 'GalleryModel'); ?
+		}
+		return self::$model;
 	}
 
 	/* create htaccess file if it not already exists */
 	public function createHtaccessFile() {
 		
-		$htaccessPath = $this->model->getGalleryPath() . DS . '.htaccess';
+		$htaccessPath = $this->getModel()->getGalleryPath() . DS . '.htaccess';
 		
 		if (!JFile::exists($htaccessPath)) { // TODO error handling
 			
@@ -27,19 +33,19 @@ class GalleryController extends JController
 	/* create photos directory if it not already exists */
 	public function createInitialDirectories() {
 		
-		if (!JFolder::exists($this->model->getPhotosPath())) { // TODO error handling
-			JFolder::create($this->model->getPhotosPath());
+		if (!JFolder::exists($this->getModel()->getPhotosPath())) { // TODO error handling
+			JFolder::create($this->getModel()->getPhotosPath());
 		}
 	}
 	
 	public function setModuleParams() {
 		
 		JRequest::setVar('is_gallery', true);
-		JRequest::setVar('current_path', $this->model->getPhotosPath() . DS . $this->model->getCurrentRequestPath());
-		JRequest::setVar('photos_path', $this->model->getPhotosPath());
+		JRequest::setVar('current_path', $this->getModel()->getPhotosPath() . DS . $this->getModel()->getCurrentRequestPath());
+		JRequest::setVar('photos_path', $this->getModel()->getPhotosPath());
 	}
 	
-	function display() {
+	public function display() {
 		parent::display();
 	}
 } 

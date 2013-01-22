@@ -37,9 +37,7 @@ class GalleryHelper {
 	}
 	
 	/* check if path is valid and raise error otherwise */
-	public static function validateRequestPath() { 
-		
-		$model = JModel::getInstance('Gallery', 'GalleryModel');
+	public static function validateRequestPath(&$model) { 
 		
 		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
 			$fullPath = $model->getGalleryPath();
