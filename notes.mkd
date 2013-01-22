@@ -9,12 +9,16 @@
 	- Beschreibung
 
 - Bug fixen mit Jquery loading (und shutter, capty)
-
+	- nur noch capty problem (jquery.noconflict) inject?
+	- http://api.jquery.com/jQuery.noConflict/
 
 # TODO (bis beta)
 - lokalisierung von dateinamen
 - add params (image with and height) (as plugin?)
 
+- htaccess change shouldn't be necessary... or automated
+	- should also work with all photo types (jpg, png, JPG etc.)
+	- also fix this in the router
 
 # TODO (wichtig)
 - Performance/Ladezeit optimieren
@@ -45,7 +49,7 @@
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
 	- separater view?
 
-- htaccess change shouldn't be necessary... or automated
+
 
 
 # TODO

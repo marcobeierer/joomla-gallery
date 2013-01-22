@@ -30,7 +30,7 @@ function GalleryParseRoute($segments)
 	$count = count($segments);
 	
 	// check if segements ends with .jpg
-	if (preg_match('/\.jpg$/', $segments[$count - 1]) === 1) { // TODO jpg as param
+	if (preg_match('/\.(jpg|JPG)$/', $segments[$count - 1]) === 1) { // TODO jpg as param
 		
 		// check if it is a file request
 		if ($segments[0] == 'file') { // TODO what happens if a folder in the filepath is called 'file'?
