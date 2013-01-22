@@ -4,17 +4,23 @@ jimport('joomla.application.component.controller');
 
 class FileController extends JController {
 	
-	private $gallery;
+	private static $gallery;
 	
 	function display() {
-		
-		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
 		$this->handleFileRequest();
+	}
+	
+	public function getModel() { // TODO just once for all controllers (abstract parent controller class?)
+	
+		if (!isset(self::$gallery)) {
+			self::$gallery = parent::getModel('Gallery', 'GalleryModel'); // or use JModel::getInstance('Gallery', 'GalleryModel'); ?
+		}
+		return self::$gallery;
 	}
 	
 	public function handleFileRequest() {
 
-		$filepath = $this->gallery->getRequestPathWithFilename();
+		$filepath = $this->getModel()->getRequestPathWithFilename();
 		if (file_exists($filepath)) {
 			
 			// open the file in a binary mode

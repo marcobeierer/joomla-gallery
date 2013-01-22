@@ -5,6 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 require_once(JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
 require_once(JPATH_COMPONENT . DS . 'models' . DS . 'gallery.php');
+require_once(JPATH_COMPONENT . DS . 'models' . DS . 'filesystem.php');
 require_once(JPATH_COMPONENT . DS . 'models' . DS . 'folder.php');
 require_once(JPATH_COMPONENT . DS . 'models' . DS . 'photo.php');
 
@@ -21,10 +22,9 @@ if ($controller = JRequest::getWord('controller', 'Gallery')) {
 }
 /* --- */
 
-GalleryHelper::validateRequestPath();
-
 // execute requested controller
 $controller = JController::getInstance($controller);
+GalleryHelper::validateRequestPath($controller->getModel());
 
 if ($controller->getName() == 'gallery') {
 

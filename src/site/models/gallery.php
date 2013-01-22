@@ -11,7 +11,7 @@ class GalleryModelGallery extends JModel {
 	private $showBacklink;
 	private $loadJQuery;
 	
-	function __construct() {
+	public function __construct() { // TODO make it private
 		
 		parent::__construct();
 		$params = JFactory::getApplication()->getParams();

@@ -16,7 +16,7 @@ class GalleryModelPhoto extends JModel
 	function __construct($config) {
 
 		parent::__construct();
-		$this->gallery = JModel::getInstance('Gallery', 'GalleryModel');
+		$this->gallery =& JController::getInstance('Gallery')->getModel();
 		
 		$this->folder = $config['folder'];
 		$this->filename = $config['filename'];
