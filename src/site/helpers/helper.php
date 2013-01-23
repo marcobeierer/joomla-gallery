@@ -37,16 +37,18 @@ class GalleryHelper {
 	}
 	
 	/* check if path is valid and raise error otherwise */
-	public static function validateRequestPath(&$model) { 
+	public static function validateRequestPath() { 
+		
+		$gallery =& Gallery::getInstance();
 		
 		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
-			$fullPath = $model->getGalleryPath();
+			$fullPath = $gallery->getGalleryPath();
 		} else {
-			$fullPath = $model->getPhotosPath();
+			$fullPath = $gallery->getPhotosPath();
 		}
-		$fullPath .= DS . $model->getCurrentRequestPath();
+		$fullPath .= DS . $gallery->getCurrentRequestPath();
 		
-		if ($model->getCurrentRequestPath() != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
+		if ($gallery->getCurrentRequestPath() != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
 			JError::raiseError(404, JText::_("Page Not Found")); exit;
 		}
 	}

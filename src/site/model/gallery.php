@@ -2,7 +2,9 @@
 defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.application.component.model');
 
-class GalleryModelGallery extends JModel {
+class Gallery {
+	
+	private static $instance;
 	
 	private $galleryPath;
 	private $currentRequestPath;
@@ -11,9 +13,17 @@ class GalleryModelGallery extends JModel {
 	private $showBacklink;
 	private $loadJQuery;
 	
-	public function __construct() { // TODO make it private
+	public static function getInstance() {
+	
+		if (!isset(self::$instance)) {
+			self::$instance = new Gallery(); // or use JModel::getInstance('Gallery', 'GalleryModel'); ?
+		}
+		return self::$instance;
+	}
+	
+	private function __construct() { // TODO make it private
 		
-		parent::__construct();
+		// parent::__construct();
 		$params = JFactory::getApplication()->getParams();
 		
 		/* check if valid page (gallery_path isset) */
@@ -25,6 +35,8 @@ class GalleryModelGallery extends JModel {
 		$this->loadSafeRequestVars();
 		$this->loadParams($params);
 	}
+	
+	private function __clone() {}
 	
 	private function loadSafeRequestVars() {
 		

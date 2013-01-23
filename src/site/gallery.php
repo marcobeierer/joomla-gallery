@@ -4,10 +4,10 @@ defined('_JEXEC') or die('Restricted access');
 /* include files (TODO use spl autoload) */ 
 require_once(JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
-require_once(JPATH_COMPONENT . DS . 'models' . DS . 'gallery.php');
-require_once(JPATH_COMPONENT . DS . 'models' . DS . 'filesystem.php');
-require_once(JPATH_COMPONENT . DS . 'models' . DS . 'folder.php');
-require_once(JPATH_COMPONENT . DS . 'models' . DS . 'photo.php');
+require_once(JPATH_COMPONENT . DS . 'model' . DS . 'gallery.php');
+require_once(JPATH_COMPONENT . DS . 'model' . DS . 'filesystem.php');
+require_once(JPATH_COMPONENT . DS . 'model' . DS . 'folder.php');
+require_once(JPATH_COMPONENT . DS . 'model' . DS . 'photo.php');
 
 require_once(JPATH_COMPONENT . DS . 'controller.php');
 /* --- */
@@ -22,9 +22,10 @@ if ($controller = JRequest::getWord('controller', 'Gallery')) {
 }
 /* --- */
 
+GalleryHelper::validateRequestPath();
+
 // execute requested controller
 $controller = JController::getInstance($controller);
-GalleryHelper::validateRequestPath($controller->getModel());
 
 if ($controller->getName() == 'gallery') {
 
