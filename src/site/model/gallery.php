@@ -13,17 +13,17 @@ class Gallery {
 	private $showBacklink;
 	private $loadJQuery;
 	
+	/** @return Gallery */
 	public static function getInstance() {
 	
 		if (!isset(self::$instance)) {
-			self::$instance = new Gallery(); // or use JModel::getInstance('Gallery', 'GalleryModel'); ?
+			self::$instance = new Gallery();
 		}
 		return self::$instance;
 	}
 	
-	private function __construct() { // TODO make it private
+	private function __construct() {
 		
-		// parent::__construct();
 		$params = JFactory::getApplication()->getParams();
 		
 		/* check if valid page (gallery_path isset) */
@@ -77,10 +77,12 @@ class Gallery {
 		return $this->galleryPath . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
 	}
 	
-	public function getCurrentRequestPath() {
+	/** Relative Request Path */
+	public function getCurrentRequestPath() { // TODO better names
 		return $this->currentRequestPath; // TODO refactor to absolute path
 	}
 	
+	/** Absolute Request Path */
 	public function getCurrentPath() {
 		return $this->galleryPath . DS . $this->currentRequestPath;
 	}

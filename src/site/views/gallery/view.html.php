@@ -9,6 +9,8 @@ class GalleryViewGallery extends JView
 	private $pathway;
 	
 	private $gallery;
+	private $filesystem;
+	
 	private $folder;
 	
 	function display($tpl = null)
@@ -17,12 +19,13 @@ class GalleryViewGallery extends JView
 		$this->document =& JFactory::getDocument();
 		$this->pathway =& JSite::getPathway();
 		
-		//$this->gallery =& $this->getModel();
 		$this->gallery =& Gallery::getInstance();
-		$this->folder = JModel::getInstance('Folder', 'GalleryModel');
+		$this->filesystem =& Filesystem::getInstance();
+		
+		$this->folder =& $this->filesystem->getFolder($this->gallery->getCurrentRequestPath());
 		
 		// get child folders of this folder
-		$childFolders = $this->folder->getChildFoldersWithoutEmptyFolders();
+		$childFolders = $this->folder->getChildFolders();
 
 		// get photos of this folder
 		$photos = $this->folder->getPhotos();

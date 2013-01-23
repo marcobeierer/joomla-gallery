@@ -1,5 +1,6 @@
-what is model state?
-http://forum.joomla.org/viewtopic.php?p=2441734
+Refactorate Photo class
+http://localhost/projects.mysites/gallery.erstellung/marco-und-franzi/file/thumbnails/2007/04_Neuseeland/10_Norden_der_Suedinsel_Teil_2/IMG_5997.jpg
+- recursive loop
 
 
 # TODO (naechste version)
@@ -113,6 +114,7 @@ http://forum.joomla.org/viewtopic.php?p=2441734
 
 
 # Before release
+- Code cleanup (TODOs etc)
 - add news section to website
 - add changelog to website
 
