@@ -3,9 +3,11 @@ defined('_JEXEC') or die;
 
 class GalleryHelper {
 	
-	public static function splitPath($path) {
+	public static function splitPath($path, $makeRelative = true) {
 		
-		$path = GalleryHelper::makeRelative($path);
+		if ($makeRelative) {
+			$path = GalleryHelper::makeRelative($path);
+		}
 		$parts = explode(DS, $path);
 
 		$object->filename = JFile::makeSafe(array_pop($parts)); // last element is filename

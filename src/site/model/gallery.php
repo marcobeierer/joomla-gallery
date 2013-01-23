@@ -41,7 +41,7 @@ class Gallery {
 	private function loadSafeRequestVars() {
 		
 		if (JRequest::getVar('controller') == 'file') {
-			$pathObject = GalleryHelper::splitPath(JRequest::getString('path', ''));
+			$pathObject = GalleryHelper::splitPath(JRequest::getString('path', ''), false);
 			
 			$this->currentRequestPath = JFolder::makeSafe($pathObject->folderPath);
 			$this->currentRequestFilename = JFile::makeSafe($pathObject->filename);
