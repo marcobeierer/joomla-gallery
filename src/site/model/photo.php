@@ -2,8 +2,8 @@
 defined('_JEXEC') or die('Restricted Access'); 
 jimport('joomla.application.component.model');
 
-class GalleryModelPhoto extends JModel
-{
+class Photo {
+	
 	private $gallery;
 	
 	private $folder;
@@ -11,15 +11,13 @@ class GalleryModelPhoto extends JModel
 	
 	private $thumbnailFilepath;
 	private $resizedFilepath; // TODO other name
-
 	
-	function __construct($config) {
+	function __construct($folder, $filename) {
 
-		parent::__construct();
 		$this->gallery =& Gallery::getInstance();
 		
-		$this->folder = $config['folder'];
-		$this->filename = $config['filename'];
+		$this->folder = $folder;
+		$this->filename = $filename;
 	}
 	
 	public function getFolder() {

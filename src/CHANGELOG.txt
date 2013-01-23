@@ -17,3 +17,4 @@
 - added backlink (deactivateable in backend)
 - added some error handling
 - some refactoring
+- better performance

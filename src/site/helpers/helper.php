@@ -5,12 +5,19 @@ class GalleryHelper {
 	
 	public static function splitPath($path) {
 		
+		$path = GalleryHelper::makeRelative($path);
 		$parts = explode(DS, $path);
 
 		$object->filename = JFile::makeSafe(array_pop($parts)); // last element is filename
 		$object->folderPath = JFolder::makeSafe(implode(DS, $parts)); // use rest as path
 		
 		return $object;
+	}
+	
+	public static function makeRelative($path) {
+		
+		$gallery =& Gallery::getInstance();
+		return str_replace($gallery->getPhotosPath() . DS, '', $path);
 	}
 	
 	public static function getReadableFolderName($folderName) {

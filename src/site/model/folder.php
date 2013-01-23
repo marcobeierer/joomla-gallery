@@ -2,125 +2,112 @@
 defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.application.component.model');
 
-class GalleryModelFolder extends JModel {
+class Folder {
 
 	private $gallery;
-	private $folderPath;
+	private $filesystem;
 	
-	function __construct($config) {
+	private $relativeFolderPath;
+	private $absoluteFolderPath;
+	
+	private $childFolders;
+	private $photos;
+	
+	/** @param String $folderPath relative path of folder */
+	public function __construct($relativeFolderPath) {
 		
-		parent::__construct();
 		$this->gallery =& Gallery::getInstance();
+		$this->filesystem =& Filesystem::getInstance();
 		
-		if (count($config) > 0) {
-			$this->folderPath = $config[0];
-		} else {
-			$this->folderPath = $this->gallery->getCurrentRequestPath();
-		}
+		$this->relativeFolderPath = $relativeFolderPath; // TODO make sure it is relative
+		$this->absoluteFolderPath = $this->gallery->getPhotosPath() . DS . $relativeFolderPath;
 	}
 	
 	public function getChildFolders() {
 		
-		// TODO create $childFolderList for every call or just once?
+		if (isset($this->childFolders)) {
+			return $this->childFolders;
+		}
 		
-		$childFolders = JFolder::folders($this->gallery->getPhotosPath() . DS . $this->folderPath);
-		$childFolderList  = new SplDoublyLinkedList();
+		$childFolders = JFolder::folders($this->absoluteFolderPath);
+		$this->childFolders  = new SplDoublyLinkedList();
 		
 		foreach ($childFolders as $childFolder) {
 
-			if ($this->folderPath == '') {
+			if ($this->relativeFolderPath == '') { // root
 				$folderPath = $childFolder;
 			} else {
-				$folderPath = $this->folderPath . DS . $childFolder;
+				$folderPath = $this->relativeFolderPath . DS . $childFolder;
 			}
 
-			$childFolderList->push(JModel::getInstance('Folder', 'GalleryModel', array($folderPath)));
-		}
-		
-		return $childFolderList;
-	}
-	
-	public function getChildFoldersWithoutEmptyFolders() {
-		
-		$childFolders = $this->getChildFolders();
-		
-		// remove empty folders from list
-		for ($i = 0; $i < $childFolders->count(); $i++) {
-			if (!$childFolders[$i]->hasPhotos(true)) {
-				$childFolders->offsetUnset($i);
+			$folder = $this->filesystem->getFolder($folderPath);
+			if ($folder->hasPhotos(true)) { // just add non empty folders
+				$this->childFolders->push($folder);
 			}
+			
 		}
-		
-		return $childFolders;
+		return $this->childFolders;
 	}
 	
 	public function hasPhotos($recursive = false) {
-		
-		$photos = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', $recursive);
-		return count($photos) > 0;
+		return count($this->getPhotoPaths($recursive)) > 0;
+	}
+	
+	public function getPhotoPaths($recursive = false, $fullPath = true) {
+		return JFolder::files($this->absoluteFolderPath, '.', $recursive, $fullPath);
 	}
 
 	public function getPhotos($recursive = false) {
 
-		// TODO create $photoList for every call or just once?
+		if (isset($this->photos) && !$recursive) {
+			return $this->photos;
+		}
 		
-		$photoPaths = JFolder::files($this->gallery->getPhotosPath() . DS . $this->folderPath, '.', $recursive, true);
-		$photoList = new SplDoublyLinkedList();
+		$this->photos = new SplDoublyLinkedList();
 
-		foreach ($photoPaths as $photoPath) {
+		foreach ($this->getPhotoPaths() as $photoPath) {
 			
-			$relativePhotoPath = str_replace($this->gallery->getPhotosPath() . DS, '', $photoPath);
-			$parts = explode('/', $relativePhotoPath);
-
-			$filename = array_pop($parts);
-
-			$folderPath = implode('/', $parts);
+			$relativePhotoPath = GalleryHelper::makeRelative($photoPath);
+			$relativePhotoPath = GalleryHelper::splitPath($relativePhotoPath);
 			
-			if ($recursive) {
-				
-				$photoPathObject->folderPath = $folderPath;
-				$photoPathObject->filename = $filename;
-				
-				$photoList->push($photoPathObject);
-			}
-			else {
-				
-				$folder = JModel::getInstance('Folder', 'GalleryModel', array($folderPath)); // TODO make sure that no folder object is created twice
-				$photoList->push(JModel::getInstance('Photo', 'GalleryModel', array('folder' => $folder, 'filename' => $filename)));
-			}
+			$folder = $this->filesystem->getFolder($relativePhotoPath->folderPath);
+			$this->photos->push($this->filesystem->getPhoto($folder, $relativePhotoPath->filename));
 		}
 
-		return $photoList;
+		return $this->photos;
 	}
 
-	/* get random folder preview photos */
-	public function getPreviewPhoto() {
+	/** get random preview photo for folder */
+	public function getRandomPhoto() {
 		
-		$photos = $this->getPhotos(true);
+		$photoPaths = $this->getPhotoPaths(true);
+		$numberOfPhotoPaths = count($photoPaths);
 
-		if ($photos->isEmpty()) {
+		if ($numberOfPhotoPaths <= 0) {
 			return null;
 		}
 
-		$previewPhotoIndex = rand(0, $photos->count() - 1);
-		$previewPhoto = $photos->offsetGet($previewPhotoIndex);
+		$previewPhotoIndex = rand(0, $numberOfPhotoPaths - 1);
+		
+		$previewPhotoPath = $photoPaths[$previewPhotoIndex];
+		$previewPhotoPath = GalleryHelper::splitPath($previewPhotoPath);
 
-		$folder = JModel::getInstance('Folder', 'GalleryModel', array($previewPhoto->folderPath)); // TODO make sure that no folder object is created twice
-		$previewPhoto = JModel::getInstance('Photo', 'GalleryModel', array('folder' => $folder, 'filename' => $previewPhoto->filename));
+		$folder = $this->filesystem->getFolder($previewPhotoPath->folderPath);
+		$previewPhoto = $this->filesystem->getPhoto($folder, $previewPhotoPath->filename);
 		
 		return $previewPhoto;
 	}
 	
 	public function getFolderPath() {
-		return $this->folderPath;
+		return $this->relativeFolderPath;
 	}
 	
 	public function getFolderNames() {
-		return explode('/', $this->folderPath);
+		return explode('/', $this->relativeFolderPath);
 	}
 
 	public function getFolderName() {
-		$parts = explode('/', $this->folderPath);
+		$parts = explode('/', $this->relativeFolderPath);
 		return $parts[count($parts) - 1]; // return last element
 	}
 	
