@@ -10,7 +10,7 @@ class GalleryModelFolder extends JModel {
 	function __construct($config) {
 		
 		parent::__construct();
-		$this->gallery =& JController::getInstance('Gallery')->getModel();
+		$this->gallery =& Gallery::getInstance();
 		
 		if (count($config) > 0) {
 			$this->folderPath = $config[0];
