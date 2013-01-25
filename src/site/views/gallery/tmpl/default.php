@@ -7,7 +7,18 @@ defined('_JEXEC') or die('Restricted access');
 		<?php foreach($this->childFolders as $childFolder) { ?>
 			<div class="gallery_item">
 				<a href="<?php echo JRoute::_('index.php?option=com_gallery&path=' . $childFolder->getFolderPath()); ?>">
-					<img class="caption" alt="<?php echo $childFolder->getReadableFolderName(); ?>" src="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" />
+					<?php if ($this->useLazyLoading) { ?>
+						<img class="caption lazy" 
+							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
+							data-original="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
+							src="media/com_gallery/images/placeholder.png" 
+						/>
+					<?php } else { ?>
+						<img class="caption lazy" 
+							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
+							src="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
+						/>
+					<?php } ?>
 				</a>
 			</div>
 		<?php } ?>	
@@ -18,7 +29,14 @@ defined('_JEXEC') or die('Restricted access');
 		<?php foreach($this->photos as $photo) { ?>
 			<div class="gallery_item">		
 				<a class="shutterset" href="<?php echo $photo->getResizedURL(); ?>">
-					<img src="<?php echo $photo->getThumbnailURL(); ?>" />
+					<?php if ($this->useLazyLoading) { ?>
+						<img class="lazy" 
+							data-original="<?php echo $photo->getThumbnailURL(); ?>" 
+							src="media/com_gallery/images/placeholder.png" 
+						/>
+					<?php } else { ?>
+						<img src="<?php echo $photo->getThumbnailURL(); ?>"	/>
+					<?php } ?>
 				</a>
 			</div>
 		<?php } ?>

@@ -26,5 +26,16 @@
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
+		
+		<field
+			name="lazy_loading"
+			type="radio"
+			label="COM_GALLERY_GALLERY_FIELD_LAZY_LOADING_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_LAZY_LOADING_DESC"
+			default="0">
+			
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 	</fieldset>
 </config>

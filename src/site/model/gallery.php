@@ -12,6 +12,7 @@ class Gallery {
 	
 	private $showBacklink;
 	private $loadJQuery;
+	private $lazyLoading;
 	
 	/** @return Gallery */
 	public static function getInstance() {
@@ -57,6 +58,7 @@ class Gallery {
 		$this->setGalleryPath($params->get('gallery_path', ''));
 		$this->setShowBacklink($params->get('show_backlink', 1));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
+		$this->setLazyLoading($params->get('lazy_loading', 0));
 	}
 	
 	private function setGalleryPath($galleryPath) {
@@ -67,6 +69,10 @@ class Gallery {
 	
 	private function setLoadJQuery($loadJQuery) {
 		$this->loadJQuery = (bool) $loadJQuery;
+	}
+	
+	private function setLazyLoading($lazyLoading) {
+		$this->lazyLoading = (bool) $lazyLoading;
 	}
 	
 	private function setShowBacklink($showBacklink) {
@@ -105,6 +111,10 @@ class Gallery {
 	
 	public function shouldLoadJQuery() {
 		return $this->loadJQuery;
+	}
+	
+	public function shouldUseLazyLoading() {
+		return $this->lazyLoading;
 	}
 	
 	public function showBacklink() {

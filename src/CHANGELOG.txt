@@ -18,3 +18,4 @@
 - added some error handling
 - some refactoring
 - better performance
+- lazy loading added

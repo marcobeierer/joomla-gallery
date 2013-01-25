@@ -50,10 +50,20 @@
 - option, um zu waehlen ob folders und fotos angezeigt werden oder entweder oder!!!
 	- separater view?
 
+- bug fix for lazy loading
+	- each image is loaded twice by chrome
+	
 
 
 
 # TODO
+- search engine friendly lazy loading
+
+- color of placeholder as param
+	- or just possibility to use a own placeholder
+
+- lazyloading fallback (no js)
+
 - Steuerung ueber Tastatur (navigation)
 	- inkl. bilder oeffnen
 	
