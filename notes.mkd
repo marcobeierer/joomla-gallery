@@ -1,8 +1,3 @@
-Refactorate Photo class
-http://localhost/projects.mysites/gallery.erstellung/marco-und-franzi/file/thumbnails/2007/04_Neuseeland/10_Norden_der_Suedinsel_Teil_2/IMG_5997.jpg
-- recursive loop
-
-
 # TODO (naechste version)
 - Tests und Testplaene / Assertions
 
@@ -85,6 +80,7 @@ http://localhost/projects.mysites/gallery.erstellung/marco-und-franzi/file/thumb
 
 
 # Ideas
+- Tagebuchfunktion
 - tag (exif/iptc) based (database supported) oberflaeche
 
 - RSS Feed in Gallery backend mit news von webguerilla.net
