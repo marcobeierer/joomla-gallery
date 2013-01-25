@@ -50,6 +50,7 @@ class GalleryViewGallery extends JView
 		$this->assignRef('childFolders', $childFolders);
 		$this->assignRef('photos', $photos);
 		$this->assignRef('showBacklink', $this->gallery->showBacklink());
+		$this->assignRef('useLazyLoading', $this->gallery->shouldUseLazyLoading());
 
 		parent::display($tpl);
 	}
@@ -62,6 +63,8 @@ class GalleryViewGallery extends JView
 		
 		$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
 		$this->document->addScript('media/com_gallery/js/jquery.capty.min.js');
+		
+		
 		
 		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
 		
@@ -76,6 +79,16 @@ class GalleryViewGallery extends JView
 				});
 			});
 		');
+		
+		if ($this->gallery->shouldUseLazyLoading()) {
+			$this->document->addScript('media/com_gallery/js/jquery.lazyload.min.js'); // TODO param for lazy loading
+			
+			$this->document->addScriptDeclaration('
+				jQuery(document).ready(function() {
+					jQuery(\'#gallery img.lazy\').lazyload();
+				});
+			');
+		}
 	}
 	
 	private function loadCSS() {
