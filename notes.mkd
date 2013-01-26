@@ -12,9 +12,6 @@
 	- nur noch capty problem (jquery.noconflict) inject?
 	- http://api.jquery.com/jQuery.noConflict/
 
-- there should be just one instance of each model!!!
-	- one gallery
-	- for each folder one folder instance etc.
 
 # TODO (bis beta)
 - lokalisierung von dateinamen
@@ -158,6 +155,8 @@
 - erdikon.com: werbung fuer mb
 	- like a own gallery like that?
 		- als service und auf eigenem server
+
+- gallery als kostenpflichtiger service (saas) fuer privatpersonen
 
 
 # Design (my site)

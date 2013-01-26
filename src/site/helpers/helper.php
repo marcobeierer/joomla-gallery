@@ -30,7 +30,7 @@ class GalleryHelper {
 		$folderName = str_replace('_', ' ', $folderName);
 		
 		
-		$folderName = str_replace('ae', 'ä', $folderName);
+		/* $folderName = str_replace('ae', 'ä', $folderName);
 		$folderName = str_replace('ue', 'ü', $folderName);
 		//$folderName = str_replace('oe', 'ö', $folderName); // TODO works not with NL
 		
@@ -40,7 +40,7 @@ class GalleryHelper {
 		
 		$folderName = str_replace('sz', 'ß', $folderName);
 		
-		$folderName = preg_replace('/(\d+)ter/', '${1}.', $folderName);
+		$folderName = preg_replace('/(\d+)ter/', '${1}.', $folderName); */
 		
 		return $folderName;
 	}
@@ -50,7 +50,7 @@ class GalleryHelper {
 		
 		$gallery =& Gallery::getInstance();
 		
-		if (JRequest::getVar('controller') == 'file') { // TODO cleaner
+		if (JRequest::getVar('controller') == 'file') {
 			$fullPath = $gallery->getGalleryPath();
 		} else {
 			$fullPath = $gallery->getPhotosPath();

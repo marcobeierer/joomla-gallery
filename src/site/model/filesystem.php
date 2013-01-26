@@ -2,7 +2,7 @@
 defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.application.component.model');
 
-class Filesystem { // TODO against Cache Interface
+class Filesystem { // TODO implement against Cache Interface
 	
 	private static $instance;
 	private $gallery;
@@ -23,7 +23,7 @@ class Filesystem { // TODO against Cache Interface
 		
 		$this->gallery = Gallery::getInstance();
 		
-		$this->folders = array(); // TODO is that effective?
+		$this->folders = array(); // TODO is that effective? or use another data structure?
 		$this->photos = array();
 	}
 	
