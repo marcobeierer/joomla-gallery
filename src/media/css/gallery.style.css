@@ -25,6 +25,10 @@
 	clear: both;
 }
 
+#gallery #backlink {
+	margin-top: 25px;
+}
+
 /* shutter override */
 div#shNavBar a {
 	display: inline-block !important;

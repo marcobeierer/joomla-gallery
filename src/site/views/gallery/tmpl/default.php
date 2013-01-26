@@ -44,8 +44,8 @@ defined('_JEXEC') or die('Restricted access');
 	</div>
 	<?php } ?>
 	<?php if ($this->showBacklink) { ?>
-	<div>
-		<small>Powered by <a href="http://webguerilla.net/projects/joomla-gallery">Joomla Gallery</a></small>
+	<div id="backlink">
+		<small>Powered by <a href="http://webguerilla.net/projects/joomla-gallery">Gallery</a> from <a href="http://webguerilla.net">webguerilla.net</a></small>
 	</div>
 	<?php } ?>
 </div>
