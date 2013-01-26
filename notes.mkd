@@ -120,6 +120,7 @@
 - Code cleanup (TODOs etc)
 - add news section to website
 - add changelog to website
+- Check with JED Checker
 
 - Check, ob shutter noch gut dargestellt wird
 - remove deutsche dateinamen umwandlung
