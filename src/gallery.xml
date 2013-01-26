@@ -44,7 +44,7 @@
 			<file>index.html</file>
 		</files>
 		
-		<languages folder="language">
+		<languages folder="admin/language">
 			<language tag="en-GB">en-GB/en-GB.com_gallery.ini</language>
 			<language tag="en-GB">en-GB/en-GB.com_gallery.sys.ini</language>
 		</languages>
