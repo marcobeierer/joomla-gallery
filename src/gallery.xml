@@ -16,7 +16,7 @@
 	<files folder="site">
 		<folder>controllers</folder>
 		<folder>helpers</folder>
-		<folder>models</folder>
+		<folder>model</folder>
 		<folder>views</folder>
 		
 		<file>controller.php</file>
