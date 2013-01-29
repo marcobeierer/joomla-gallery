@@ -1,4 +1,5 @@
 # TODO (naechste version)
+- Texte einbinden
 - Tests und Testplaene / Assertions
 
 - Exif/IPTC/XMP Daten auslesen und verwerten
@@ -8,10 +9,19 @@
 	- Keywords
 	- Beschreibung
 
-- Bug fixen mit Jquery loading (und shutter, capty)
-	- nur noch capty problem (jquery.noconflict) inject?
-	- http://api.jquery.com/jQuery.noConflict/
+- noindex for categorie sites
+- auto renama images to folder name (or something else)
 
+- sortierung nach datum
+	- mit prefix, der entfernt wird
+- problem, bei . im ordnernamen?
+
+- rename rules
+
+
+# Bug fixes
+- Fix index problem (see apache log)
+- link nach login fixen (view=gallery)
 
 # TODO (bis beta)
 - lokalisierung von dateinamen
@@ -50,7 +60,7 @@
 - bug fix for lazy loading
 	- each image is loaded twice by chrome
 	
-
+- optional framebreaker
 
 
 # TODO
@@ -84,6 +94,11 @@
 	- check if the thumbs is from the correct photo
 
 - mkd files fuer beschreibung von ordnern (tagebuecher etc.)
+
+
+# Performance 
+- JFolder::files needs a lot of time
+	- recursive thumbnail optinal
 
 
 # Ideas
