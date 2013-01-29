@@ -24,9 +24,6 @@ class GalleryHelper {
 	
 	public static function getReadableFolderName($folderName) {
 		
-		// TODO different sets for different languages
-		// TODO one ruleset per gallery (via menu item settings)
-	
 		$folderName = str_replace('_', ' ', $folderName);
 		
 		JPluginHelper::importPlugin('gallery');

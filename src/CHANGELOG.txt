@@ -22,3 +22,4 @@
 
 ## 1.0.0-alpha.4
 - added robots noindex for category pages
+- added support for name converter
