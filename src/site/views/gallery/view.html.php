@@ -45,6 +45,11 @@ class GalleryViewGallery extends JView
 		$this->setBreadcrumbs();
 		$this->setTitle();
 		
+		// add noindex for category pages
+		if (count($photos) == 0) {
+			$this->document->addCustomTag('<meta name="robots" content="noindex" />');
+		}
+		
 		// assign Variables
 		$this->assignRef('title', $title);
 		$this->assignRef('childFolders', $childFolders);
