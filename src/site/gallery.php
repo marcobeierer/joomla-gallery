@@ -23,6 +23,7 @@ if ($controller = JRequest::getWord('controller', 'Gallery')) {
 /* --- */
 
 GalleryHelper::validateRequestPath();
+JPluginHelper::importPlugin('gallery');
 
 // execute requested controller
 $controller = JController::getInstance($controller);
