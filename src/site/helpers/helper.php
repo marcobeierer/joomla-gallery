@@ -29,18 +29,9 @@ class GalleryHelper {
 	
 		$folderName = str_replace('_', ' ', $folderName);
 		
-		
-		/* $folderName = str_replace('ae', 'ä', $folderName);
-		$folderName = str_replace('ue', 'ü', $folderName);
-		//$folderName = str_replace('oe', 'ö', $folderName); // TODO works not with NL
-		
-		$folderName = str_replace('Ae', 'Ä', $folderName);
-		$folderName = str_replace('Ue', 'Ü', $folderName);
-		$folderName = str_replace('Oe', 'Ö', $folderName);
-		
-		$folderName = str_replace('sz', 'ß', $folderName);
-		
-		$folderName = preg_replace('/(\d+)ter/', '${1}.', $folderName); */
+		JPluginHelper::importPlugin('gallery');
+		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher->trigger('onConvertLanguageSpecificChars', array(&$folderName));
 		
 		return $folderName;
 	}

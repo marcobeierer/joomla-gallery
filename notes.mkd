@@ -11,14 +11,13 @@
 
 - sortierung nach datum
 	- mit prefix, der entfernt wird
-- problem, bei . im ordnernamen?
 
 - rename rules
 
 
 # Bug fixes
 - Fix index problem (see apache log)
-- link nach login fixen (view=gallery)
+- problem, bei . im ordnernamen?
 
 
 # TODO (bis beta)
