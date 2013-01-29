@@ -26,7 +26,6 @@ class GalleryHelper {
 		
 		$folderName = str_replace('_', ' ', $folderName);
 		
-		JPluginHelper::importPlugin('gallery');
 		$dispatcher =& JDispatcher::getInstance();
 		$dispatcher->trigger('onConvertLanguageSpecificChars', array(&$folderName));
 		
