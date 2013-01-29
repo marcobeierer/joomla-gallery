@@ -21,6 +21,10 @@ function GalleryBuildRoute(&$query)
 		unset($query['filename']);
 	}
 	
+	if (isset($query['view'])) {
+		unset($query['view']);
+	}
+	
 	return $segments;
 }
 
