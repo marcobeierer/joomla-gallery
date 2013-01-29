@@ -19,3 +19,6 @@
 - some refactoring
 - better performance
 - lazy loading added
+
+## 1.0.0-alpha.4
+- added robots noindex for category pages
