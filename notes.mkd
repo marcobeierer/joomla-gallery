@@ -2,6 +2,12 @@
 - Texte einbinden
 - Tests und Testplaene / Assertions
 
+- Markdown support
+	- eine kachel fuer text
+	- text oeffnet sich in popup
+	
+- Bootstrap Popup statt Shutter
+
 - Exif/IPTC/XMP Daten auslesen und verwerten
 	- Copyright
 	- Fotograf
@@ -11,6 +17,7 @@
 
 - sortierung nach datum
 	- mit prefix, der entfernt wird
+	- name converter plugin
 
 - rename rules
 
@@ -31,7 +38,6 @@
 # TODO (wichtig)
 - Performance/Ladezeit optimieren
 	- Gallery images as css sprites
-	- Lazy loading beim scrollen (wenn viele bilder in einem verzeichnis)
 
 - filterung von als privat markierten bilder, wenn nicht eingeloggt
 	- meta info oder dateiname
@@ -99,6 +105,8 @@
 
 
 # Ideas
+- ausfuehrliche API fuer plugins und module
+	- marktplatz fuer erweiterungen auf webguerilla.net
 - auto rename images to folder name (or something else)
 
 - Tagebuchfunktion

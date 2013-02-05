@@ -5,6 +5,7 @@
 	<!--<property name="joomla_install" value="../../dev.joomla.test/joomla25" />-->
 	<property name="joomla_install" value="../../projects.mysites/gallery.erstellung" />
 	<property name="extension" value="com_gallery" />
+	<property name="extension_xml" value="gallery.xml" />
 	<property name="version" value="latest" />
 
 	<target name="copy_all" description="Copies files to test project.">
@@ -22,7 +23,9 @@
 		<copy todir="${joomla_install}/administrator/components/${extension}">
 			<fileset dir="${source}/admin">
 				<include name="**" />
-				<include name="../${extension_xml}" />
+			</fileset>
+			<fileset dir="${source}">
+				<include name="${extension_xml}" />
 			</fileset>
 		</copy>
 		
