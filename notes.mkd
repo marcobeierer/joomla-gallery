@@ -1,8 +1,31 @@
+- gallery
+	- einfacherer upload
+
+plugin, um 08 etc. im ordnernamen zu entfernen!!!
+
+Seite mit eigen Fotos
+- Sortiert nach Themen (dierenpark, buiten, staedte, nationalparks, structuren etc.)
+- sortiert noch laendern
+- Tags oder multi categorie support?
+- verschiedene modi (nur laender, etc), um bilder zu betrachten
+	- jeder tag hat eine categorie?
+	- hierarische tag structur?
+	- tag hierarchien werden automatisch erkannt!
+- Import der Tags aus iptc daten
+- Tag privat (oder frei waehlbar) fuer geschuetzte fotos
+	- bzw. privat_berechtigte_gruppe
+	- tag public statt privat (sicherer gegen fehler)
+
+- User upload per SFTP
+	- gallery in /home/user/public_html
+	- jeder user hat eine galery
+	- restrict access to other areas of the system
+
 # TODO (naechste version)
 - Texte einbinden
 - Tests und Testplaene / Assertions
 
-- Markdown support
+- Markdown/HTML support
 	- eine kachel fuer text
 	- text oeffnet sich in popup
 	
@@ -18,8 +41,6 @@
 - sortierung nach datum
 	- mit prefix, der entfernt wird
 	- name converter plugin
-
-- rename rules
 
 
 # Bug fixes
