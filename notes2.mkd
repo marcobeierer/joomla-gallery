@@ -1,8 +1,0 @@
-joomla unit tests
-assertions
-
-checklist
-- index.html
-- defined or exit
-- unit tests
-- type hinting (class calls) used?
