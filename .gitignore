@@ -1,3 +1,7 @@
+/.buildpath
+/.externalToolBuilders
+/.project
+/.settings
 /build.xml
 /packages
 /gallery-preview.png
