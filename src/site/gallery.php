@@ -7,6 +7,7 @@ require_once(JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 require_once(JPATH_COMPONENT . DS . 'model' . DS . 'gallery.php');
 require_once(JPATH_COMPONENT . DS . 'model' . DS . 'filesystem.php');
 require_once(JPATH_COMPONENT . DS . 'model' . DS . 'folder.php');
+require_once(JPATH_COMPONENT . DS . 'model' . DS . 'iptc.php');
 require_once(JPATH_COMPONENT . DS . 'model' . DS . 'photo.php');
 
 require_once(JPATH_COMPONENT . DS . 'controller.php');

@@ -12,12 +12,18 @@ class Photo {
 	private $thumbnailFilepath;
 	private $resizedFilepath; // TODO other name
 	
+	private $iptcData;
+	
 	function __construct($folder, $filename) {
 
 		$this->gallery =& Gallery::getInstance();
 		
 		$this->folder = $folder;
 		$this->filename = $filename;
+		
+		$this->iptcData = new IPTC($this->gallery->getPhotosPath() 
+							. DS . $this->folder->getFolderPath()
+							. DS . $this->filename);
 	}
 	
 	public function getFolder() {
