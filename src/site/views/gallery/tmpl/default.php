@@ -35,14 +35,14 @@ defined('_JEXEC') or die('Restricted access');
 					title="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
 				>
 					<?php if ($this->useLazyLoading) { ?>
-						<img class="caption lazy" 
+						<img class="<?php if ($photo->getIptcInfo()->getHeadline() != null) { ?>caption <?php } ?>lazy" 
 							data-original="<?php echo $photo->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
 						/>
 					<?php } else { ?>
-						<img class="caption"
+						<img class="<?php if ($photo->getIptcInfo()->getHeadline() != null) { ?>caption <?php } ?>"
 							src="<?php echo $photo->getThumbnailURL(); ?>"	
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
