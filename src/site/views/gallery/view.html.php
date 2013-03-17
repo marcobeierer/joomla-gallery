@@ -56,6 +56,7 @@ class GalleryViewGallery extends JView
 		$this->assignRef('photos', $photos);
 		$this->assignRef('showBacklink', $this->gallery->showBacklink());
 		$this->assignRef('useLazyLoading', $this->gallery->shouldUseLazyLoading());
+		$this->assignRef('thumbnailSize', $this->gallery->getThumbnailSize());
 
 		parent::display($tpl);
 	}

@@ -37,5 +37,26 @@
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
+		
+		<field
+			name="thumbnail_size"
+			type="int"
+			label="COM_GALLERY_GALLERY_FIELD_THUMBNAIL_SIZE_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_THUMBNAIL_SIZE_DESC"
+			default="220"/>
+			
+		<field
+			name="max_resized_width"
+			type="int"
+			label="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_WIDTH_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_WIDTH_DESC"
+			default="1110"/>
+			
+		<field
+			name="max_resized_height"
+			type="int"
+			label="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_HEIGHT_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_HEIGHT_DESC"
+			default="888"/>
 	</fieldset>
 </config>

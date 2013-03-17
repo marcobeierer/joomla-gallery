@@ -12,11 +12,13 @@ defined('_JEXEC') or die('Restricted access');
 							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
 							data-original="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
+							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } else { ?>
 						<img class="caption lazy" 
 							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
 							src="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
+							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } ?>
 				</a>
@@ -33,9 +35,12 @@ defined('_JEXEC') or die('Restricted access');
 						<img class="lazy" 
 							data-original="<?php echo $photo->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
+							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } else { ?>
-						<img src="<?php echo $photo->getThumbnailURL(); ?>"	/>
+						<img src="<?php echo $photo->getThumbnailURL(); ?>"	
+							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
+						/>
 					<?php } ?>
 				</a>
 			</div>

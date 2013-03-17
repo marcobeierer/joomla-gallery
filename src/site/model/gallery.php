@@ -14,6 +14,10 @@ class Gallery {
 	private $loadJQuery;
 	private $lazyLoading;
 	
+	private $thumbnailSize;
+	private $maxResizedWidth;
+	private $maxResizedHeight;
+	
 	/** @return Gallery */
 	public static function getInstance() {
 	
@@ -35,6 +39,8 @@ class Gallery {
 		
 		$this->loadSafeRequestVars();
 		$this->loadParams($params);
+		
+		unset($params); // make params unaccessible (for safety reasons)
 	}
 	
 	private function __clone() {}
@@ -56,9 +62,14 @@ class Gallery {
 	private function loadParams($params) {
 
 		$this->setGalleryPath($params->get('gallery_path', ''));
+		
 		$this->setShowBacklink($params->get('show_backlink', 1));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
 		$this->setLazyLoading($params->get('lazy_loading', 0));
+		
+		$this->setThumbnailSize($params->get('thumbnail_size', 220));
+		$this->setMaxResizedWidth($params->get('max_resized_width'), 1110);
+		$this->setMaxResizedHeight($params->get('max_resized_height'), 888);
 	}
 	
 	private function setGalleryPath($galleryPath) {
@@ -77,6 +88,18 @@ class Gallery {
 	
 	private function setShowBacklink($showBacklink) {
 		$this->showBacklink = (bool) $showBacklink;
+	}
+	
+	private function setThumbnailSize($thumbnailSize) {
+		$this->thumbnailSize = (int) $thumbnailSize;
+	}
+	
+	private function setMaxResizedWidth($maxResizedWidth) {
+		$this->maxResizedWidth = $maxResizedWidth;
+	}
+	
+	private function setMaxResizedHeight($maxResizedHeight) {
+		$this->maxResizedHeight = $maxResizedHeight;
 	}
 		
 	public function getRequestPathWithFilename() {
@@ -119,5 +142,17 @@ class Gallery {
 	
 	public function showBacklink() {
 		return $this->showBacklink;
+	}
+	
+	public function getThumbnailSize() {
+		return $this->thumbnailSize;
+	}
+	
+	public function getMaxResizedWidth() {
+		return $this->maxResizedWidth;
+	}
+	
+	public function getMaxResizedHeight() {
+		return $this->maxResizedHeight;
 	}
 }

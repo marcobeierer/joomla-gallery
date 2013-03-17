@@ -90,7 +90,9 @@ class Photo {
 	public function getThumbnailURL() {
 		
 		if ($this->thumbnail == null) {
-			$this->resize('thumbnail', 220, 220, true); // TODO as params
+			
+			$thumbnailSize = $this->gallery->getThumbnailSize();
+			$this->resize('thumbnail', $thumbnailSize, $thumbnailSize, true);
 		}
 		return JRoute::_('index.php?option=com_gallery&controller=file&path=' . $this->thumbnailFilepath);
 	}
@@ -98,7 +100,10 @@ class Photo {
 	public function getResizedURL() { // TODO merge with getThumbnailURL
 		
 		if ($this->resized == null) {
-			$this->resize('resized', 1110, 888); // TODO as params
+			
+			$maxResizedWidth = $this->gallery->getMaxResizedWidth();
+			$maxResizedHeight = $this->gallery->getMaxResizedHeight();
+			$this->resize('resized', $maxResizedWidth, $maxResizedHeight);
 		}
 		
 		return JRoute::_('index.php?option=com_gallery&controller=file&path=' . $this->resizedFilepath);
