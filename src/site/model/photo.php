@@ -12,7 +12,7 @@ class Photo {
 	private $thumbnailFilepath;
 	private $resizedFilepath; // TODO other name
 	
-	private $iptcData;
+	private $iptcInfo;
 	
 	function __construct($folder, $filename) {
 
@@ -21,7 +21,7 @@ class Photo {
 		$this->folder = $folder;
 		$this->filename = $filename;
 		
-		$this->iptcData = new IPTC($this->gallery->getPhotosPath() 
+		$this->iptcInfo = new IPTC($this->gallery->getPhotosPath() 
 							. DS . $this->folder->getFolderPath()
 							. DS . $this->filename);
 	}
@@ -113,5 +113,9 @@ class Photo {
 		}
 		
 		return JRoute::_('index.php?option=com_gallery&controller=file&path=' . $this->resizedFilepath);
+	}
+	
+	public function getIptcInfo() {
+		return $this->iptcInfo;
 	}
 }

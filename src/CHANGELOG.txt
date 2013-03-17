@@ -23,3 +23,5 @@
 ## 1.0.0-alpha.4
 - added robots noindex for category pages
 - added support for name converter
+- parameters for width/height of thumbnails and resized preview photos
+- support for iptc information 

@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } else { ?>
-						<img class="caption lazy" 
+						<img class="caption" 
 							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
 							src="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
@@ -30,16 +30,22 @@ defined('_JEXEC') or die('Restricted access');
 	<div id="photos">
 		<?php foreach($this->photos as $photo) { ?>
 			<div class="gallery_item">		
-				<a class="shutterset" href="<?php echo $photo->getResizedURL(); ?>">
+				<a class="shutterset" 
+					href="<?php echo $photo->getResizedURL(); ?>"
+					title="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
+				>
 					<?php if ($this->useLazyLoading) { ?>
-						<img class="lazy" 
+						<img class="caption lazy" 
 							data-original="<?php echo $photo->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
+							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
 						/>
 					<?php } else { ?>
-						<img src="<?php echo $photo->getThumbnailURL(); ?>"	
+						<img class="caption"
+							src="<?php echo $photo->getThumbnailURL(); ?>"	
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
+							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
 						/>
 					<?php } ?>
 				</a>
