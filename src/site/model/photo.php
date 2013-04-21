@@ -118,4 +118,22 @@ class Photo {
 	public function getIptcInfo() {
 		return $this->iptcInfo;
 	}
+	
+	public function getLightboxDescription() {
+		
+		$lightboxDescription = "";
+		
+		if ($this->iptcInfo->getTitle() != null) {
+			
+			$lightboxDescription .= $this->iptcInfo->getTitle();
+			if ($this->iptcInfo->getDescription() != null) {
+				$lightboxDescription .= ": " . $this->iptcInfo->getDescription();
+			}
+		}
+		else if ($this->iptcInfo->getDescription() != null) {
+			$lightboxDescription .= $this->iptcInfo->getDescription();
+		}
+		
+		return $lightboxDescription;
+	}
 }

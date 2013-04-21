@@ -34,7 +34,7 @@ defined('_JEXEC') or die('Restricted access');
 			<div class="gallery_item photo">		
 				<a class="shutterset" 
 					href="<?php echo $photo->getResizedURL(); ?>"
-					title="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
+					title="<?php echo $photo->getLightboxDescription(); ?>"
 				>
 					<?php if ($this->useLazyLoading) { ?>
 						<img class="lazy" 
