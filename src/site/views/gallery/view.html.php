@@ -68,19 +68,11 @@ class GalleryViewGallery extends JView
 		}
 		
 		$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
-		$this->document->addScript('media/com_gallery/js/jquery.capty.min.js');
-
 		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
 		
 		$this->document->addScriptDeclaration('
 			jQuery(document).ready(function() {
 				shutterReloaded.init(0, \''. $shutterImagesPath . '\');
-				
-				var $jg = jQuery.noConflict();
-				$jg(\'#gallery .caption\').capty({
-					animation: \'fade\',
-					speed: 400
-				});
 			});
 		');
 		

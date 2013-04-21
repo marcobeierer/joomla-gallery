@@ -8,20 +8,23 @@ defined('_JEXEC') or die('Restricted access');
 			<div class="gallery_item">
 				<a href="<?php echo JRoute::_('index.php?option=com_gallery&path=' . $childFolder->getFolderPath()); ?>">
 					<?php if ($this->useLazyLoading) { ?>
-						<img class="caption lazy" 
+						<img class="lazy" 
 							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
 							data-original="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } else { ?>
-						<img class="caption" 
+						<img class="" 
 							alt="<?php echo $childFolder->getReadableFolderName(); ?>" 
 							src="<?php echo $childFolder->getRandomPhoto()->getThumbnailURL(); ?>" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 						/>
 					<?php } ?>
 				</a>
+				<div class="caption">
+					<p><?php echo $childFolder->getReadableFolderName(); ?></p>
+				</div>
 			</div>
 		<?php } ?>	
 		<div class="clear"></div>

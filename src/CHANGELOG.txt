@@ -24,4 +24,5 @@
 - added robots noindex for category pages
 - added support for name converter
 - parameters for width/height of thumbnails and resized preview photos
-- support for iptc information 
+- support for iptc information
+- removed capty -> always show folder name
