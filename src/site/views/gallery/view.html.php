@@ -99,8 +99,8 @@ class GalleryViewGallery extends JView
 	
 	private function loadCSS() {
 		
-		$this->document->addStyleSheet('media/com_gallery/css/gallery.style.css');
 		$this->document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
+		$this->document->addStyleSheet('media/com_gallery/css/gallery.style.css');
 	}
 	
 	private function setBreadcrumbs() {

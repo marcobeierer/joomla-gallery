@@ -31,7 +31,7 @@
 }
 
 #gallery .caption p {
-	margin: 5px;
+	margin: 5px 10px;
 }
 
 /* shutter override */
@@ -41,4 +41,8 @@ div#shNavBar a {
 
 div#shNavBar {
 	background-color: #101010 !important;
+}
+
+#shDisplay div#shTitle {
+	margin-top: 5px;
 }

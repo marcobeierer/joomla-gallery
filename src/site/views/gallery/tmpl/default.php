@@ -37,17 +37,19 @@ defined('_JEXEC') or die('Restricted access');
 					title="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
 				>
 					<?php if ($this->useLazyLoading) { ?>
-						<img class="<?php if ($photo->getIptcInfo()->getHeadline() != null) { ?>caption <?php } ?>lazy" 
+						<img class="lazy" 
 							data-original="<?php echo $photo->getThumbnailURL(); ?>" 
 							src="media/com_gallery/images/placeholder.png" 
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
-							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
+							alt="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
+							title="<?php echo $photo->getIptcInfo()->getTitle(); ?>"
 						/>
 					<?php } else { ?>
-						<img class="<?php if ($photo->getIptcInfo()->getHeadline() != null) { ?>caption <?php } ?>"
+						<img class=""
 							src="<?php echo $photo->getThumbnailURL(); ?>"	
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
-							alt="<?php echo $photo->getIptcInfo()->getHeadline(); ?>"
+							alt="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
+							title="<?php echo $photo->getIptcInfo()->getTitle(); ?>"
 						/>
 					<?php } ?>
 				</a>

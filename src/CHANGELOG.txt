@@ -25,5 +25,6 @@
 - added support for name converter
 - parameters for width/height of thumbnails and resized preview photos
 - support for iptc information
+	- show title and description in shutterbox
 - removed capty -> always show folder name (for usability reasons)
 - show folders and photos in one folder at the same time
