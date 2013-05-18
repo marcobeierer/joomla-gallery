@@ -82,19 +82,23 @@ class GalleryViewGallery extends JView
 			$this->document->addScriptDeclaration('
 				jQuery(document).ready(function() {
 					jQuery(\'#gallery img.lazy\').lazyload();
-					
-					var $jg = jQuery.noConflict();
-					$jg(\'#gallery .folder a\').hover(
-						function() {
-							$jg(this).children(\'.caption\').css(\'opacity\', \'0.9\');
-						},
-						function() {
-							$jg(this).children(\'.caption\').css(\'opacity\', \'0.5\');
-						}
-					);
 				});
 			');
 		}
+		
+		$this->document->addScriptDeclaration('
+			jQuery(document).ready(function() {
+				var $jg = jQuery.noConflict();
+				$jg(\'#gallery .folder a\').hover(
+					function() {
+						$jg(this).children(\'.caption\').css(\'opacity\', \'0.9\');
+					},
+					function() {
+						$jg(this).children(\'.caption\').css(\'opacity\', \'0.5\');
+					}
+				);
+			});
+		');
 	}
 	
 	private function loadCSS() {
