@@ -22,7 +22,7 @@
 
 ## 1.0.0-alpha.4
 - added robots noindex for category pages
-- added support for name converter
+- added support for name converter plugins
 - parameters for width/height of thumbnails and resized preview photos
 - support for iptc information
 	- show title and description in shutterbox
