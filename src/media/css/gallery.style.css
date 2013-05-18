@@ -8,7 +8,7 @@
 
 #gallery .gallery_item {
 	float: left;
-	
+	position: relative;
 	border: 4px solid #666666;
 	margin: 4px;
 }
