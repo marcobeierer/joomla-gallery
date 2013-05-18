@@ -32,7 +32,7 @@ function GalleryParseRoute($segments)
 {
 	$vars = array();
 	$count = count($segments);
-	
+		
 	// check if segements ends with .jpg
 	if (preg_match('/\.(jpg|JPG)$/', $segments[$count - 1]) === 1) { // TODO jpg as param
 		

@@ -43,6 +43,12 @@ div#shNavBar {
 	background-color: #101010 !important;
 }
 
+/* shutter erdikon template */
 #shDisplay div#shTitle {
-	margin-top: 5px;
+	border-left: 7px solid #666666;
+	border-right: 7px solid #666666;
+	/*border-bottom: 5px solid #666666;*/
+	background-color: #666666;
+	font-weight: bold;
+	text-align: left;
 }

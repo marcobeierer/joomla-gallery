@@ -15,7 +15,22 @@ class GalleryViewGalleries extends JView
 		$menuItems = $menu->getItems('menutype', 'photoalben'); // TODO as param
 		// ---
 		
-		$selectedGallery = $menuItems[rand(0, count($menuItems) - 1)];
+		$user = JFactory::getUser();
+		$accessLevels = $user->getAuthorisedViewLevels();
+		$foundGallery = false;
+		do {
+			$galleryIndex = rand(0, count($menuItems) - 1);
+			$selectedGallery = $menuItems[$galleryIndex];
+			
+			if (in_array($selectedGallery->level, $accessLevels)) {
+				$foundGallery = true;
+			}
+			else {
+				unset($menuItems[$galleryIndex]);
+			}
+		}
+		while ($foundGallery == false && count($menuItems) > 0);
+		
 		$application->redirect(JRoute::_($selectedGallery->link . '&Itemid=' . $selectedGallery->id, false));
 	}
 }
