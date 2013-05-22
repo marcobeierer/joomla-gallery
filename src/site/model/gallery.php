@@ -68,8 +68,8 @@ class Gallery {
 		$this->setLazyLoading($params->get('lazy_loading', 0));
 		
 		$this->setThumbnailSize($params->get('thumbnail_size', 220));
-		$this->setMaxResizedWidth($params->get('max_resized_width'), 1110);
-		$this->setMaxResizedHeight($params->get('max_resized_height'), 888);
+		$this->setMaxResizedWidth($params->get('max_resized_width', 1110));
+		$this->setMaxResizedHeight($params->get('max_resized_height', 888));
 	}
 	
 	private function setGalleryPath($galleryPath) {
