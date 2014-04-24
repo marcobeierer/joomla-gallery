@@ -10,7 +10,7 @@ class Gallery {
 	private $currentRequestPath;
 	private $currentRequestFilename;
 	
-	private $showBacklink;
+	private $removeBacklinkCode;
 	private $loadJQuery;
 	private $lazyLoading;
 	
@@ -63,7 +63,7 @@ class Gallery {
 
 		$this->setGalleryPath($params->get('gallery_path', ''));
 		
-		$this->setShowBacklink($params->get('show_backlink', 1));
+		$this->setRemoveBacklinkCode($params->get('remove_backlink_code', 0));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
 		$this->setLazyLoading($params->get('lazy_loading', 0));
 		
@@ -86,8 +86,12 @@ class Gallery {
 		$this->lazyLoading = (bool) $lazyLoading;
 	}
 	
-	private function setShowBacklink($showBacklink) {
-		$this->showBacklink = (bool) $showBacklink;
+	private function setRemoveBacklinkCode($removeBacklinkCode) {
+
+		if (preg_match('/^[a-f0-9]{32}$/', $removeBacklinkCode)) {
+			$this->removeBacklinkCode = $removeBacklinkCode;
+		}
+		$this->removeBacklinkCode = 0;
 	}
 	
 	private function setThumbnailSize($thumbnailSize) {
@@ -141,7 +145,15 @@ class Gallery {
 	}
 	
 	public function showBacklink() {
-		return $this->showBacklink;
+		return !$this->isRemoveBacklinkCodeValid();
+	}
+	
+	private function isRemoveBacklinkCodeValid() {
+
+		if ($this->removeBacklinkCode != 0) {
+			return $this->removeBacklinkCode == md5($_SERVER['SERVER_NAME'] . 'webguerilla.net');
+		}
+		return false;
 	}
 	
 	public function getThumbnailSize() {

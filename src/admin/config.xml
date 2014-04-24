@@ -6,14 +6,11 @@
 		description="COM_GALLERY_CONFIG_GALLERY_SETTINGS_DESC">
 		
 		<field
-			name="show_backlink"
-			type="radio"
-			label="COM_GALLERY_GALLERY_FIELD_SHOW_BACKLINK_LABEL"
-			description="COM_GALLERY_GALLERY_FIELD_SHOW_BACKLINK_DESC"
-			default="1">
-			
-			<option value="1">JSHOW</option>
-			<option value="0">JHIDE</option>
+			name="remove_backlink_code"
+			type="text"
+			label="COM_GALLERY_GALLERY_FIELD_REMOVE_BACKLINK_CODE_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_REMOVE_BACKLINK_CODE_DESC"
+			default="0">
 		</field>
 		
 		<field

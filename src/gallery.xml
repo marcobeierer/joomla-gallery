@@ -7,10 +7,10 @@
 	<authorEmail>marco@webguerilla.net</authorEmail>
 	<authorUrl>http://webguerilla.net</authorUrl>
 	
-	<version>1.0.0-alpha.4</version>
-	<creationDate>May 2013</creationDate>
+	<version>1.0.0-alpha.5</version>
+	<creationDate>May 2014</creationDate>
 	
-	<copyright>Copyright (C) 2013 Marco Beierer. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2014 Marco Beierer. All rights reserved.</copyright>
 	<license>http://www.gnu.org/licenses/agpl-3.0.html GNU/AGPL</license>
 
 	<files folder="site">
