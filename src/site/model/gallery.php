@@ -90,8 +90,9 @@ class Gallery {
 
 		if (preg_match('/^[a-f0-9]{32}$/', $removeBacklinkCode)) {
 			$this->removeBacklinkCode = $removeBacklinkCode;
+		} else {
+			$this->removeBacklinkCode = 0;
 		}
-		$this->removeBacklinkCode = 0;
 	}
 	
 	private function setThumbnailSize($thumbnailSize) {
