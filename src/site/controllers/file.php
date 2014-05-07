@@ -6,7 +6,7 @@ class FileController extends JController {
 	
 	private $gallery;
 	
-	function display() {
+	function display($cachable = false, $urlparams = false) {
 		
 		$this->gallery = Gallery::getInstance();
 		$this->handleFileRequest();

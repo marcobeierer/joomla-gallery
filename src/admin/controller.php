@@ -4,13 +4,13 @@ jimport('joomla.application.component.controller');
 
 class GalleryController extends JController
 {
-	function display() {
+	function display($cachable = false, $urlparams = false) {
 		
 		if (JRequest::getVar('view') == '') {
 			JRequest::setVar('view', 'gallery');
 		}
 		
-		parent::display(); 
+		parent::display($cachable, $urlparams); 
 	}
 }
 ?>

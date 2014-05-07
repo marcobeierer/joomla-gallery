@@ -16,8 +16,8 @@ class Folder {
 	/** @param String $folderPath relative path of folder */
 	public function __construct($relativeFolderPath) {
 		
-		$this->gallery =& Gallery::getInstance();
-		$this->filesystem =& Filesystem::getInstance();
+		$this->gallery = Gallery::getInstance();
+		$this->filesystem = Filesystem::getInstance();
 		
 		$this->relativeFolderPath = $relativeFolderPath; // TODO make sure it is relative
 		$this->absoluteFolderPath = $this->gallery->getPhotosPath() . DS . $relativeFolderPath;

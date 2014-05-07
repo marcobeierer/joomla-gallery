@@ -15,14 +15,14 @@ class GalleryViewGallery extends JView
 	
 	function display($tpl = null)
 	{
-		$this->app =& JFactory::getApplication();
-		$this->document =& JFactory::getDocument();
-		$this->pathway =& JSite::getPathway();
+		$this->app = JFactory::getApplication();
+		$this->document = JFactory::getDocument();
+		$this->pathway = JFactory::getApplication('site')->getPathway();
 		
-		$this->gallery =& Gallery::getInstance();
-		$this->filesystem =& Filesystem::getInstance();
+		$this->gallery = Gallery::getInstance();
+		$this->filesystem = Filesystem::getInstance();
 		
-		$this->folder =& $this->filesystem->getFolder($this->gallery->getCurrentRequestPath());
+		$this->folder = $this->filesystem->getFolder($this->gallery->getCurrentRequestPath());
 		
 		// get child folders of this folder
 		$childFolders = $this->folder->getChildFolders();
@@ -50,13 +50,16 @@ class GalleryViewGallery extends JView
 			$this->document->addCustomTag('<meta name="robots" content="noindex" />');
 		}
 		
+		echo $this->gallery->showBacklink();
+		
 		// assign Variables
-		$this->assignRef('title', $title);
-		$this->assignRef('childFolders', $childFolders);
-		$this->assignRef('photos', $photos);
-		$this->assignRef('showBacklink', $this->gallery->showBacklink());
-		$this->assignRef('useLazyLoading', $this->gallery->shouldUseLazyLoading());
-		$this->assignRef('thumbnailSize', $this->gallery->getThumbnailSize());
+		$this->assignRef('title', $title); // TODO change to direct assign
+		$this->assignRef('childFolders', $childFolders); // TODO change to direct assign
+		$this->assignRef('photos', $photos); // TODO change to direct assign
+
+		$this->showBacklink = $this->gallery->showBacklink();
+		$this->useLazyLoading = $this->gallery->shouldUseLazyLoading();
+		$this->thumbnailSize = $this->gallery->getThumbnailSize();
 
 		parent::display($tpl);
 	}

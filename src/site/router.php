@@ -6,7 +6,7 @@ function GalleryBuildRoute(&$query)
 	$segments = array();
 	
 	// add file segment if it is a file request
-	if ($query['controller'] == 'file') {
+	if (isset($query['controller']) && $query['controller'] == 'file') {
 		$segments[] = $query['controller'];
 	}
 	unset($query['controller']);

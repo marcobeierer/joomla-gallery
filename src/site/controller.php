@@ -9,7 +9,7 @@ class GalleryController extends JController
 	public function __construct() {
 		
 		parent::__construct();
-		$this->gallery =& Gallery::getInstance();
+		$this->gallery = Gallery::getInstance();
 	}
 
 	/* create htaccess file if it not already exists */
@@ -39,8 +39,8 @@ class GalleryController extends JController
 		JRequest::setVar('photos_path', $this->gallery->getPhotosPath());
 	}
 	
-	public function display() {
-		parent::display();
+	public function display($cachable = false, $urlparams = false) {
+		parent::display($cachable, $urlparams);
 	}
 } 
 ?>

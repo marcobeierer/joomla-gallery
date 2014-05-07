@@ -16,7 +16,7 @@ class Photo {
 	
 	function __construct($folder, $filename) {
 
-		$this->gallery =& Gallery::getInstance();
+		$this->gallery = Gallery::getInstance();
 		
 		$this->folder = $folder;
 		$this->filename = $filename;
@@ -95,7 +95,7 @@ class Photo {
 
 	public function getThumbnailURL() {
 		
-		if ($this->thumbnail == null) {
+		if (!isset($this->thumbnail)) {
 			
 			$thumbnailSize = $this->gallery->getThumbnailSize();
 			$this->resize('thumbnail', $thumbnailSize, $thumbnailSize, true);
@@ -105,7 +105,7 @@ class Photo {
 	
 	public function getResizedURL() { // TODO merge with getThumbnailURL
 		
-		if ($this->resized == null) {
+		if (!isset($this->resized)) {
 			
 			$maxResizedWidth = $this->gallery->getMaxResizedWidth();
 			$maxResizedHeight = $this->gallery->getMaxResizedHeight();

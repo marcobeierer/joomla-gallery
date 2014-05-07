@@ -9,6 +9,8 @@ class GalleryHelper {
 			$path = GalleryHelper::makeRelative($path);
 		}
 		$parts = explode(DS, $path);
+		
+		$object = new ArrayObject();
 
 		$object->filename = JFile::makeSafe(array_pop($parts)); // last element is filename
 		$object->folderPath = JFolder::makeSafe(implode(DS, $parts)); // use rest as path
@@ -18,7 +20,7 @@ class GalleryHelper {
 	
 	public static function makeRelative($path) {
 		
-		$gallery =& Gallery::getInstance();
+		$gallery = Gallery::getInstance();
 		return str_replace($gallery->getPhotosPath() . DS, '', $path);
 	}
 	
@@ -26,7 +28,7 @@ class GalleryHelper {
 		
 		$folderName = str_replace('_', ' ', $folderName);
 		
-		$dispatcher =& JDispatcher::getInstance();
+		$dispatcher = JDispatcher::getInstance();
 		$dispatcher->trigger('onConvertLanguageSpecificChars', array(&$folderName));
 		
 		return $folderName;
@@ -35,7 +37,7 @@ class GalleryHelper {
 	/* check if path is valid and raise error otherwise */
 	public static function validateRequestPath() { 
 		
-		$gallery =& Gallery::getInstance();
+		$gallery = Gallery::getInstance();
 		
 		if (JRequest::getVar('controller') == 'file') {
 			$fullPath = $gallery->getGalleryPath();
