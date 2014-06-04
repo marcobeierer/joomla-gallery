@@ -43,7 +43,6 @@ class Photo {
 	}
 	
 	public function resize($type, $width, $height, $crop = false) {
-		
 		if ($type == 'thumbnail') {
 			
 			$path = $this->gallery->getThumbnailsPath();

@@ -75,7 +75,7 @@ class GalleryViewGallery extends JView
 		
 		$this->document->addScriptDeclaration('
 			jQuery(document).ready(function() {
-				shutterReloaded.init(0, \''. $shutterImagesPath . '\');
+				shutterReloaded.init(\'sh\', \''. $shutterImagesPath . '\');
 			});
 		');
 		

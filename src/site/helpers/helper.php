@@ -11,7 +11,7 @@ class GalleryHelper {
 		$parts = explode(DS, $path);
 		
 		$object = new ArrayObject();
-
+		
 		$object->filename = JFile::makeSafe(array_pop($parts)); // last element is filename
 		$object->folderPath = JFolder::makeSafe(implode(DS, $parts)); // use rest as path
 		
