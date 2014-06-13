@@ -1,6 +1,10 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 
+if(!defined('DS')){
+	define('DS', DIRECTORY_SEPARATOR);
+}
+
 require_once(JPATH_COMPONENT . DS . 'controller.php');
 
 // Require specific controller if requested

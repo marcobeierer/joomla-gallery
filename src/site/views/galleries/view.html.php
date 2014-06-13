@@ -3,7 +3,7 @@ defined('_JEXEC') or die('Restricted Access');
 jimport('joomla.application.component.view');
 jimport('joomla.html.parameter');
 
-class GalleryViewGalleries extends JView
+class GalleryViewGalleries extends JViewLegacy
 {
 	function display($tpl = null)
 	{

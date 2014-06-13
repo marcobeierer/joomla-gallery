@@ -1,6 +1,8 @@
 <?php
 defined('_JEXEC') or die('Restricted Access');
+
 jimport('joomla.application.component.model');
+jimport('joomla.filesystem.folder');
 
 class Gallery {
 	

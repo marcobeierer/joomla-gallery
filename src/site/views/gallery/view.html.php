@@ -2,7 +2,7 @@
 defined('_JEXEC') or die('Restricted Access'); 
 jimport('joomla.application.component.view');
 
-class GalleryViewGallery extends JView
+class GalleryViewGallery extends JViewLegacy
 {
 	private $app;
 	public $document; // TODO why not private?
@@ -49,8 +49,6 @@ class GalleryViewGallery extends JView
 		if (count($photos) == 0) {
 			$this->document->addCustomTag('<meta name="robots" content="noindex" />');
 		}
-		
-		echo $this->gallery->showBacklink();
 		
 		// assign Variables
 		$this->assignRef('title', $title); // TODO change to direct assign

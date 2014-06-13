@@ -2,7 +2,7 @@
 defined('_JEXEC') or die( 'Restricted Access' ); 
 jimport('joomla.application.component.view');
 
-class GalleryViewPhoto extends JView
+class GalleryViewPhoto extends JViewLegacy
 {
 	function display($tpl = null)
 	{

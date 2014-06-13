@@ -1,8 +1,10 @@
 <?php
 defined( '_JEXEC' ) or die( 'Restricted access' );
-jimport('joomla.application.component.controller'); 
 
-class GalleryController extends JController
+jimport('joomla.application.component.controller'); 
+jimport('joomla.filesystem.file');
+
+class GalleryController extends JControllerLegacy
 {
 	private $gallery;
 	

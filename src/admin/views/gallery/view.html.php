@@ -4,7 +4,7 @@ defined('_JEXEC') or die( 'Restricted Access' );
 jimport( 'joomla.application.component.view' ); 
 jimport('joomla.html.pagination');
 
-class GalleryViewGallery extends JView
+class GalleryViewGallery extends JViewLegacy
 { 	
 	function display($tpl = null)
 	{

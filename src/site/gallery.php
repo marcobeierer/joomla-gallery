@@ -1,6 +1,10 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 
+if(!defined('DS')){
+	define('DS', DIRECTORY_SEPARATOR);
+}
+
 /* include files (TODO use spl autoload) */ 
 require_once(JPATH_COMPONENT . DS . 'helpers' . DS . 'helper.php');
 
@@ -27,7 +31,7 @@ GalleryHelper::validateRequestPath();
 JPluginHelper::importPlugin('gallery');
 
 // execute requested controller
-$controller = JController::getInstance($controller);
+$controller = JControllerLegacy::getInstance($controller);
 
 if ($controller->getName() == 'gallery') {
 
