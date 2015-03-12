@@ -155,7 +155,12 @@ class Gallery {
 	private function isRemoveBacklinkCodeValid() {
 
 		if ($this->removeBacklinkCode != 0) {
-			return $this->removeBacklinkCode == md5($_SERVER['SERVER_NAME'] . 'webguerilla.net');
+
+			$host = $_SERVER['HTTP_HOST'];
+			if (strpos($host, 'www.') === 0) {
+				$host = substr($host, 4);
+			}
+			return $this->removeBacklinkCode == md5($host . 'webguerilla.net');
 		}
 		return false;
 	}

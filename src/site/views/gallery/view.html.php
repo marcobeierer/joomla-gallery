@@ -29,7 +29,7 @@ class GalleryViewGallery extends JViewLegacy
 
 		// get photos of this folder
 		$photos = $this->folder->getPhotos();
-
+		
 		// load js and css files
 		$this->loadJavaScripts();
 		$this->loadCSS();

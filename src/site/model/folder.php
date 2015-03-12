@@ -86,11 +86,12 @@ class Folder {
 		if ($numberOfPhotoPaths <= 0) {
 			return null;
 		}
-
+		
 		$previewPhotoIndex = rand(0, $numberOfPhotoPaths - 1);
 		
 		$previewPhotoPath = $photoPaths[$previewPhotoIndex];
 		$previewPhotoPath = GalleryHelper::splitPath($previewPhotoPath);
+		
 
 		$folder = $this->filesystem->getFolder($previewPhotoPath->folderPath);
 		$previewPhoto = $this->filesystem->getPhoto($folder, $previewPhotoPath->filename);
