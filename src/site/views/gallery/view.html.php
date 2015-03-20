@@ -65,7 +65,7 @@ class GalleryViewGallery extends JViewLegacy
 	private function loadJavaScripts() {
 		
 		if ($this->gallery->shouldLoadJQuery()) {
-			$this->document->addScript('media/com_gallery/js/jquery-1.8.3.min.js');
+			JHtml::_('jquery.framework');
 		}
 		
 		$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
