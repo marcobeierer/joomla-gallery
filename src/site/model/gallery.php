@@ -17,6 +17,7 @@ class Gallery {
 	private $removeBacklinkCode;
 	private $loadJQuery;
 	private $lazyLoading;
+	private $protectImages;
 	
 	private $thumbnailSize;
 	private $maxResizedWidth;
@@ -71,6 +72,7 @@ class Gallery {
 		$this->setRemoveBacklinkCode($params->get('remove_backlink_code', 0));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
 		$this->setLazyLoading($params->get('lazy_loading', 0));
+		$this->setProtectImages($params->get('protect_images', 0));
 		
 		$this->setThumbnailSize($params->get('thumbnail_size', 220));
 		$this->setMaxResizedWidth($params->get('max_resized_width', 1110));
@@ -91,6 +93,10 @@ class Gallery {
 	
 	private function setLazyLoading($lazyLoading) {
 		$this->lazyLoading = (bool) $lazyLoading;
+	}
+
+	private function setProtectImages($protectImages) {
+		$this->protectImages = (bool) $protectImages;
 	}
 	
 	private function setRemoveBacklinkCode($removeBacklinkCode) {
@@ -133,7 +139,6 @@ class Gallery {
 	}
 
 	public function getCachePath() {
-		// TODO create htaccess in folder
 		return JPATH_CACHE . DS . 'gallery' . DS . $this->relativeGalleryPath;
 	}
 	
@@ -155,6 +160,10 @@ class Gallery {
 	
 	public function shouldUseLazyLoading() {
 		return $this->lazyLoading;
+	}
+
+	public function shouldProtectImages() {
+		return $this->protectImages;
 	}
 	
 	public function showBacklink() {

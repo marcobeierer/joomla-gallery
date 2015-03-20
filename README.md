@@ -98,6 +98,7 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 - fixed a routing issue
 - fixed lazy loading issue
 - refactored to use native Joomla cache for thumbnails and preview images
+- the protection of the images with a htaccess file is now optional
 
 ## Known Bugs
 

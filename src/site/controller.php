@@ -16,13 +16,22 @@ class GalleryController extends JControllerLegacy
 
 	/* create htaccess file if it not already exists */
 	public function createHtaccessFile() {
+
+		if (!$this->gallery->ShouldProtectImages()) {
+			return;
+		}
 		
-		$htaccessPath = $this->gallery->getGalleryPath() . DS . '.htaccess';
+		$htaccessPaths = array(
+			$this->gallery->getGalleryPath() . DS . '.htaccess',
+			$this->gallery->getCachePath() . DS . '.htaccess');
+
+		foreach ($htaccessPaths as $htaccessPath) {
 		
-		if (!JFile::exists($htaccessPath)) { // TODO error handling
-			
-			$htaccessContent = "deny from all\n";
-			JFile::write($htaccessPath, $htaccessContent);
+			if (!JFile::exists($htaccessPath)) { // TODO error handling
+				
+				$htaccessContent = "deny from all\n";
+				JFile::write($htaccessPath, $htaccessContent);
+			}
 		}
 	}
 	

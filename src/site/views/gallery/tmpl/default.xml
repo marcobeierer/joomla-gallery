@@ -10,9 +10,24 @@
 		<fieldset name="gallery" label="COM_GALLERY_CONFIG_GALLERY_SETTINGS_LABEL"
 			description="COM_GALLERY_CONFIG_GALLERY_SETTINGS_DESC">
 
-			<field name="gallery_path" type="text"
-				label="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_LABEL" description="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_DESC"
+			<field 
+				name="gallery_path" 
+				type="text"
+				label="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_LABEL"
+				description="COM_GALLERY_GALLERY_FIELD_GALLERY_PATH_DESC"
 				default="images/gallery" />
+
+			<field
+				name="protect_images"
+				type="radio"
+				label="COM_GALLERY_GALLERY_FIELD_PROTECT_IMAGES_LABEL"
+				description="COM_GALLERY_GALLERY_FIELD_PROTECT_IMAGES_DESC"
+				default="0">
+				
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+		
 		</fieldset>
 	</fields>
 
