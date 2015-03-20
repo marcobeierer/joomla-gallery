@@ -40,7 +40,7 @@ class GalleryHelper {
 		$gallery = Gallery::getInstance();
 		
 		if (JRequest::getVar('controller') == 'file') {
-			$fullPath = $gallery->getGalleryPath();
+			$fullPath = $gallery->getCachePath();
 		} else {
 			$fullPath = $gallery->getPhotosPath();
 		}

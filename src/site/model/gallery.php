@@ -9,6 +9,8 @@ class Gallery {
 	private static $instance;
 	
 	private $galleryPath;
+	private $relativeGalleryPath;
+
 	private $currentRequestPath;
 	private $currentRequestFilename;
 	
@@ -76,9 +78,11 @@ class Gallery {
 	}
 	
 	private function setGalleryPath($galleryPath) {
+
+		// TODO handle if absolute path is used as input
 		
-		// TODO handle absolute path
-		$this->galleryPath = JPATH_BASE . DS . JFolder::makeSafe($galleryPath); // TODO safe enough?
+		$this->relativeGalleryPath = JFolder::makeSafe($galleryPath); // TODO safe enough?
+		$this->galleryPath = JPATH_BASE . DS . $this->relativeGalleryPath;
 	}
 	
 	private function setLoadJQuery($loadJQuery) {
@@ -111,7 +115,7 @@ class Gallery {
 	}
 		
 	public function getRequestPathWithFilename() {
-		return $this->galleryPath . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
+		return $this->getCachePath() . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
 	}
 	
 	/** Relative Request Path */
@@ -125,15 +129,20 @@ class Gallery {
 	}
 		
 	public function getPhotosPath() {
-		return $this->galleryPath . DS . 'photos';
+		return $this->galleryPath;
+	}
+
+	public function getCachePath() {
+		// TODO create htaccess in folder
+		return JPATH_CACHE . DS . 'gallery' . DS . $this->relativeGalleryPath;
 	}
 	
 	public function getThumbnailsPath() {
-		return $this->galleryPath . DS . 'thumbnails';
+		return $this->getCachePath() . DS . 'thumbnails';
 	}
 	
 	public function getResizedPath() { // TODO other name
-		return $this->galleryPath . DS . 'resized';
+		return $this->getCachePath() . DS . 'resized';
 	}
 	
 	public function getGalleryPath() {

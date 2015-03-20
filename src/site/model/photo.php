@@ -85,7 +85,7 @@ class Photo {
 			}
 		}
 
-		$filePath = str_replace($this->gallery->getGalleryPath(), '', $newPhotoFilepath);
+		$filePath = str_replace($this->gallery->getCachePath(), '', $newPhotoFilepath);
 	}
 	
 	private function getURL() {
