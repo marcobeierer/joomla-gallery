@@ -40,12 +40,14 @@ function GalleryParseRoute($segments)
     if ($segments[0] == 'file') { // TODO what happens if a folder in the filepath is called 'file'?
 
 		$vars['controller'] = array_shift($segments); // remove first element which was 'file'
+
+		foreach ($segments as &$segment) { // TODO quickfix for joomla core bug
+			$segment = str_replace(':', '-', $segment);
+		}
 		
 		$filetype = array_pop($segments);
 		$filename = array_pop($segments);
 
-		$filename = str_replace(':', '-', $filename); // TODO quickfix for joomla core bug
-		
 		array_push($segments, $filename . '.' . $filetype);
     }
     //else {
