@@ -36,15 +36,15 @@ function GalleryParseRoute($segments)
 	$vars = array();
 	$count = count($segments);
 
+	foreach ($segments as &$segment) { // TODO quickfix for joomla core bug
+		$segment = str_replace(':', '-', $segment);
+	}
+
     // check if it is a file request
     if ($segments[0] == 'file') { // TODO what happens if a folder in the filepath is called 'file'?
 
 		$vars['controller'] = array_shift($segments); // remove first element which was 'file'
 
-		foreach ($segments as &$segment) { // TODO quickfix for joomla core bug
-			$segment = str_replace(':', '-', $segment);
-		}
-		
 		$filetype = array_pop($segments);
 		$filename = array_pop($segments);
 
