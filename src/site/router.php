@@ -51,6 +51,6 @@ function GalleryParseRoute($segments)
     //}
 	
 	$vars['path'] = implode('/', $segments); // use rest as path
-	
+
 	return $vars;
 }
