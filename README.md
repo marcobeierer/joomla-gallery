@@ -96,6 +96,7 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 
 - fixed an issue with the backing removal code
 - fixed a routing issue
+- fixed lazy loading issue
 
 ## Known Bugs
 
