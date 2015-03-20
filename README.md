@@ -92,6 +92,10 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 
 - gallery is now compatible with Joomla 3
 
+### 1.0.0-alpha.8
+
+- fixed an issue with the backing removal code
+
 ## Known Bugs
 
 - It is not possible to use the gallery as front page.
