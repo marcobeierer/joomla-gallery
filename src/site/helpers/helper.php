@@ -8,7 +8,7 @@ class GalleryHelper {
 		if ($makeRelative) {
 			$path = GalleryHelper::makeRelative($path);
 		}
-		$parts = explode(DS, $path);
+		$parts = explode('/', $path);
 		
 		$object = new ArrayObject();
 		
