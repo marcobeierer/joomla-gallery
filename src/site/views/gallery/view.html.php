@@ -69,7 +69,7 @@ class GalleryViewGallery extends JViewLegacy
 		}
 		
 		$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
-		$shutterImagesPath = JURI::root(true) . DS . 'media' . DS . 'com_gallery' . DS . 'images' . DS . 'shutter' . DS;
+		$shutterImagesPath = JURI::root(true) . '/media/com_gallery/images/shutter/';
 		
 		$this->document->addScriptDeclaration('
 			jQuery(document).ready(function() {

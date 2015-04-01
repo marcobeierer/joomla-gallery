@@ -24,24 +24,17 @@ To run the Gallery on your Joomla! installation your server should satisfy the s
 
 Maybe you are able to launch the component on other systems (e.g. running with MySQL 4), but I only have tested this configuration.
 
-## Download
-
-- [Gallery 1.0.0-alpha.7 (tar)](https://webguerilla.net/files/gallery/com_gallery-1.0.0-alpha.7.tar.gz)
-- [Gallery 1.0.0-alpha.7 (zip)](https://webguerilla.net/files/gallery/com_gallery-1.0.0-alpha.7.zip)
-
 ## Install Instructions
 
-1. Download the component archive file from the links above.
+1. Download the component archive file.
 
-2. Install the package "com_gallery-x.x.x.tar.gz" through the Joomla extensions manager.
+2. Install the package "com_gallery-x.x.x.zip" through the Joomla extensions manager.
 
-3. Create a new menu item for the gallery and set the path to the gallery (relative to your Joomla root folder) in the menu settings.
+3. Create a new menu item for the gallery and set the path to the gallery folder relative to your Joomla root folder in the menu settings.
 
-4. Access the menu item through the front-end (your website) or create a folder named "photos" in your gallery path. In the first case, the folder "photos" is automatically generated.
+4. Upload some JPG photos to the folder selected folder. You could do this through the Joomla media manager or via FTP. You are free to choose your own folder structure to organise your photos. The original photos shouldn't be to large, because the PHP memory limit would maybe exceeded when generating the preview photos or thumbnails for large photos. A maximum width and height of about 1600x1600 pixels should work fine.
 
-5. Upload some JPG photos to the folder "photos". You could do this through the Joomla media manager or via FTP. You are free to choose your own folder structure to organise your photos. The original photos shouldn't be to large, because the PHP memory limit would maybe exceeded when generating the preview photos or thumbnails for large photos. A maximum width and height of about 1600x1600 pixels should work fine.
-
-6. Access the gallery via the front-end. The first call of each folder could take some time because the preview photos and thumbnails are just generated.
+5. Access the gallery via the front-end. The first call of each folder could take some time because the preview photos and thumbnails are just generated.
 
 *Note: Breadcrumbs are used as navigation. So if you like to use navigation, you have to add a breadcrumbs module!*
 
