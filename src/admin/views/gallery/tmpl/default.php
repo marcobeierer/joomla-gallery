@@ -1,4 +1,9 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php 
+// Licensed under the AGPL v3
+// Copyright by Marco Beierer
+
+defined('_JEXEC') or die('Restricted access'); 
+?>
 <h1>Install Instructions</h1>
 <ol style="font-size: 16px;">
 	<li><p>Create a new menu item for the gallery and set the path to the gallery (relative to your Joomla root folder) in the menu settings.</p></li>

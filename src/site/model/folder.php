@@ -1,5 +1,9 @@
 <?php
+// Licensed under the AGPL v3
+// Copyright by Marco Beierer
+
 defined('_JEXEC') or die('Restricted Access');
+
 jimport('joomla.application.component.model');
 
 class Folder {
