@@ -12,7 +12,7 @@ You could find a [demo of the "Gallery"](https://webguerilla.net/demos/gallery) 
 
 ## License
 
-The "Gallery" component for Joomla 2.5 is published under the GNU AGPL v3 license. See http://www.gnu.org/licenses/agpl-3.0.html for more details.
+The "Gallery" component for Joomla 3 is published under the GNU AGPL v3 license. See http://www.gnu.org/licenses/agpl-3.0.html for more details.
 
 ## System Requirements
 
@@ -92,6 +92,10 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 - fixed lazy loading issue
 - refactored to use native Joomla cache for thumbnails and preview images
 - the protection of the images with a htaccess file is now optional
+
+### 1.0.0-alpha.9
+
+- added support for the native Joomla update function
 
 ## Known Bugs
 
