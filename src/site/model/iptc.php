@@ -42,30 +42,70 @@ class IPTC {
 
 			$iptc = iptcparse($photoInfo['APP13']);
 			
-			$this->intellectualGenre =	$iptc['2#004'][0];
-			$this->title = 				$iptc['2#005'][0];
-			$this->subjectCode =		$iptc['2#012'][0];
-			$this->keywords = 			$iptc['2#025'][0];
-			$this->instructions = 		$iptc['2#040'][0];
-			$this->dateCreated =		$iptc['2#055'][0];
-			
-			$this->creator = 			$iptc['2#080'][0];
-			$this->creatorsJobtitle = 	$iptc['2#085'][0];
-			
-			$this->jobId =				$iptc['2#103'][0];
-			$this->headline = 			$iptc['2#105'][0];
-			$this->creditLine =			$iptc['2#110'][0];
-			$this->source =				$iptc['2#115'][0];
-			$this->copyrightNotice = 	$iptc['2#116'][0];
-			$this->description = 		$iptc['2#120'][0];
-			$this->descriptionWriter = 	$iptc['2#122'][0];
+			if (isset($iptc['2#004'][0])) {
+				$this->intellectualGenre =	$iptc['2#004'][0];
+			}
+			if (isset($iptc['2#005'][0])) {
+				$this->title = 				$iptc['2#005'][0];
+			}
+			if (isset($iptc['2#012'][0])) {
+				$this->subjectCode =		$iptc['2#012'][0];
+			}
+			if (isset($iptc['2#025'][0])) {
+				$this->keywords = 			$iptc['2#025'][0];
+			}
+			if (isset($iptc['2#040'][0])) {
+				$this->instructions = 		$iptc['2#040'][0];
+			}
+			if (isset($iptc['2#055'][0])) {
+				$this->dateCreated =		$iptc['2#055'][0];
+			}
+
+			if (isset($iptc['2#080'][0])) {
+				$this->creator = 			$iptc['2#080'][0];
+			}
+			if (isset($iptc['2#085'][0])) {
+				$this->creatorsJobtitle = 	$iptc['2#085'][0];
+			}
+
+			if (isset($iptc['2#103'][0])) {
+				$this->jobId =				$iptc['2#103'][0];
+			}
+			if (isset($iptc['2#105'][0])) {
+				$this->headline = 			$iptc['2#105'][0];
+			}
+			if (isset($iptc['2#110'][0])) {
+				$this->creditLine =			$iptc['2#110'][0];
+			}
+			if (isset($iptc['2#115'][0])) {
+				$this->source =				$iptc['2#115'][0];
+			}
+			if (isset($iptc['2#116'][0])) {
+				$this->copyrightNotice = 	$iptc['2#116'][0];
+			}
+			if (isset($iptc['2#120'][0])) {
+				$this->description = 		$iptc['2#120'][0];
+			}
+			if (isset($iptc['2#122'][0])) {
+				$this->descriptionWriter = 	$iptc['2#122'][0];
+			}
 
 			/* legacy */
-			$this->city = 				$iptc['2#090'][0];
-			$this->sublocation =		$iptc['2#092'][0];
-			$this->province = 			$iptc['2#095'][0];
-			$this->countryCode = 		$iptc['2#100'][0];
-			$this->country = 			$iptc['2#101'][0];
+			if (isset($iptc['2#090'][0])) {
+				$this->city = 				$iptc['2#090'][0];
+			}
+			if (isset($iptc['2#092'][0])) {
+				$this->sublocation =		$iptc['2#092'][0];
+			}
+			if (isset($iptc['2#095'][0])) {
+				$this->province = 			$iptc['2#095'][0];
+			}
+			if (isset($iptc['2#100'][0])) {
+				$this->countryCode = 		$iptc['2#100'][0];
+			}
+			if (isset($iptc['2#101'][0])) {
+				$this->country = 			$iptc['2#101'][0];
+			}
 			
 			//$this->sceneCode =		$iptc['2#'][0];
 			//$this->creatorsContactInfo=$iptc['2#'][0];
