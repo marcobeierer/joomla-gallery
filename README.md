@@ -97,6 +97,10 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 
 - added support for the native Joomla update function
 
+### 1.0.0-alpha.10
+
+- Fixed issue with reading IPTC data if key does not exist.
+
 ## Known Bugs
 
 - It is not possible to use the gallery as front page.
