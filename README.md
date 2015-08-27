@@ -97,9 +97,11 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 
 - added support for the native Joomla update function
 
-### 1.0.0-alpha.10
+### 1.0.0-beta.1
 
 - Fixed issue with reading IPTC data if key does not exist.
+- Fixed issue with backlink removal code.
+- Show child folders and photos div container only if child folders or photos are available.
 
 ## Known Bugs
 
