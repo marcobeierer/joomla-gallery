@@ -102,6 +102,7 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 - Fixed issue with reading IPTC data if key does not exist.
 - Fixed issue with backlink removal code.
 - Show child folders and photos div container only if child folders or photos are available.
+- Changed "powered by" message and set link to nofollow. 
 
 ## Known Bugs
 

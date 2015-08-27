@@ -66,7 +66,7 @@ defined('_JEXEC') or die('Restricted access');
 	<?php endif; ?>
 	<?php if ($this->showBacklink) { ?>
 	<div id="backlink">
-		<small>Powered by <a href="http://webguerilla.net/projects/joomla-gallery">Gallery</a> from <a href="http://webguerilla.net">webguerilla.net</a></small>
+		<p><small>Powered by the <a href="https://www.marcobeierer.com/joomla-extensions/gallery" rel="nofollow">Gallery extension for Joomla</a>.</small></p>
 	</div>
 	<?php } ?>
 </div>
