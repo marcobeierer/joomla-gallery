@@ -5,6 +5,7 @@
 defined('_JEXEC') or die('Restricted access');
 ?>
 <div id="gallery">
+	<?php if ($this->childFoldersCount > 0): ?>
 	<div id="folders">
 		<?php foreach($this->childFolders as $childFolder) { ?>
 			<div class="gallery_item folder">
@@ -32,6 +33,8 @@ defined('_JEXEC') or die('Restricted access');
 		<?php } ?>	
 		<div class="clear"></div>
 	</div>
+	<?php endif; ?>
+    <?php if ($this->photosCount > 0): ?>
 	<div id="photos">
 		<?php foreach($this->photos as $photo) { ?>
 			<div class="gallery_item photo">		
@@ -60,6 +63,7 @@ defined('_JEXEC') or die('Restricted access');
 		<?php } ?>
 		<div class="clear"></div>
 	</div>
+	<?php endif; ?>
 	<?php if ($this->showBacklink) { ?>
 	<div id="backlink">
 		<small>Powered by <a href="http://webguerilla.net/projects/joomla-gallery">Gallery</a> from <a href="http://webguerilla.net">webguerilla.net</a></small>

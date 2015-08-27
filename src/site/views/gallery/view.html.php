@@ -48,9 +48,12 @@ class GalleryViewGallery extends JViewLegacy
 		// set breadcrumbs and title
 		$this->setBreadcrumbs();
 		$this->setTitle();
+
+		$this->childFoldersCount = count($childFolders);
+		$this->photosCount = count($photos);
 		
 		// add noindex for category pages
-		if (count($photos) == 0) {
+		if ($this->photosCount == 0) {
 			$this->document->addCustomTag('<meta name="robots" content="noindex" />');
 		}
 		
