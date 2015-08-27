@@ -175,7 +175,7 @@ class Gallery {
 	
 	private function isRemoveBacklinkCodeValid() {
 
-		if ($this->removeBacklinkCode != 0) {
+		if (is_string($this->removeBacklinkCode) && $this->removeBacklinkCode != '') {
 
 			$host = $_SERVER['HTTP_HOST'];
 			if (strpos($host, 'www.') === 0) {
