@@ -18,6 +18,7 @@ class Gallery {
 	private $currentRequestFilename;
 	
 	private $removeBacklinkCode;
+	private $lightbox;
 	private $loadJQuery;
 	private $lazyLoading;
 	private $protectImages;
@@ -73,6 +74,7 @@ class Gallery {
 		$this->setGalleryPath($params->get('gallery_path', ''));
 		
 		$this->setRemoveBacklinkCode($params->get('remove_backlink_code', 0));
+		$this->setLightbox($params->get('lightbox', 'shutter_reloaded'));
 		$this->setLoadJQuery($params->get('load_jquery', 1));
 		$this->setLazyLoading($params->get('lazy_loading', 0));
 		$this->setProtectImages($params->get('protect_images', 0));
@@ -100,6 +102,10 @@ class Gallery {
 
 	private function setProtectImages($protectImages) {
 		$this->protectImages = (bool) $protectImages;
+	}
+
+	private function setLightbox($lightbox) {
+		$this->lightbox = filter_var($lightbox, FILTER_SANITIZE_STRING);
 	}
 	
 	private function setRemoveBacklinkCode($removeBacklinkCode) {
@@ -156,6 +162,10 @@ class Gallery {
 	public function getGalleryPath() {
 		return $this->galleryPath;
 	}
+
+	public function getLightbox() {
+		return $this->lightbox;
+	]
 	
 	public function shouldLoadJQuery() {
 		return $this->loadJQuery;

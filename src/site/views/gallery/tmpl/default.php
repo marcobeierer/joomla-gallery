@@ -49,6 +49,7 @@ defined('_JEXEC') or die('Restricted access');
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 							alt="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
 							title="<?php echo $photo->getIptcInfo()->getTitle(); ?>"
+							data-lightbox="gallery"
 						/>
 					<?php } else { ?>
 						<img class=""
@@ -56,6 +57,7 @@ defined('_JEXEC') or die('Restricted access');
 							style="width: <?php echo $this->thumbnailSize; ?>px; height: <?php echo $this->thumbnailSize; ?>px;"
 							alt="<?php echo $photo->getIptcInfo()->getDescription(); ?>"
 							title="<?php echo $photo->getIptcInfo()->getTitle(); ?>"
+							data-lightbox="gallery"
 						/>
 					<?php } ?>
 				</a>
