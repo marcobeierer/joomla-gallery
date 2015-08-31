@@ -103,6 +103,7 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 - Fixed issue with backlink removal code.
 - Show child folders and photos div container only if child folders or photos are available.
 - Changed "powered by" message and set link to nofollow. 
+- Added "Lightbox 2" as alternative to the "Shutter Reloaded" image viewer.
 
 ## Known Bugs
 
