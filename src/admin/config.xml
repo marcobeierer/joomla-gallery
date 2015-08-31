@@ -12,6 +12,17 @@
 			description="COM_GALLERY_GALLERY_FIELD_REMOVE_BACKLINK_CODE_DESC"
 			default="0">
 		</field>
+
+		<field
+			name="lightbox"
+			type="list"
+			label="COM_GALLERY_GALLERY_FIELD_LIGHTBOX_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_LIGHTBOX_DESC"
+			default="shutter_releaded">
+			
+			<option value="shutter_reloaded">Shutter Reloaded</option>
+			<option value="lightbox2">Lightbox 2</option>
+		</field>
 		
 		<field
 			name="load_jquery"
