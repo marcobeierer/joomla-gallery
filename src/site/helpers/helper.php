@@ -50,7 +50,7 @@ class GalleryHelper {
 		$fullPath .= DS . $gallery->getCurrentRequestPath();
 		
 		if ($gallery->getCurrentRequestPath() != '' && !(JFolder::exists($fullPath) || JFile::exists($fullPath))) {
-			JError::raiseError(404, JText::_("Page Not Found")); exit;
+			JError::raiseError(404, JText::_("Page Not Found")); exit; // TODO use return?
 		}
 	}
 }

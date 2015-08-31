@@ -21,7 +21,8 @@
 			default="shutter_releaded">
 			
 			<option value="shutter_reloaded">Shutter Reloaded</option>
-			<option value="lightbox2">Lightbox 2</option>
+			<option value="fluidbox">Fluidbox</option>
+			<!--<option value="lightbox2">Lightbox 2</option>-->
 		</field>
 		
 		<field

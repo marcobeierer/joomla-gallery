@@ -75,10 +75,19 @@ class GalleryViewGallery extends JViewLegacy
 			JHtml::_('jquery.framework');
 		}
 
-		if ($this->gallery->getLightbox() == 'lightbox2') {
+		if ($this->gallery->getLightbox() == 'fluidbox') {
+
+			$this->document->addScript('media/com_gallery/js/jquery.fluidbox.min.js');
+			$this->document->addScriptDeclaration('
+				jQuery(document).ready(function() {
+					jQuery(\'#gallery a[rel=lightbox]\').fluidbox();
+				});
+			');
+		}
+		else if ($this->gallery->getLightbox() == 'lightbox2') {
 			$this->document->addScript('media/com_gallery/js/lightbox.min.js');
 		}
-		else {
+		else { // shutter reloaded
 			$this->document->addScript('media/com_gallery/js/shutter-reloaded.js');
 			$shutterImagesPath = JURI::root(true) . '/media/com_gallery/images/shutter/';
 			
@@ -116,10 +125,13 @@ class GalleryViewGallery extends JViewLegacy
 	
 	private function loadCSS() {
 
-		if ($this->gallery->getLightbox() == 'lightbox2') {
+		if ($this->gallery->getLightbox() == 'fluidbox') {
+			$this->document->addStyleSheet('media/com_gallery/css/fluidbox.css');
+		}
+		else if ($this->gallery->getLightbox() == 'lightbox2') {
 			$this->document->addStyleSheet('media/com_gallery/css/lightbox.css');
 		}
-		else {
+		else { // shutter reloaded
 			$this->document->addStyleSheet('media/com_gallery/css/shutter-reloaded.css');
 		}
 

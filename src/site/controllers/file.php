@@ -33,7 +33,7 @@ class FileController extends JControllerLegacy {
 			fpassthru($fp);
 			fclose($fp);
 		}
-		exit;
+		exit; // TODO use return?;
 	}
 	
 }

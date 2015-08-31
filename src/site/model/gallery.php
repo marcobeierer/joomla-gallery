@@ -42,7 +42,7 @@ class Gallery {
 		
 		/* check if valid page (gallery_path isset) */
 		if (JRequest::getWord('view') == 'gallery' && $params->get('gallery_path', '') == '') {
-			JError::raiseError(404, JText::_("Page Not Found")); exit;
+			JError::raiseError(404, JText::_("Page Not Found")); exit; // TODO use return?
 		}
 		/* --- */
 		
@@ -165,7 +165,7 @@ class Gallery {
 
 	public function getLightbox() {
 		return $this->lightbox;
-	]
+	}
 	
 	public function shouldLoadJQuery() {
 		return $this->loadJQuery;
