@@ -26,6 +26,8 @@ class Gallery {
 	private $thumbnailSize;
 	private $maxResizedWidth;
 	private $maxResizedHeight;
+
+	private $reverseFiles;
 	
 	/** @return Gallery */
 	public static function getInstance() {
@@ -82,6 +84,8 @@ class Gallery {
 		$this->setThumbnailSize($params->get('thumbnail_size', 220));
 		$this->setMaxResizedWidth($params->get('max_resized_width', 1110));
 		$this->setMaxResizedHeight($params->get('max_resized_height', 888));
+
+		$this->setReverseFiles($params->get('reverse_files', 0));
 	}
 	
 	private function setGalleryPath($galleryPath) {
@@ -124,11 +128,16 @@ class Gallery {
 	private function setMaxResizedWidth($maxResizedWidth) {
 		$this->maxResizedWidth = $maxResizedWidth;
 	}
+
 	
 	private function setMaxResizedHeight($maxResizedHeight) {
 		$this->maxResizedHeight = $maxResizedHeight;
 	}
 		
+	private function setReverseFiles($reverseFiles) {
+		$this->reverseFiles = (bool) $reverseFiles;
+	}
+
 	public function getRequestPathWithFilename() {
 		return $this->getCachePath() . DS . $this->currentRequestPath . DS . $this->currentRequestFilename;
 	}
@@ -177,6 +186,10 @@ class Gallery {
 
 	public function shouldProtectImages() {
 		return $this->protectImages;
+	}
+
+	public function shouldReverseFiles() {
+		return $this->reverseFiles;
 	}
 	
 	public function showBacklink() {

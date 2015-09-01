@@ -67,5 +67,16 @@
 			label="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_HEIGHT_LABEL"
 			description="COM_GALLERY_GALLERY_FIELD_MAX_RESIZED_HEIGHT_DESC"
 			default="888"/>
+
+		<field
+			name="reverse_files"
+			type="radio"
+			label="COM_GALLERY_GALLERY_FIELD_REVERSE_FILES_LABEL"
+			description="COM_GALLERY_GALLERY_FIELD_REVERSE_FILES_DESC"
+			default="0">
+			
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 	</fieldset>
 </config>

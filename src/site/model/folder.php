@@ -58,7 +58,14 @@ class Folder {
 	}
 	
 	public function getPhotoPaths($recursive = false, $fullPath = true) {
-		return JFolder::files($this->absoluteFolderPath, '.', $recursive, $fullPath);
+
+		$files = JFolder::files($this->absoluteFolderPath, '.', $recursive, $fullPath);
+
+		if ($this->gallery->shouldReverseFiles()) {
+			$files = array_reverse($files);
+		}
+
+		return $files;
 	}
 
 	public function getPhotos($recursive = false) {

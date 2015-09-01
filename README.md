@@ -105,7 +105,8 @@ Maybe you are able to launch the component on other systems (e.g. running with M
 - Changed "powered by" message and set link to nofollow. 
 - Added "Fluidbox" as alternative to the "Shutter Reloaded" image viewer.
 	- Changes in the Gallery View were necessary. If you have overridden this view, you have to adjust it.
-- Made folder caption translatable
+- Made folder caption translatable.
+- Implemented option to reverse the order of the photos.
 
 ## Known Bugs
 
