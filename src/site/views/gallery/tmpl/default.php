@@ -25,7 +25,7 @@ defined('_JEXEC') or die('Restricted access');
 						/>
 					<?php } ?>
 					<div class="caption">
-						<p><?php echo JText::_($childFolder->getReadableFolderName()); ?></p>
+						<p><?php echo $childFolder->getReadableFolderName(); ?></p>
 					</div>
 				</a>
 				

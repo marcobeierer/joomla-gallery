@@ -29,6 +29,7 @@ class GalleryHelper {
 	
 	public static function getReadableFolderName($folderName) {
 		
+		$folderName = JText::_($folderName);
 		$folderName = str_replace('_', ' ', $folderName);
 		
 		$dispatcher = JDispatcher::getInstance();
