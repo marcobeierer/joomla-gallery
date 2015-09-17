@@ -22,11 +22,14 @@ class FileController extends JControllerLegacy {
 			
 			// open the file in a binary mode
 			$fp = fopen($filepath, 'rb');
-			
+
+			$finfo = new finfo(FILEINFO_MIME_TYPE);
+			$contentType = $finfo->file($filepath);
+
 			// send the right headers
 			header('Accept-Ranges: bytes');
 			header('Content-Length: ' . filesize($filepath));
-			header('Content-Type: ' . mime_content_type($filepath));
+			header('Content-Type: ' . $contentType);
 			//header('Cache-Control: public, min-fresh=3600, max-age=3600, s-maxage=3600, must-revalidate');
 			
 			// dump the picture and stop the script
