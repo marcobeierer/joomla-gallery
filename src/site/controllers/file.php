@@ -19,12 +19,14 @@ class FileController extends JControllerLegacy {
 
 		$filepath = $this->gallery->getRequestPathWithFilename();
 		if (file_exists($filepath)) {
-			
-			// open the file in a binary mode
-			$fp = fopen($filepath, 'rb');
 
-			$finfo = new finfo(FILEINFO_MIME_TYPE);
-			$contentType = $finfo->file($filepath);
+			if (function_exists('mime_content_type')) {
+				$contentType = mime_content_type($filepath);
+			}
+			else {
+				$finfo = new finfo(FILEINFO_MIME_TYPE);
+				$contentType = $finfo->file($filepath);
+			}
 
 			// send the right headers
 			header('Accept-Ranges: bytes');
@@ -32,7 +34,7 @@ class FileController extends JControllerLegacy {
 			header('Content-Type: ' . $contentType);
 			//header('Cache-Control: public, min-fresh=3600, max-age=3600, s-maxage=3600, must-revalidate');
 			
-			// dump the picture and stop the script
+			$fp = fopen($filepath, 'rb');
 			fpassthru($fp);
 			fclose($fp);
 		}

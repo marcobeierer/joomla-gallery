@@ -2,6 +2,9 @@
 
 ## Changelog
 
+### 1.0.0-beta.3
+- Implemented a switch between mime_content_type function and Fileinfo extension because Fileinfo is deactivated in some installations.
+
 ### 1.0.0-beta.2
 - Replaced call of mime_content_type function with use of Fileinfo extension.
 	- mime_content_type is not available in PHP 5.6 and Fileinfo is available from PHP 5.3.
